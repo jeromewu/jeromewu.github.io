@@ -26,7 +26,7 @@ deploy:
   #edge:
     #branch: v1.8.47
   on:
-    branch: master
+    branch: develop 
 
 # whitelist branches for CI to execute
 branches:
