@@ -13,6 +13,7 @@ before_install:
 # Script to be executed before deployment
 script:
   - bash doc/build-with-docker.sh
+  - mkdir public/doc
   - cp doc/out/*.pdf public/doc
   - npm run test
   - npm run build
