@@ -8,7 +8,7 @@ gen_pdf() {
 
 build() {
   gen_pdf resume.tex
-  gen_pdf cv.tex
+  #gen_pdf cv.tex
   gen_pdf coverletter.tex
 }
 
