@@ -1,0 +1,140 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Authors:
+% Claud D. Park <posquit0.bj@gmail.com>
+% Lars Richter <mail@ayeks.de>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{false}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+\name{Wen-Chieh Wu}{}
+\position{Technical Lead{\enskip\cdotp\enskip}Software Engineer}
+% \address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+
+\mobile{(+886) 932986206}
+\email{jeromewus@gmail.com}
+\homepage{jeromewu.github.io}
+\github{jeromewu}
+\linkedin{wenchiehwu}
+\gitlab{jeromewu}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+\medium{jeromewus}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra informations}
+
+% \quote{``Before you are a leader, success is all about growing yourself. When you become a leader, success is all about growing others.'' - Jack Welch}
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {TransferWise}
+  {　}
+% The date on the letter, default is the date of compilation
+\letterdate{}
+% The title of the letter
+\lettertitle{Job Application for Technical Lead}
+% How the letter is opened
+\letteropening{}
+% How the letter is closed
+\letterclosing{Sincerely,}
+% Any enclosures with the letter
+\letterenclosure[Attached]{Resume}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[R]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {}
+  %{Wen-Chieh Wu~~~·~~~Cover Letter}
+  {Wen-Chieh Wu}
+  {}
+
+% Print the title with above letter informations
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+\lettersection{About Me}
+Passionate problem solver, enthusiastic about software technologies, team leader with over 3 years of experience in innovative software solution development and manufacturing industry in an international environment.
+
+Coordinate over 10 internal application development projects and play as an architect in software system architecture design. Excel in leadership, critical thinking, communication and software engineering. Strong skills in JavaScript (incl. React, React-Native, Redux, ES6), major contributor of tesseract.js (17k+ stars on Github) now. Certified architecting, data engineering, big data and machine learning specializations in Google Cloud Platform.
+
+\lettersection{Why TransferWise?}
+TransferWise impresses me deeply in the way it revolutionizes how we exchange currencies between different countries. In the past, it cost much and the bank took lots of commissions from us. And I think it is pretty smart to resovle this issue with a platform which enables peer-to-peer exchange with a small commission, and it helps people working abroad to send their money back to their home without too much loss.
+
+Technically, I think massive transactions happened every second inside TransferWise platform is a critical technical issue to resolve and also lots of machine learning models can be applied to further extract knowledge to grow the business, it seems to me that there are lots of challenges and opportunities in TransferWise and I would love to confront.
+
+\lettersection{Why Me?}
+With solid technical skills and years of leading engineering team collaborating with cross-functional teams to develop various projects, I believe I am capable of operating with enthusiasm and flexibility in a fast-paced, constantly evolving team environment. I think that is exactly the challenge of being a technical lead in TransferWise.
+
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter informations
+\makeletterclosing
+
+\end{document}
