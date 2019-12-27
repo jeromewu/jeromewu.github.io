@@ -23,7 +23,7 @@ export default () => (
           ))
         }
       </div>
-      <p className="job-title">Technical Lead ‧ Software Engineer</p>
+      <p className="job-title">Technical Lead ‧ Software Architect ‧ Full Stack Engineer</p>
       <p className="location">Taipei City, Taiwan</p>
     </div>
     <div className="footer">
