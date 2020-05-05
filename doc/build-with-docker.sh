@@ -10,8 +10,8 @@ build() {
   SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" 
   docker run -it \
     -v ${SCRIPT_DIR}:/usr/src \
-    texlive/texlive-full:latest \
-    bash -c "cd /usr/src && bash build.sh"
+    xucheng/texlive-full:20200501 \
+    sh -c "cd /usr/src && sh build.sh"
 }
 
 main() {
