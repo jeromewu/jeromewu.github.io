@@ -23,7 +23,7 @@ deploy:
   # provider for github pages
   provider: pages
   # everything inside this folder will be commit to the branch
-  local-dir: build
+  local-dir: public
   # whether to do the cleanup before deployment, most of the time you need to skip
   skip-cleanup: true
   # branch you would like to push
