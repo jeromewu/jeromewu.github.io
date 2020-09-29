@@ -27,11 +27,11 @@ jobs:
 
       - name: Build
         run: |
+          npm install
+          npm run build
           bash doc/build-with-docker.sh
           mkdir -p public/doc
           cp doc/out/*.pdf public/doc
-          npm install
-          npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
