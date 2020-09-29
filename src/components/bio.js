@@ -74,6 +74,7 @@ const Bio = () => {
         <p className="bio-icons">
           {ICONS.map(({ url, Icon }) => (
             <a
+              key={url}
               className="bio-icon"
               href={url}
               rel="noopener noreferrer"

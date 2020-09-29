@@ -6,12 +6,12 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate = ({ data, pageContext, location, ...args }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
   const disqusConfig = {
-    url: `${data.site.siteUrl+location.pathname}`,
+    url: `https://jeromewu.github.io${location.pathname}`,
     identifier: post.id,
     title: post.title,
   }
