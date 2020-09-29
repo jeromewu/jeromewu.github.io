@@ -74,10 +74,18 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Noto Sans", "Noto Serif"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `jeromewu`
-      }
+        shortname: `jeromewu`,
+      },
     },
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

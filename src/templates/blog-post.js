@@ -31,7 +31,7 @@ const BlogPostTemplate = ({ data, pageContext, location, ...args }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
-        <CommentCount config={disqusConfig} placeholder={'...'} />
+        <CommentCount config={disqusConfig} placeholder={"..."} />
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"

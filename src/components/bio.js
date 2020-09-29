@@ -8,19 +8,14 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import {
-  FaGithubSquare,
-  FaLinkedin,
-  FaMedium,
-  FaFile,
-} from "react-icons/fa"
+import { FaGithubSquare, FaLinkedin, FaMedium, FaFile } from "react-icons/fa"
 
 const ICONS = [
-  { url: 'https://github.com/jeromewu', Icon: FaGithubSquare },
-  { url: 'https://www.linkedin.com/in/wenchiehwu/', Icon: FaLinkedin },
-  { url: 'https://medium.com/@jeromewus', Icon: FaMedium },
-  { url: 'https://jeromewu.github.io/doc/resume.pdf', Icon: FaFile },
-];
+  { url: "https://github.com/jeromewu", Icon: FaGithubSquare },
+  { url: "https://www.linkedin.com/in/wenchiehwu/", Icon: FaLinkedin },
+  { url: "https://medium.com/@jeromewus", Icon: FaMedium },
+  { url: "https://jeromewu.github.io/doc/resume.pdf", Icon: FaFile },
+]
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -66,7 +61,8 @@ const Bio = () => {
       <div className="bio-intro">
         {author?.name && (
           <p>
-            Written by <strong>{author.name}</strong><br/>
+            Written by <strong>{author.name}</strong>
+            <br />
             {` `}
             {author?.summary || null}
           </p>
@@ -86,7 +82,6 @@ const Bio = () => {
         </p>
       </div>
     </div>
-
   )
 }
 
