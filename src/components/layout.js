@@ -31,7 +31,9 @@ const Layout = ({ location, title, children }) => {
         {` `}
         and
         {` `}
-        <a href="https://github.com/gatsbyjs/gatsby-starter-blog">gatsby-starter-blog</a>
+        <a href="https://github.com/gatsbyjs/gatsby-starter-blog">
+          gatsby-starter-blog
+        </a>
       </footer>
     </div>
   )
