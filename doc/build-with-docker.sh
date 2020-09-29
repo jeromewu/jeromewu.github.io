@@ -8,7 +8,7 @@ check_command() {
 
 build() {
   SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" 
-  docker run -it \
+  docker run \
     -v ${SCRIPT_DIR}:/usr/src \
     xucheng/texlive-full:20200501 \
     sh -c "cd /usr/src && sh build.sh"
