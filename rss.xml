@@ -1,4 +1,154 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Sep 2020 14:36:06 GMT</lastBuildDate><item><title><![CDATA[Why I refactor tesseract.js v2?]]></title><description><![CDATA[After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to…]]></description><link>https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</link><guid isPermaLink="false">https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</guid><pubDate>Thu, 03 Oct 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to fix, especially those related to performance.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Sep 2020 15:00:50 GMT</lastBuildDate><item><title><![CDATA[How to speed up Node.js modules installation in CI/CD pipeline as of 2020]]></title><description><![CDATA[When you use Node.js in your project, you need to take care of node_modules installation in your CI/CD pipeline. You may use , ,  and , but…]]></description><link>https://jeromewu.github.io/how-to-speed-up-node-js-modules-installation/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-speed-up-node-js-modules-installation/</guid><pubDate>Sat, 28 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b1f666a89ec88664eeec544daa426141/6af66/npm-vs-yarn.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAABnElEQVQoz42Rz0sCQRTH/Zs6SMcID0JBlw568piR527dO8gu+CN1g9aD4BJBBz1Um1IgghB1CPshNWtprpGzpqvuursz2+jaD/BHPobhMbzP933fG5tpBcbk0gShQdMSw0jhMAyFSAKDQRiJDJJAoHd9PahEyPwO24g1DHI34/Gaz9c6PCw7HFIsVt/efl1f/0wkmixb29z82N39qZwEs2zr6Eja2xO9XvXuruH3S9GonE43KErc2iJys+D28XHF5XpdXQV2eyebfdvYKK+sVN3uF6fzeWFhKjyS0DS1WNQqFUjTVY8HUhQWRfXhoQ+ABgCS5Z/tTIB/VUxTx7ij621FMafHGIyJL4QQ5jiO8vv3GQaTVuSQJf/pORkmpWj4GTzPp1KpZJJTVBUP3//pbBUAKJ88inJft/zPZRsN0fv31jJzuRjKeLgC7CrNnkq0BNjp62gWbKABzBSAPZhZi+eWohfxK3BQeIrkHyP5UrHeNMfMj3dur7E5e+B85/T2pirxJVEzULevK7ox18yC1Dkr1aUecYott9Mm/wJQaby0ZjuHvAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;NPM VS YARN&quot;
+        title=&quot;NPM VS YARN&quot;
+        src=&quot;/static/b1f666a89ec88664eeec544daa426141/f058b/npm-vs-yarn.png&quot;
+        srcset=&quot;/static/b1f666a89ec88664eeec544daa426141/c26ae/npm-vs-yarn.png 158w,
+/static/b1f666a89ec88664eeec544daa426141/6bdcf/npm-vs-yarn.png 315w,
+/static/b1f666a89ec88664eeec544daa426141/f058b/npm-vs-yarn.png 630w,
+/static/b1f666a89ec88664eeec544daa426141/6af66/npm-vs-yarn.png 640w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;When you use Node.js in your project, you need to take care of node_modules installation in your CI/CD pipeline. You may use &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;npm ci&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;yarn install&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;pnpm install&lt;/code&gt;, but what is the fastest way of doing so is still a question we are looking for answers. Here in this story I would like to experiment all possibilities I know to find out the final answer.&lt;/p&gt;
+&lt;h2&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;If you are in a hurry, what you have to do are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Disable stdout output&lt;/li&gt;
+&lt;li&gt;Use cached node_modules&lt;/li&gt;
+&lt;li&gt;Use &lt;code class=&quot;language-text&quot;&gt;--prefer-offline&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Use global cache (&lt;code class=&quot;language-text&quot;&gt;yarn&lt;/code&gt; only)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; zxvf node_modules.tar.gz
+$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; --prefer-offline &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&gt;&lt;/span&gt; /dev/null&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you prefer yarn&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; zxvf node_modules.tar.gz
+$ &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; zxvf cache.tar.gz
+$ &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; --prefer-offline --cache-folder ./cache &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&gt;&lt;/span&gt; /dev/null&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you prefer pnpm&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; zxvf cache.tar.gz
+$ &lt;span class=&quot;token function&quot;&gt;pnpm&lt;/span&gt; config &lt;span class=&quot;token builtin class-name&quot;&gt;set&lt;/span&gt; store-dir &lt;span class=&quot;token environment constant&quot;&gt;$PWD&lt;/span&gt;/cache
+$ &lt;span class=&quot;token function&quot;&gt;pnpm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&gt;&lt;/span&gt; /dev/null&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The total speed up is around 3x comparing to pure &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Existing Works&lt;/h2&gt;
+&lt;p&gt;It is normal that someone already do it in the past, here are some existing works for your reference.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/appleboy/npm-vs-yarn&quot;&gt;https://github.com/appleboy/npm-vs-yarn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://winsmarts.com/npm-install-speed-up-by-3-times-almost-25ad416cf77e&quot;&gt;https://winsmarts.com/npm-install-speed-up-by-3-times-almost-25ad416cf77e&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.tiernok.com/posts/2019/faster-npm-installs-during-ci/&quot;&gt;http://www.tiernok.com/posts/2019/faster-npm-installs-during-ci/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Environment&lt;/h2&gt;
+&lt;h3&gt;Packages&lt;/h3&gt;
+&lt;p&gt;To prevent any cache or unexpected behavior, I run the experiment inside a docker container and every time we complete an installation, we run a new container for the next installation.&lt;/p&gt;
+&lt;p&gt;The docker image I use is &lt;code class=&quot;language-text&quot;&gt;node:12&lt;/code&gt; and the versions of each component are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;node: v12.16.1&lt;/li&gt;
+&lt;li&gt;npm: 6.13.4&lt;/li&gt;
+&lt;li&gt;yarn: 1.22.0&lt;/li&gt;
+&lt;li&gt;pnpm: 4.12.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Network&lt;/h3&gt;
+&lt;p&gt;I experiment both remote and local registry (verdaccio) scenario to show the influence of network. In local registry, I assumed the user do something like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; react@latest --registry http://nvy-registry:4873
+&lt;span class=&quot;token comment&quot;&gt;# or&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; react@latest --registry http://nvy-registry:4873&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Which makes the registry url in lock files points to the local registry directly.&lt;/p&gt;
+&lt;h3&gt;Application&lt;/h3&gt;
+&lt;p&gt;To mimic a real world scenario, I did experiment in an web app that is created using &lt;code class=&quot;language-text&quot;&gt;create-react-app&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Commands&lt;/h3&gt;
+&lt;p&gt;There are 5 basic commands I use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;npm install&lt;/li&gt;
+&lt;li&gt;npm ci&lt;/li&gt;
+&lt;li&gt;yarn install&lt;/li&gt;
+&lt;li&gt;yarn install —frozen-lockfile&lt;/li&gt;
+&lt;li&gt;pnpm install&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;yarn install --frozen-lockfile&lt;/code&gt; is similar to &lt;code class=&quot;language-text&quot;&gt;npm ci&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For all of them, I add &lt;code class=&quot;language-text&quot;&gt;&amp;amp;&amp;gt; /dev/null&lt;/code&gt; to remove stdout output and the execution time is averaged from 3 times of execution. (As the execution time is pretty stable, I believe 3 times is good enough)&lt;/p&gt;
+&lt;p&gt;Let’s start the experiment and see where we will achieve. 😃&lt;/p&gt;
+&lt;h2&gt;Parameters&lt;/h2&gt;
+&lt;p&gt;There are 4 parameters we are going to tune:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;local registry&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With local registry, you can prevent stale when the network bandwidth is not enough. It is a good way to speed up but may be painful when someone clone your repository but unable to access the local registry you used. 2. cached node_modules&lt;/p&gt;
+&lt;p&gt;A common technique to speed up the installation, by zipping &lt;code class=&quot;language-text&quot;&gt;node_modules&lt;/code&gt; folder and unzipping before installation to eliminate the need of downloading modules again from network. 3. global cache&lt;/p&gt;
+&lt;p&gt;There is a global cache folder in &lt;code class=&quot;language-text&quot;&gt;~/.npm&lt;/code&gt; for npm and &lt;code class=&quot;language-text&quot;&gt;~/.yarn&lt;/code&gt; for yarn, by adding global cache in advance, I would like to know if it is possible to speed up. 4. &lt;code class=&quot;language-text&quot;&gt;--prefer-offline&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Details: &lt;a href=&quot;https://docs.npmjs.com/misc/config#prefer-offline&quot;&gt;https://docs.npmjs.com/misc/config#prefer-offline&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If true, staleness checks for cached data will be bypassed, but missing data will be requested from the server. To force full offline mode, use &lt;code class=&quot;language-text&quot;&gt;--offline&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With this option, we can prevent npm or yarn to check remote data and use local cache directly.&lt;/p&gt;
+&lt;h2&gt;Experiment&lt;/h2&gt;
+&lt;p&gt;Below are the result of all configurations:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f4a3672cf81785fc1781387354b2ce1a/5a6dd/statistics.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 143.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAIAAAAl5NuSAAAACXBIWXMAAAsSAAALEgHS3X78AAAD20lEQVQ4y4VVS28bVRTOj2CDECx4bBCCFV0UEN2wqpAQvwDURVf8gQoVIlpUUrpgAX2AWqpGVqHNy484mCYNaV5+Tsb2+O14bGc8Hsfztj3ve7jxOI4TnHA0ujr3zv3ufOd859yZAADLsmzbtvpm9s31HceBviGETjiuTeC5JEmqquKx0+mIgqDIA9N0DY4ZOj6Fif55B56gOqKsGEK7125b+n5X4uSO2lL2FUmWFVmSFVNqqhKvKOox8NAwS+fw9AFDZCHbtE3DsUxkG7ZljsYyAGuaJoh8KV8Jetb+frIZ+mN9OcysZrvPcg7THeE9EvMRuMk2YolUdG02cOPVwNSbgR9eX5r+ODR/kSUeITqGKmGoRoAOo057GPwRGCdMECWRb0mNtMrlVS4nVeJyMWyUtqGyhXY38Qi7G0hpjQHjSDA2nyn4Hv4V9CwvTodCkXqo0FtnHH0ky6PpPgI3GnuRGBlff7py86WVW6+s/Pjy6u/vrj/90CDuQG4JUQGggpDyovrOGLCu671eF8sgCJIiq7KsCiwnVmsKnZd3qS5NQTMLbNoR906CMWdcIbwgFKjM/M/3/Pfu+365G5gPhDL0P7T1vApkG5xDLU+CDcMoFHLReDIZXojcfi1y963InTciD99JLFwwqQdQ9qHMPOYMxAzi8mNoD9TWbYazWwJwPLCs3qypTLnOlCs9lgahBnwFdYWTYNwVqqI0mk0qEZu58fXcrcm5qave2ekgEd2omJE9EE0Ep9HG2SqXSwSZzSSCxPR7hOcc4XmfeHI+6fvEIn+DzByQM7AzA+Qsij+GdmWAdZyJUQG7GioxUGtBlQOaBZoBVZCdDo8f6An4Oagw2zgZs6HrxfJufOO59/vLvqmv/NcvBx9de0YsCp3eAdujfh5XJKLAU5liIb1KBT7NLH6WWrmUKN8n638apuRqeVZjuFNJNnNlKNDQ4hBODvpPM40BY515vl0sV8itZe/kxYVrn5emf7UyqQM4cnvg9C/j66rV4oqlKl3czq9+WVy9ZHAbeBdyrGEDnUXbXVQVmyScdApkxgITjdA+/TLAOjPMHpnOxtb83m/OLUx+tHnzA8r/RY78trOfAE1xcGFpEmgi0jvjG6NeZ5lashC9Uk5MZiLXyReT5MoVOfIAkl5EzuMR1wmqxk6lLfJaYsPY2TbFkgQMh+TuYNcZMePbj2uyZCobf+Hzf/d2aOrC/pJH31o3itlBrs/W2TB0rtVuMoVC9Kda4rbNJkYT9T/ZHpJ3FcUvTE1zwXbfDr9huHjMBQs8MXoSXsL/LDxgdwhw+ub6w0W8Gfv/Akz7O2dJU/F3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Statistics&quot;
+        title=&quot;Statistics&quot;
+        src=&quot;/static/f4a3672cf81785fc1781387354b2ce1a/f058b/statistics.png&quot;
+        srcset=&quot;/static/f4a3672cf81785fc1781387354b2ce1a/c26ae/statistics.png 158w,
+/static/f4a3672cf81785fc1781387354b2ce1a/6bdcf/statistics.png 315w,
+/static/f4a3672cf81785fc1781387354b2ce1a/f058b/statistics.png 630w,
+/static/f4a3672cf81785fc1781387354b2ce1a/5a6dd/statistics.png 802w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The number is the amount of seconds to complete modules installation&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Observations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Always remember to disable the output of installation with &lt;code class=&quot;language-text&quot;&gt;&amp;amp;&amp;gt; /dev/null&lt;/code&gt; as stdout is pretty time-consuming&lt;/li&gt;
+&lt;li&gt;Although local registry can guarantee the stability of downloading modules, it is not recommended to modify lock file to gain this benefit as the side effect is huge.&lt;/li&gt;
+&lt;li&gt;The speed of &lt;code class=&quot;language-text&quot;&gt;npm ci&lt;/code&gt; is stable across different configurations, but &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; can be faster with &lt;code class=&quot;language-text&quot;&gt;--prefer-offline&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The speed of &lt;code class=&quot;language-text&quot;&gt;yarn install&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;yarn install --frozen-lockfile&lt;/code&gt; are NOT different at all.
+Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The efficient of &lt;code class=&quot;language-text&quot;&gt;pnpm&lt;/code&gt; highly relies on the global cache, without cache, its speed is slower than others due to cache pre-processing overhead&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;For the source code of this experiment can be found in this repository: &lt;a href=&quot;https://github.com/jeromewu/npm-vs-yarn-in-cicd&quot;&gt;https://github.com/jeromewu/npm-vs-yarn-in-cicd&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Why I refactor tesseract.js v2?]]></title><description><![CDATA[After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to…]]></description><link>https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</link><guid isPermaLink="false">https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</guid><pubDate>Thu, 03 Oct 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to fix, especially those related to performance.&lt;/p&gt;
 &lt;p&gt;The existing tesseract.js (before v2.0.0-alpha) offers declarative and coarse-grained APIs that minimize the effort to understand the complex design of the library, it hides details like how tesseract.js loads *.traineddata from remote, how the *.traineddata is saved to local file system or IndexDB as cache, how the WebAssembly version of tesseract-ocr is initialed with parameters, set the image and generated the result we desired. It is great and everyone is happy to get a turn-key OCR library to integrate into your project.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Typical usage of tesseract.js&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; TesseractWorker &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Tesseract
