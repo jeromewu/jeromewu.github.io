@@ -75,7 +75,7 @@ const Bio = () => {
           {ICONS.map(({ url, Icon }) => (
             <a
               className="bio-icon"
-              href="https://github.com/jeromewu"
+              href={url}
               rel="noopener noreferrer"
               target="_blank"
             >
