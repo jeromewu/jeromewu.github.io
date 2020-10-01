@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Sep 2020 15:00:50 GMT</lastBuildDate><item><title><![CDATA[How to speed up Node.js modules installation in CI/CD pipeline as of 2020]]></title><description><![CDATA[When you use Node.js in your project, you need to take care of node_modules installation in your CI/CD pipeline. You may use , ,  and , but…]]></description><link>https://jeromewu.github.io/how-to-speed-up-node-js-modules-installation/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-speed-up-node-js-modules-installation/</guid><pubDate>Sat, 28 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 01 Oct 2020 05:54:10 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6470234371dd172b36b5f96220e654b0/71c8e/cover.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAACqklEQVQozwGfAmD9ADNIVSs5QiczPDA7RDNASWKJo36uz3upyXyry32rzH2szH6szHyry4ayz4m00Hqqy6jF3Oft9Nvl79/o8AAqPko7U2M9UV5EWGdJVmBZanN9qsd7qch+q8p+rMt/rMx/rcyArMyArcyCrs2UudPw9fj3+/7h6fLg6fEAERcbHSkyL0BLLzxDKjtHXWx2gJ+yfK7OearKeanJeqnKe6vMfKvMiLLPxdfl4+zz////9/r84Ojw1uHrAB4qMhoiJxQaHRojKBkhJhkhJjpESlNreoWqxIqyzomxzo610YOuzMPW5v////L3++3z+evx99zl7c/a5QApO0owQ1AsO0UuPUgxRVIsPEUdKzSSmqTp7fPs7O7r7O/u7/Db4enw9Pj4/P3v9Prl7fTb5O3T3ebI098AHyw2LUJRNEpaOUpWLkFOOVJiMkhXr7a7////8fL09PX29fb29/j49vr97PL49fn83+fvxdLew8/bv83ZAAwPEBQbICMyPC89RiApLRgjKyAyPa+ztv////j5+/n5+vj4+fL09ujv9+Dp8dni68rV4LzK17nH1LzK1gAbJCsWGh4PFBYQFxohLzgaIycOFBdNVlx8ho1tdHqBiZCUm6Hg4uX3+v3U3ujI1OC9y9e6x9XE0NvBztkAIDA8KDdCKjhAIiwyJjZAL0FPLz9LJTM9JztKLUBNO09dTF5rtrzA/f//3ObvxdHduMbUxM/aztfiw8/aAB4uOik5RjFEUjFCTDVFTy0+TDNJWDZIUzJCTDZMWkFTYDNDTlhkbIiOlbjAyc/a5sfS3svU38jS3b/L1wAaJiwkMjstQE0vQU0tO0EcJCggLTcwQEwpNDoSGR0lMDclLzYYICY4Q0lWYWnFz9nT3ObL1N7Q2eLAzNfzDW3MOD6ttAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Cover image&quot;
+        title=&quot;Cover image&quot;
+        src=&quot;/static/6470234371dd172b36b5f96220e654b0/f058b/cover.png&quot;
+        srcset=&quot;/static/6470234371dd172b36b5f96220e654b0/c26ae/cover.png 158w,
+/static/6470234371dd172b36b5f96220e654b0/6bdcf/cover.png 315w,
+/static/6470234371dd172b36b5f96220e654b0/f058b/cover.png 630w,
+/static/6470234371dd172b36b5f96220e654b0/71c8e/cover.png 875w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using Chrome OS with crouton, but one thing really bothers me is the fact I cannot run container. That’s why I decided to try the latest Gallium OS to get full Linux experience inside my Chromebook, but when I completed installing Gallium OS, the HiDPI hitted me and it took me tons of time to survey how to resolve this issue, but sadly I am only able to fix around 60% of them. To save time for people who may encounter the same issue, here is what did:&lt;/p&gt;
+&lt;h2&gt;Update xfce configration&lt;/h2&gt;
+&lt;p&gt;There was a package called &lt;code class=&quot;language-text&quot;&gt;galliumos-hidpi&lt;/code&gt; to fix hidpi issue, I check the scripts and this script is the derived version of it:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Raise DPI from 96 to 276 to makes text size front&lt;/span&gt;
+xfconf-query -c xsettings -p /Xft/DPI -s &lt;span class=&quot;token number&quot;&gt;276&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Enlarge cursor size&lt;/span&gt;
+xfconf-query -c xsettings -p /Gtk/CursorThemeSize -s &lt;span class=&quot;token number&quot;&gt;48&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Raise xfce panel height&lt;/span&gt;
+xfconf-query -c xfce4-panel -p /panels/panel-1/size -s &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Enlarge notification area icon&lt;/span&gt;
+xfconf-query -c xfce4-panel -p /plugins/plugin-6/size-max -s &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Enlarge window size&lt;/span&gt;
+xfconf-query -c xfce4-desktop -p /last/window-height -s &lt;span class=&quot;token number&quot;&gt;1240&lt;/span&gt;
+xfconf-query -c xfce4-desktop -p /last/window-width -s &lt;span class=&quot;token number&quot;&gt;909&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Enlarge desktop icon&lt;/span&gt;
+xfconf-query -n -t uint -c xfce4-desktop -p /desktop-icons/icon-size -s &lt;span class=&quot;token number&quot;&gt;96&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Use xhdpi theme, you can alsto use &quot;Default-hdpi&quot;&lt;/span&gt;
+xfconf-query -c xfwm4 -p /general/theme -s &lt;span class=&quot;token string&quot;&gt;&quot;Default-xhdpi&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Enlarge most of the icons&lt;/span&gt;
+xfconf-query -c xsettings -p /Gtk/IconSizes -s gtk-menu&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;48,48&lt;/span&gt;:gtk-button&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;48,48&lt;/span&gt;:gtk-dialog&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;48,48&lt;/span&gt;:gtk-dnd&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;48,48&lt;/span&gt;:gtk-small-toolbar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;48,48&lt;/span&gt;:gtk-large-toolbar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;64,64&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To execute this shell script(say &lt;code class=&quot;language-text&quot;&gt;fix-hidpi.sh&lt;/code&gt;), you need to:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; fix-hidpi.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;GTK3 Scale&lt;/h2&gt;
+&lt;p&gt;For small icons in menu, you can edit &lt;code class=&quot;language-text&quot;&gt;/etc/profile.d/gdkscale.sh&lt;/code&gt; and add following lines:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;GDK_SCALE&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2.875&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;GDK_DPI_SCAL&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.38&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 1/2.875&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;xfce4-panel theming&lt;/h2&gt;
+&lt;p&gt;For power manager plugin icon in xfce4-panel, create &lt;code class=&quot;language-text&quot;&gt;~/.config/gtk-3.0/gtk.css&lt;/code&gt; and add following lines:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#xfce4-power-manager-plugin * {&lt;/span&gt;
+  -gtk-icon-transform: scale&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.38&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Work in Progress&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lightdm&lt;/li&gt;
+&lt;li&gt;Xscreensaver&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Extended Monitor (hard one)&lt;/p&gt;
+&lt;p&gt;Hope it helps someone to save some time.(like 2 days. Lol)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[How to speed up Node.js modules installation in CI/CD pipeline as of 2020]]></title><description><![CDATA[When you use Node.js in your project, you need to take care of node_modules installation in your CI/CD pipeline. You may use , ,  and , but…]]></description><link>https://jeromewu.github.io/how-to-speed-up-node-js-modules-installation/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-speed-up-node-js-modules-installation/</guid><pubDate>Sat, 28 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
