@@ -1,7 +1,7 @@
 ---
 title: Why I refactor tesseract.js v2?
 date: "2019-10-03T12:00:00.000Z"
-description: "The story behind tesseract.js v2 refactoring."
+description: "After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to fix, especially those related to performance..."
 ---
 
 After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to fix, especially those related to performance.
