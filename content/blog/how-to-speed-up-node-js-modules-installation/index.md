@@ -1,7 +1,7 @@
 ---
 title: How to speed up Node.js modules installation in CI/CD pipeline as of 2020
 date: "2020-03-28"
-description: "When you use Node.js in your project, you need to take care of node_modules installation in your CI/CD pipeline. You may use `npm install`, `npm ci`, `yarn install` and `pnpm install`, but what is the fastest way of doing so is still a question we are looking for answers. Here in this story I would like to experiment all possibilities I know to find out the final answer..."
+description: "The optimal way of installing node_modules in CI/CD pipeline"
 ---
 
 ![NPM VS YARN](./npm-vs-yarn.png)

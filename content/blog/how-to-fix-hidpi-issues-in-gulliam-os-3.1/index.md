@@ -1,7 +1,7 @@
 ---
 title: How to fix (80%) HiDPI issues in Gulliam OS 3.1
 date: "2020-04-12"
-description: "In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using Chrome OS with crouton, but one thing really bothers me is the fact I cannot run container. That’s why I decided to try the latest Gallium OS to get full Linux experience inside my Chromebook, but when I completed installing Gallium OS, the HiDPI hitted me and it took me tons of time to survey how to resolve this issue, but sadly I am only able to fix around 60% of them. To save time for people who may encounter the same issue, here is what did..."
+description: "Fix HiDPI issues in Gulliam OS with ease"
 ---
 
 ![Cover image](./cover.png)
