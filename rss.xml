@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 01 Oct 2020 05:54:10 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 05 Oct 2020 14:32:38 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -226,7 +226,544 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;For the source code of this experiment can be found in this repository: &lt;a href=&quot;https://github.com/jeromewu/npm-vs-yarn-in-cicd&quot;&gt;https://github.com/jeromewu/npm-vs-yarn-in-cicd&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Why I refactor tesseract.js v2?]]></title><description><![CDATA[After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to…]]></description><link>https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</link><guid isPermaLink="false">https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</guid><pubDate>Thu, 03 Oct 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to fix, especially those related to performance.&lt;/p&gt;
+&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Build FFmpeg WebAssembly version (= ffmpeg.wasm): Part.2 Compile with Emscripten]]></title><description><![CDATA[From here, things are going to be more complicated and hard to understand, you may need to google background knowledge if you don’t know…]]></description><link>https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-2-compile-with-emscripten/</link><guid isPermaLink="false">https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-2-compile-with-emscripten/</guid><pubDate>Sun, 13 Oct 2019 00:00:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src=&quot;../../assets/ffmpeg-wasm-cover.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;From here, things are going to be more complicated and hard to understand, you may need to google background knowledge if you don’t know what happened (or you can leave responses to ask me).
+Also, to make this tutorial more usable, I try to write down the details of how I solved each issue, hope it will help you in building the library of your choice.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this part you will learn:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;How to setup environment of Emscripten using Docker&lt;/li&gt;
+&lt;li&gt;Usage of emconfigure and emmake&lt;/li&gt;
+&lt;li&gt;How to fix issues when compiling FFmpeg with Emscripten&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;How to setup environment of Emscripten using Docker
+In Build FFmpeg WebAssembly version (= ffmpeg.wasm): Part.1 Preparation, we have built the original version of FFmpeg with GCC, and now we move on to use Emscripten instead.&lt;/p&gt;
+&lt;p&gt;The version of Emscripten we are going to use is 1.39.18 (trzeci/emscripten:1.39.18-upstream), you can install the Emscripten through the official tutorial (in this tutorial, we are setup-emsdk Github Actions in MacOS) or pull Emscripten image from docker hub.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ docker pull trzeci/emscripten:1.39.18-upstream&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It may take few minutes as the size of the image is around 1 GB.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then we need to update &lt;code class=&quot;language-text&quot;&gt;build-with-docker.sh&lt;/code&gt; like below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token assign-left variable&quot;&gt;EM_VERSION&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1.39&lt;/span&gt;.18-upstream
+
+docker pull trzeci/emscripten:&lt;span class=&quot;token variable&quot;&gt;$EM_VERSION&lt;/span&gt;
+docker run &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  -v &lt;span class=&quot;token environment constant&quot;&gt;$PWD&lt;/span&gt;:/src &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  -v &lt;span class=&quot;token environment constant&quot;&gt;$PWD&lt;/span&gt;/cache-wasm:/emsdk_portable/.data/cache/wasm &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  trzeci/emscripten:&lt;span class=&quot;token variable&quot;&gt;$EM_VERSION&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&apos;bash ./build.sh&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cache-wasm is not required, but it can help you to speed up in subsequent build.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The next we are going to do is to find the configuration to build FFmpeg with emscripten, it is a try-and-error process and requires document digging and patient.&lt;/p&gt;
+&lt;h2&gt;Usage of &lt;code class=&quot;language-text&quot;&gt;emconfigure&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;emmake&lt;/code&gt; &amp;#x26; How to fix issues when compiling FFmpeg with Emscripten&lt;/h2&gt;
+&lt;p&gt;Let’s start our journey of finding the right configuration. In Part.1, it starts with &lt;code class=&quot;language-text&quot;&gt;./configure --disable-x86asm&lt;/code&gt;, to do it with emscripten, you need to change it to &lt;code class=&quot;language-text&quot;&gt;emconfigure ./configure --disable-x86asm&lt;/code&gt;. (For details of emconfigure, please check &lt;a href=&quot;https://emscripten.org/docs/compiling/Building-Projects.html#integrating-with-a-build-system&quot;&gt;HERE&lt;/a&gt;) And as we are doing cross compiling, we need to add cross-compiling flags to explicitly tell FFmpeg.&lt;/p&gt;
+&lt;p&gt;Let’s update &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt; like below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And magically there is no error or anything wrong, so do we just need to type &lt;code class=&quot;language-text&quot;&gt;emmake make -j&lt;/code&gt; and we get FFmpeg.wasm? Unfortunately, the answer is no. One of the most important task for &lt;code class=&quot;language-text&quot;&gt;emconfigure&lt;/code&gt; is to replace the compiler from gcc to emcc (or g++ to em++), but in the output of &lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt;, we still get gcc as our compiler.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;emscripten sdl2-config called with /emsdk_portable/emscripten/tag-1.38.45/system/bin/sdl2-config --cflags                            
+emscripten sdl2-config called with /emsdk_portable/emscripten/tag-1.38.45/system/bin/sdl2-config --libs                               
+install prefix            /usr/local                                                                                                   
+source path               .                                                                                                                
+C compiler                gcc             # Should be emcc                                                                                             
+C library                 glibc                                                                                                           
+ARCH                      x86 (generic)                                                                                                     
+big-endian                no                                                                                                            
+runtime cpu detection     yes                                                                                                         
+standalone assembly       no                                                                                                            
+x86 assembler             nasm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Every automation tool has its limitation and we need to do it manually in this case. Let’s check if there is any arguments to save us.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./configure --help&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Under &lt;code class=&quot;language-text&quot;&gt;Toolchain options&lt;/code&gt;, there are arguments to assign the compiler to use.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;root@57ab95def750:/src# ./configure --help
+Usage: configure [options]
+Options: [defaults in brackets after descriptions]
+Help options:
+...
+Toolchain options:                                                                                                             
+...
+  --nm=NM                  use nm tool NM [nm -g]
+  --ar=AR                  use archive tool AR [ar]
+  --as=AS                  use assembler AS []
+  --ln_s=LN_S              use symbolic link tool LN_S [ln -s -f]
+  --strip=STRIP            use strip tool STRIP [strip]
+  --windres=WINDRES        use windows resource compiler WINDRES [windres]
+  --x86asmexe=EXE          use nasm-compatible assembler EXE [nasm]
+  --cc=CC                  use C compiler CC [gcc]
+  --cxx=CXX                use C compiler CXX [g++]
+  --objcc=OCC              use ObjC compiler OCC [gcc]
+  --dep-cc=DEPCC           use dependency generator DEPCC [gcc]
+  --nvcc=NVCC              use Nvidia CUDA compiler NVCC [nvcc]
+  --ld=LD                  use linker LD []
+…..&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let’s pass these arguments to compile with emscripten in &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;FLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${FLAGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For native build, please make sure &lt;code class=&quot;language-text&quot;&gt;llvm-ranlib&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;llvm-as&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;llvm-nm&lt;/code&gt; exist. If not, you can find them in &lt;code class=&quot;language-text&quot;&gt;$EMSDK_ROOT/upstream/bin&lt;/code&gt; .&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With these arguments the &lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt; will take more time to run, but you will get desired output in the end.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;emscripten sdl2-config called with /emsdk_portable/emscripten/tag-1.39.18/system/bin/sdl2-config --cflags                            
+emscripten sdl2-config called with /emsdk_portable/emscripten/tag-1.39.18/system/bin/sdl2-config --libs                                     
+install prefix            /usr/local                                                                                                   
+source path               .                                                                                                         
+C compiler                emcc         # emcc as expected                                                                                    
+C library                                                                                                                          
+ARCH                      x86 (generic)                                                                                                     
+big-endian                no                                                                                                              
+runtime cpu detection     yes                                                                                                             
+standalone assembly       no&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Add &lt;code class=&quot;language-text&quot;&gt;emmake make -j4&lt;/code&gt; (You can raise the parallelism to like &lt;code class=&quot;language-text&quot;&gt;-j8&lt;/code&gt; or simply use &lt;code class=&quot;language-text&quot;&gt;-j&lt;/code&gt; to use all cores) in the end of &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt; :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# build ffmpeg.wasm&lt;/span&gt;
+emmake &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And it fails immediately after execution:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;...
+./libavutil/x86/timer.h:39:24: error: invalid output constraint &amp;#39;=a&amp;#39; in asm
+                     : &amp;quot;=a&amp;quot; (a), &amp;quot;=d&amp;quot; (d));
+                       ^&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From the output message, we can identify that the error is related to asm. Open &lt;code class=&quot;language-text&quot;&gt;./libavutil/x86/timer.h&lt;/code&gt; and we can confirm the issue is caused by the x86 inline assembly, which is not compatible with WebAssembly, so the solution is to disable it in &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --disable-inline-asm    &lt;span class=&quot;token comment&quot;&gt;# disable inline asm&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# build ffmpeg.wasm&lt;/span&gt;
+emmake &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It works and keeps compiling until we hit another error:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;...
+CC libavfilter/dnn/dnn_backend_native_layers.o
+In file included from libavfilter/aeval.c:26:
+In file included from ./libavutil/avassert.h:31:
+In file included from ./libavutil/avutil.h:296:
+In file included from ./libavutil/common.h:533:
+In file included from ./libavutil/internal.h:176:
+./libavutil/libm.h:54:32: error: static declaration of &amp;#39;cbrt&amp;#39; follows non-static declaration
+static av_always_inline double cbrt(double x)
+                               ^
+/emsdk_portable/upstream/emscripten/system/include/libc/math.h:151:13: note: previous declaration is here
+double      cbrt(double);
+            ^
+In file included from libavfilter/aeval.c:26:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This time the root cause is not so obvious, so we need to dig deeper inside what went wrong during the &lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt;. A very helpful file to check is &lt;code class=&quot;language-text&quot;&gt;ffbuild/config.log&lt;/code&gt;, it contains logs during &lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt; and most of time you can find the root cause there.&lt;/p&gt;
+&lt;p&gt;By search &lt;code class=&quot;language-text&quot;&gt;cbrt&lt;/code&gt; inside &lt;code class=&quot;language-text&quot;&gt;config.log&lt;/code&gt;, we find error message below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;...
+check_mathfunc cbrt 1                                                         
+test_ld cc                                                                     
+test_cc                                                                       
+BEGIN /tmp/ffconf.syfN4Irw/test.c                                             
+1 #include &amp;lt;math.h&amp;gt;                                                           
+2 float foo(float f, float g) { return cbrt(f); }         
+    3 int main(void){ return (int) foo; }                                     
+END /tmp/ffconf.syfN4Irw/test.c                                               
+emcc -D_ISOC99_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600 -std=c11 -fomit-frame-pointer -pthread -c -o /tmp/ffconf.syfN4Irw/test.o /tmp/ffconf.syfN4Irw/test.c         
+emcc -Wl,-z,noexecstack -o /tmp/ffconf.syfN4Irw/test /tmp/ffconf.syfN4Irw/test.o
+wasm-ld: error: &amp;#39;atomics&amp;#39; feature is used by /tmp/ffconf.syfN4Irw/test.o, so --shared-memory must be used
+...                    &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This test tried to check if cbrt works in the environment, but it fails due to &lt;code class=&quot;language-text&quot;&gt;atomics&lt;/code&gt; feature errored. &lt;code class=&quot;language-text&quot;&gt;atomics&lt;/code&gt; is asked when you are using pthread, so let’s add &lt;code class=&quot;language-text&quot;&gt;pthread&lt;/code&gt; flags. (Check &lt;a href=&quot;https://emscripten.org/docs/porting/pthreads.html&quot;&gt;HERE&lt;/a&gt; for more details about pthread flags)&lt;/p&gt;
+&lt;p&gt;Update &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;-s USE_PTHREADS&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --disable-inline-asm    &lt;span class=&quot;token comment&quot;&gt;# disable inline asm&lt;/span&gt;
+  --extra-cflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-cxxflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-ldflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$LDFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# build ffmpeg.wasm&lt;/span&gt;
+emmake &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It works and keeps compiling until we hit another error:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;...
+LD      ffplay_g                                                                                                                                  emcc: warning: ignoring unsupported linker flag: `-rpath-link=:libpostproc:libswresample:libswscale:libavfilter:libavdevice:libavformat:libavcodec:libavutil:libavresample` [-Wlinkflags]                                                                                                           
+7 warnings generated.                                                      
+wasm-ld: error: initial memory too small, 19491744 bytes needed
+...                    
+make: *** [Makefile:114: ffplay_g] Error 1
+make: *** Waiting for unfinished jobs....
+emcc: warning: ignoring unsupported linker flag: `-rpath-link=:libpostproc:libswresample:libswscale:libavfilter:libavdevice:libavformat:libavcodec
+:libavutil:libavresample` [-Wlinkflags]
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This time the issue is caused by too small in initial memory (by default only 16 MB in Emscripten, and here the minimal is 19+ MB), so we need to raise the initial memory to a higher value by passing &lt;code class=&quot;language-text&quot;&gt;-s INITIAL_MEMORY=33554432&lt;/code&gt; (32 MB).&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;-s USE_PTHREADS&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt; -s INITIAL_MEMORY=33554432&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 33554432 bytes = 32 MB&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --disable-inline-asm    &lt;span class=&quot;token comment&quot;&gt;# disable inline asm&lt;/span&gt;
+  --extra-cflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-cxxflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-ldflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$LDFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# build ffmpeg.wasm&lt;/span&gt;
+emmake &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Still there is an error after this fix:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;LD      ffplay_g
+emcc: warning: ignoring unsupported linker flag: `-rpath-link=:libpostproc:libswresample:libswscale:libavfilter:libavdevice:libavformat:libavcodec:libavutil:libavresample` [-Wlinkflags]
+6 warnings generated.
+LD      ffmpeg_g
+emcc: warning: ignoring unsupported linker flag: `-rpath-link=:libpostproc:libswresample:libswscale:libavfilter:libavdevice:libavformat:libavcodec:libavutil:libavresample` [-Wlinkflags]
+9 warnings generated.
+LD      ffprobe_g
+emcc: warning: ignoring unsupported linker flag: `-rpath-link=:libpostproc:libswresample:libswscale:libavfilter:libavdevice:libavformat:libavcodec:libavutil:libavresample` [-Wlinkflags]
+STRIP   ffmpeg
+strip:ffmpeg_g: file format not recognized
+make: *** [Makefile:107: ffmpeg] Error 1
+make: *** Waiting for unfinished jobs....&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As we are unable to strip (make sense as it is not in a valid binary format), let’s simply disable strip with &lt;code class=&quot;language-text&quot;&gt;--disable-stripping&lt;/code&gt; and make again:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;-s USE_PTHREADS&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt; -s INITIAL_MEMORY=33554432&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 33554432 bytes = 32 MB&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --disable-inline-asm    &lt;span class=&quot;token comment&quot;&gt;# disable inline asm&lt;/span&gt;
+  --disable-stripping     &lt;span class=&quot;token comment&quot;&gt;# disable stripping&lt;/span&gt;
+  --extra-cflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-cxxflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-ldflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$LDFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# build ffmpeg.wasm&lt;/span&gt;
+emmake &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally we managed to successfully do the &lt;code class=&quot;language-text&quot;&gt;emmake make -j&lt;/code&gt; part and you can see ffplay / ffplay_g, ffprobe / ffprobe_g and ffmpeg / ffmpeg_g generated in the root folder. It looks perfect, but there is a weird _g suffix makes the output files like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ffmpeg&lt;/li&gt;
+&lt;li&gt;ffmpeg_g&lt;/li&gt;
+&lt;li&gt;ffmpeg_g.wasm&lt;/li&gt;
+&lt;li&gt;ffmpeg_g.worker.js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both ffmpeg and ffmpeg_g here are actualy js files, the ideal naming is like below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ffmpeg / ffmpeg_g =&gt; ffmpeg.js&lt;/li&gt;
+&lt;li&gt;ffmpeg_g.wasm =&gt; ffmpeg.wasm&lt;/li&gt;
+&lt;li&gt;ffmpeg_g.worker.js =&gt; ffmpeg.worker.js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To fix this issue, we need to build it by our own. The command to build ffmpeg can be extracted by running &lt;code class=&quot;language-text&quot;&gt;emmake make -n&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;...
+printf &amp;quot;LD\t%s\n&amp;quot; ffmpeg_g; emcc -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample -Wl,--as-needed -Wl,-z,noexecstack -Wl,--warn-common -Wl,-rpath-link=libpostproc:libswresample:libswscale:libavfilter:libavdevice:libavformat:libavcodec:libavutil:libavresample -Qunused-arguments   -o ffmpeg_g fftools/ffmpeg_opt.o fftools/ffmpeg_filter.o fftools/ffmpeg_hw.o fftools/cmdutils.o fftools/ffmpeg.o  -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil  -lm -pthread -lm -lm -pthread -lm -lm -lm -pthread -lm
+printf &amp;quot;CP\t%s\n&amp;quot; ffmpeg; cp -p ffmpeg_g ffmpeg
+…..&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With a little clean up:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;emcc \
+  -I. -I./fftools \
+  -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample \
+  -Qunused-arguments \
+  -o ffmpeg_g fftools/ffmpeg_opt.o fftools/ffmpeg_filter.o fftools/ffmpeg_hw.o fftools/cmdutils.o fftools/ffmpeg.o \
+  -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As we are building our own version, let’s add &lt;code class=&quot;language-text&quot;&gt;--disable-programs&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;--disable-doc&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt; step to speed up the build and also add some essential flags when build ffmpeg&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# verify Emscripten version&lt;/span&gt;
+emcc -v
+
+&lt;span class=&quot;token comment&quot;&gt;# configure FFMpeg with Emscripten&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;CFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;-s USE_PTHREADS&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt; -s INITIAL_MEMORY=33554432&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 33554432 bytes = 32 MB&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;CONFIG_ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  --target-os&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;none        &lt;span class=&quot;token comment&quot;&gt;# use none to prevent any os specific configurations&lt;/span&gt;
+  --arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x86_32           &lt;span class=&quot;token comment&quot;&gt;# use x86_32 to achieve minimal architectural optimization&lt;/span&gt;
+  --enable-cross-compile  &lt;span class=&quot;token comment&quot;&gt;# enable cross compile&lt;/span&gt;
+  --disable-x86asm        &lt;span class=&quot;token comment&quot;&gt;# disable x86 asm&lt;/span&gt;
+  --disable-inline-asm    &lt;span class=&quot;token comment&quot;&gt;# disable inline asm&lt;/span&gt;
+  --disable-stripping     &lt;span class=&quot;token comment&quot;&gt;# disable stripping&lt;/span&gt;
+  --disable-programs      &lt;span class=&quot;token comment&quot;&gt;# disable programs build (incl. ffplay, ffprobe &amp;amp; ffmpeg)&lt;/span&gt;
+  --disable-doc           &lt;span class=&quot;token comment&quot;&gt;# disable doc&lt;/span&gt;
+  --extra-cflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-cxxflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --extra-ldflags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$LDFLAGS&lt;/span&gt;&quot;&lt;/span&gt;
+  --nm&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;llvm-nm -g&quot;&lt;/span&gt;
+  --ar&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emar
+  --as&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-as
+  --ranlib&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;llvm-ranlib
+  --cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --cxx&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;em++
+  --objcc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+  --dep-cc&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;emcc
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emconfigure ./configure &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${CONFIG_ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# build dependencies&lt;/span&gt;
+emmake &lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j4
+
+&lt;span class=&quot;token comment&quot;&gt;# build ffmpeg.wasm&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; -p wasm/dist
+&lt;span class=&quot;token assign-left variable&quot;&gt;ARGS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  -I. -I./fftools
+  -Llibavcodec -Llibavdevice -Llibavfilter -Llibavformat -Llibavresample -Llibavutil -Llibpostproc -Llibswscale -Llibswresample
+  -Qunused-arguments
+  -o wasm/dist/ffmpeg.js fftools/ffmpeg_opt.c fftools/ffmpeg_filter.c fftools/ffmpeg_hw.c fftools/cmdutils.c fftools/ffmpeg.c
+  -lavdevice -lavfilter -lavformat -lavcodec -lswresample -lswscale -lavutil -lm
+  -s &lt;span class=&quot;token assign-left variable&quot;&gt;USE_SDL&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;                    &lt;span class=&quot;token comment&quot;&gt;# use SDL2&lt;/span&gt;
+  -s &lt;span class=&quot;token assign-left variable&quot;&gt;USE_PTHREADS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;               &lt;span class=&quot;token comment&quot;&gt;# enable pthreads support&lt;/span&gt;
+  -s &lt;span class=&quot;token assign-left variable&quot;&gt;INITIAL_MEMORY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;33554432&lt;/span&gt;      &lt;span class=&quot;token comment&quot;&gt;# 33554432 bytes = 32 MB&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${ARGS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;@&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;}&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let’s create a &lt;a href=&quot;https://github.com/ffmpegwasm/FFmpeg/blob/n4.3.1-p2/wasm/basic.html&quot;&gt;basic.html&lt;/a&gt; to test if ffmpeg.wasm is working:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token doctype&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;!&lt;/span&gt;&lt;span class=&quot;token doctype-tag&quot;&gt;DOCTYPE&lt;/span&gt; &lt;span class=&quot;token name&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;en&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;meta&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;UTF-8&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;./dist/ffmpeg.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Run a lightweight web server (ex. &lt;code class=&quot;language-text&quot;&gt;python3 -m http.server 3000&lt;/code&gt;) and visit the web page (ex. &lt;a href=&quot;http://localhost:3000/basic.html&quot;&gt;http://localhost:3000/basic.html&lt;/a&gt;) and open the Chrome DevTools.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3b546c69d78cf5ea27677d9dae1afa6f/dc61a/output.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.708860759493675%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsSAAALEgHS3X78AAABDUlEQVQY03WQ2W6DMBRE+f8f60NZAmnIBhSKETRgY8BmMVuH0Ep9aKWj0Ui+y1xrkposM6vHocwMluos06G7z+MX/rDq3BbsbRB3oKQHeuFnxKrZRRMUbWZDj1tPamBKV1+V9IfmDtM3N8ldqGoDJYMR2vqD8GjmyOqmdfxQ5XbfXKv8gCV4W5d0ncg6JeucfOtuNgi86kISGjx3tY5Z/NPqqguWt/w8Sn+rGON/mcjYhWlsVhSxi1eWGjgSINU2fisiP/zR3IsgiQxenHGzXudOU9i4FsegYVHxPERzH0Lhn0Ge7GZKVPtOIqMsXK0tLVGeGuogM35V8pOgx0F6GAT2Eb9Z1McggzS2EPsLZaSDkN2YsKcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;output&quot;
+        title=&quot;output&quot;
+        src=&quot;/static/3b546c69d78cf5ea27677d9dae1afa6f/f058b/output.png&quot;
+        srcset=&quot;/static/3b546c69d78cf5ea27677d9dae1afa6f/c26ae/output.png 158w,
+/static/3b546c69d78cf5ea27677d9dae1afa6f/6bdcf/output.png 315w,
+/static/3b546c69d78cf5ea27677d9dae1afa6f/f058b/output.png 630w,
+/static/3b546c69d78cf5ea27677d9dae1afa6f/40601/output.png 945w,
+/static/3b546c69d78cf5ea27677d9dae1afa6f/dc61a/output.png 1147w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;It is kind of working as you can see output similar to original FFmpeg, it gives us a good starting point to polish our ffmpeg.wasm library.&lt;/p&gt;
+&lt;p&gt;You can visit the repository here to see how it works in details: &lt;a href=&quot;https://github.com/ffmpegwasm/FFmpeg/tree/n4.3.1-p2&quot;&gt;https://github.com/ffmpegwasm/FFmpeg/tree/n4.3.1-p2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And feel free to download the build artifacts here: &lt;a href=&quot;https://github.com/ffmpegwasm/FFmpeg/releases/tag/n4.3.1-p2&quot;&gt;https://github.com/ffmpegwasm/FFmpeg/releases/tag/n4.3.1-p2&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;For how to polish and create a “real” ffmpeg.wasm library, please see next post in this series of stories. 😃&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Build FFmpeg WebAssembly version (= ffmpeg.wasm): Part.1 Preparation]]></title><description><![CDATA[In this part you will learn: The background of this series How to build native FFmpeg with Docker (and without docker in MacOS) The…]]></description><link>https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-1-preparation/</link><guid isPermaLink="false">https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-1-preparation/</guid><pubDate>Sun, 13 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src=&quot;../../assets/ffmpeg-wasm-cover.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In this part you will learn:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The background of this series&lt;/li&gt;
+&lt;li&gt;How to build native FFmpeg with Docker (and without docker in MacOS)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2&gt;The background of this series&lt;/h2&gt;
+&lt;p&gt;This series of stories aim to serve following purposes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A guide for people who want to learn how to use Emscripten to compile a C/C++ library to JavaScript (Hopefully the most useful and detailed so far)&lt;/li&gt;
+&lt;li&gt;Personal notes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Why FFmpeg?&lt;/h2&gt;
+&lt;p&gt;FFmpeg is a free and open-source project consisting of a vast software suite of libraries and programs for handling video, audio, and other multimedia files and streams. (from Wikipedia)&lt;/p&gt;
+&lt;p&gt;It is an useful library and there is no JavaScript library with exactly the same capabilities. If you google “ffmpeg.js”, you will find few existing libraries exactly the same as what we are going to build:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ffmpeg.js: &lt;a href=&quot;https://github.com/Kagami/ffmpeg.js&quot;&gt;https://github.com/Kagami/ffmpeg.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;videoconverter.js: &lt;a href=&quot;https://github.com/bgrins/videoconverter.js&quot;&gt;https://github.com/bgrins/videoconverter.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These libraries are great and ready-to-use in most cases, but they are suffering from following issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The versions of both FFmpeg and Emscripten are out-dated.&lt;/li&gt;
+&lt;li&gt;Not under active maintenance for years. (Kagami/ffmpeg.js continues its development in April 2020)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I considered to take over maybe one of the repositories, but as there are too many changes these years, I decided to do it from scratch and wrote this series of tutorial at the same time to help people to learn how to use Emscripten in a real world C/C++ library.&lt;/p&gt;
+&lt;h2&gt;How to build native FFmpeg with Docker&lt;/h2&gt;
+&lt;p&gt;To start with, we need to clone FFmpeg source code from its repository, as the master branch is under development, it is better we choose a specific release to compile.&lt;/p&gt;
+&lt;p&gt;At the moment I wrote the story, the latest stable version of FFmpeg is n4.3.1, so we will use this version through out the stories.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Use depth=1 to download only the latest version&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone --depth &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; --branch n4.3.1 https://github.com/FFmpeg/FFmpeg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After completing cloning the repository, it is time to build with GCC to make sure it works.&lt;/p&gt;
+&lt;p&gt;Actually you can skip this part if you are in a rush, but in my own experience it is better to get used to the build system of library first.&lt;/p&gt;
+&lt;p&gt;The instruction of building and installing FFmpeg can be found inside &lt;a href=&quot;https://github.com/FFmpeg/FFmpeg/blob/n4.3.1/INSTALL.md&quot;&gt;INSTALL.md&lt;/a&gt; in the root of the repository:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Installing FFmpeg:
+1. Type `./configure` to create the configuration. A list of configure options is printed by running `configure -help`.
+`configure` can be launched from a directory different from the FFmpeg sources to build the objects out of tree. To do this, use an absolute path when launching `configure`, e.g. `/ffmpegdir/ffmpeg/configure`.
+2. Then type `make` to build FFmpeg. GNU Make 3.81 or later is required.
+3. Type `make install` to install all binaries and libraries you built.
+NOTICE
+ - - -
+- Non system dependencies (e.g. libx264, libvpx) are disabled by default.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As we don’t need to actually install the FFmpeg, only step 1 and 2 are required.&lt;/p&gt;
+&lt;p&gt;There are two ways to build, one is native way which requires you to install packages (ex. emsdk, Node.js). Most of time it works, but sometimes you may face bugs that is hard to resolve due to the variation of package versions and operating system. Another way is to use Docker, which provides a stable and static build environments. It is highly recommended to use Docker as it saves your time to install (and remove) the packages.&lt;/p&gt;
+&lt;p&gt;I will not cover how to install the packages here, but as I split the scripts into &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;build-with-docker.sh&lt;/code&gt; , you can install all the packages yourself and run &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To make sure this tutorial can achieve maximum coverage of environments, I use Github Actions to test if it works on Linux and MacOS. For Linux users, I will use Docker way / &lt;code class=&quot;language-text&quot;&gt;build-with-docker.sh&lt;/code&gt; to build. For MacOS users, as Docker is not supported in Github Actions, I will use native way / &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt; to build.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now, let’s create a file called &lt;code class=&quot;language-text&quot;&gt;build.sh&lt;/code&gt; with following content.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# gcc 8 is used in this tutorial, other versions may fail&lt;/span&gt;
+./configure --disable-x86asm
+&lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt; -j&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To build in native way, you can simply run command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; build.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To build with Docker, create a file called &lt;code class=&quot;language-text&quot;&gt;build-with-docker.sh&lt;/code&gt; with following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash -x&lt;/span&gt;
+docker pull gcc:8
+docker run &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  -v &lt;span class=&quot;token environment constant&quot;&gt;$PWD&lt;/span&gt;:/usr/src &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  gcc:8 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&apos;cd /usr/src &amp;amp;&amp;amp; bash build.sh&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And run command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; build-with-docker.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--disable-x86asm&lt;/code&gt; is required to disable x86 assemble features as we are not going to use it.
+Depend on the speed of you Internet and the hardware specification of your computer, it may take 10~30 minutes to complete the compilation.
+And it is normal that you see tons of warnings during compilation as gcc 9 introduces more constrains.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It should take some time to compile the native FFmpeg. If everything is OK, you should be able to run &lt;code class=&quot;language-text&quot;&gt;ffmpeg&lt;/code&gt; with following command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./ffmpeg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You should see something like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ffmpeg version n4.3.1 Copyright © 2000–2019 the FFmpeg developers
+built with gcc 8 (GCC)
+configuration: — disable-x86asm
+libavutil 56. 22.100 / 56. 22.100
+libavcodec 58. 35.100 / 58. 35.100
+libavformat 58. 20.100 / 58. 20.100
+libavdevice 58. 5.100 / 58. 5.100
+libavfilter 7. 40.101 / 7. 40.101
+libswscale 5. 3.100 / 5. 3.100
+libswresample 3. 3.100 / 3. 3.100
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]… {[outfile options] outfile}…
+Use -h to get full help or, even better, run ‘man ffmpeg’&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can visit the repository here to see how it works in details: &lt;a href=&quot;https://github.com/ffmpegwasm/FFmpeg/tree/n4.3.1-p1&quot;&gt;https://github.com/ffmpegwasm/FFmpeg/tree/n4.3.1-p1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And feel free to download the build artifacts here: &lt;a href=&quot;https://github.com/ffmpegwasm/FFmpeg/releases/tag/n4.3.1-p1&quot;&gt;https://github.com/ffmpegwasm/FFmpeg/releases/tag/n4.3.1-p1&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Now we have completed the preparation, let’s move on to next post to start compiling FFmpeg with Emscripten. 😃&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Why I refactor tesseract.js v2?]]></title><description><![CDATA[After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to…]]></description><link>https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</link><guid isPermaLink="false">https://jeromewu.github.io/why-i-refactor-tesseract.js-v2/</guid><pubDate>Thu, 03 Oct 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;After almost 2 years of maintaining tesseract.js, I have to say tesseract.js hit its limitation as some of the issues from users are hard to fix, especially those related to performance.&lt;/p&gt;
 &lt;p&gt;The existing tesseract.js (before v2.0.0-alpha) offers declarative and coarse-grained APIs that minimize the effort to understand the complex design of the library, it hides details like how tesseract.js loads *.traineddata from remote, how the *.traineddata is saved to local file system or IndexDB as cache, how the WebAssembly version of tesseract-ocr is initialed with parameters, set the image and generated the result we desired. It is great and everyone is happy to get a turn-key OCR library to integrate into your project.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Typical usage of tesseract.js&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; TesseractWorker &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Tesseract
