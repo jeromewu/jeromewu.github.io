@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 05 Oct 2020 15:01:34 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:24:25 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -226,7 +226,145 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;For the source code of this experiment can be found in this repository: &lt;a href=&quot;https://github.com/jeromewu/npm-vs-yarn-in-cicd&quot;&gt;https://github.com/jeromewu/npm-vs-yarn-in-cicd&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Build FFmpeg WebAssembly version (= ffmpeg.wasm): Part.4 ffmpeg.wasm v0.2 — Add Libx264]]></title><description><![CDATA[In this part you will learn: Add Libx264 to ffmpeg-core.js In browser ffmpeg.wasm demo Add Libx264 to ffmpeg-core.js For next step, we would…]]></description><link>https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-4-v0.2/</link><guid isPermaLink="false">https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-4-v0.2/</guid><pubDate>Thu, 31 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Speedup FFmpeg without compiling from source code]]></title><description><![CDATA[FFmpeg is a great tool when it comes to multimedia manipulation, by default it uses CPU with multi-thread to do the task which causes a high…]]></description><link>https://jeromewu.github.io/speedup-ffmpeg-without-compiling-from-source-code/</link><guid isPermaLink="false">https://jeromewu.github.io/speedup-ffmpeg-without-compiling-from-source-code/</guid><pubDate>Sun, 17 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/33df75f3dd61ce426b147c8ccd6ae14a/eea4a/banner.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAehrUCFcX//EABoQAQABBQAAAAAAAAAAAAAAAAECAAMEEyD/2gAIAQEAAQUChdmu5KckOP/EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAACAAEDIiAhcf/aAAgBAQAGPwJ68ZWjJbAsP//EABsQAAICAwEAAAAAAAAAAAAAAAERACEgQVFh/9oACAEBAAE/IfHwoW5SsngcLoE8WH//2gAMAwEAAgADAAAAED/P/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAEDAQE/EAhs/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EAyf/8QAGxABAQEBAAMBAAAAAAAAAAAAAREhABAxYXH/2gAIAQEAAT8Q1wxEftCr8OhIpGQssN7IGCo0/d48/wD/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;banner&quot;
+        title=&quot;banner&quot;
+        src=&quot;/static/33df75f3dd61ce426b147c8ccd6ae14a/828fb/banner.jpg&quot;
+        srcset=&quot;/static/33df75f3dd61ce426b147c8ccd6ae14a/ff44c/banner.jpg 158w,
+/static/33df75f3dd61ce426b147c8ccd6ae14a/a6688/banner.jpg 315w,
+/static/33df75f3dd61ce426b147c8ccd6ae14a/828fb/banner.jpg 630w,
+/static/33df75f3dd61ce426b147c8ccd6ae14a/0ede0/banner.jpg 945w,
+/static/33df75f3dd61ce426b147c8ccd6ae14a/3ac88/banner.jpg 1260w,
+/static/33df75f3dd61ce426b147c8ccd6ae14a/eea4a/banner.jpg 1280w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;FFmpeg is a great tool when it comes to multimedia manipulation, by default it uses CPU with multi-thread to do the task which causes a high loading to your PC and is kind of slow most of the time.&lt;/p&gt;
+&lt;p&gt;If you google how to improve the speed of FFmpeg, you may find discussions about using &lt;code class=&quot;language-text&quot;&gt;-preset&lt;/code&gt; which lowers the compression ratio for higher speed (a trade-off between file size and speed) and another sexy approach is to leverage nVidia GPU (nvenc, nvdec and cuvid), but it it is not easy as:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You don’t own a compatible nVidia GPU card&lt;/li&gt;
+&lt;li&gt;You need to install nVidia GPU drivers and CUDA (painful in Linux environment)&lt;/li&gt;
+&lt;li&gt;You need to compile FFmpeg from source if you cannot find a ready-to-use version&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In my own experience, I spent hours to research how to install and compile FFmpeg, but fails in the end as my GPU is unable to support most of the features, that was sad.&lt;/p&gt;
+&lt;p&gt;So is there any other way to make FFmpeg faster? Yes, and you can do that within seconds using VAAPI. Let’s do an experiment to see the differences.&lt;/p&gt;
+&lt;h2&gt;Baseline: Scale a video without any options&lt;/h2&gt;
+&lt;p&gt;Imagine you are creating a service to provide video streaming with different quality (720p, 1080p, etc.), so you need to scale down the uploaded video to different resolution.&lt;/p&gt;
+&lt;p&gt;Let’s download a sample video from h264info and scale down without any options:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ffmpeg -i gravity.mp4 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -c:v libx264 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -s 1024x428 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -b:v 1M &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    out.mp4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It takes about 42 seconds (speed=3.5x) with 21 MB file size. (the original size is 355 MB)&lt;/p&gt;
+&lt;h2&gt;With -preset to speedup with larger file size&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Check &lt;a href=&quot;https://trac.ffmpeg.org/wiki/Encode/H.264&quot;&gt;HERE&lt;/a&gt; for more details about preset&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Use preset, you can easily speed up FFmpeg with larger file size, which is acceptable when you have enough space left in your hard disk.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ffmpeg -i gravity.mp4 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -c:v libx264 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -preset ultrafast &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -s 1024x428 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -b:v 1M &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    out.mp4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It takes about 22 seconds (speed=6x) and with 20 MB file size. (Interesting, it is smaller than &lt;code class=&quot;language-text&quot;&gt;-preset default&lt;/code&gt; 😎)&lt;/p&gt;
+&lt;h2&gt;With VAAPI to speedup with integrated/ Intel GPU card&lt;/h2&gt;
+&lt;p&gt;Video Acceleration API (VAAPI) is not a secret in FFmpeg, but it is hard to notice how it can easily help you to speedup FFmpeg. The benefits of using VAAPI are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The integrated GPU card is cheap (and you already have one now)&lt;/li&gt;
+&lt;li&gt;You only have to install i965-va-driver to make it work&lt;/li&gt;
+&lt;li&gt;You don’t have to compile FFmpeg as this flag is enabled by default&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To use VAAPI in Ubuntu, first you need to install driver and check status with vainfo command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; i965-va-driver
+$ vainfo
+libva info: VA-API version &lt;span class=&quot;token number&quot;&gt;1.1&lt;/span&gt;.0
+libva info: va_getDriverName&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; returns &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+libva info: Trying to &lt;span class=&quot;token function&quot;&gt;open&lt;/span&gt; /usr/lib/x86_64-linux-gnu/dri/i965_drv_video.so
+libva info: Found init &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; __vaDriverInit_1_1
+libva info: va_openDriver&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; returns &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+vainfo: VA-API version: &lt;span class=&quot;token number&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;libva &lt;span class=&quot;token number&quot;&gt;2.1&lt;/span&gt;.0&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+vainfo: Driver version: Intel i965 driver &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; Intel&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;R&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; Ivybridge Mobile - &lt;span class=&quot;token number&quot;&gt;2.1&lt;/span&gt;.0
+vainfo: Supported profile and entrypoints
+      VAProfileMPEG2Simple            &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileMPEG2Simple            &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointEncSlice
+      VAProfileMPEG2Main              &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileMPEG2Main              &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointEncSlice
+      VAProfileH264ConstrainedBaseline: VAEntrypointVLD
+      VAProfileH264ConstrainedBaseline: VAEntrypointEncSlice
+      VAProfileH264Main               &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileH264Main               &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointEncSlice
+      VAProfileH264High               &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileH264High               &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointEncSlice
+      VAProfileH264StereoHigh         &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileVC1Simple              &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileVC1Main                &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileVC1Advanced            &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD
+      VAProfileNone                   &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVideoProc
+      VAProfileJPEGBaseline           &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; VAEntrypointVLD&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you see similar output like above, that means your Intel GPU card supports VAAPI, then you can use following command to scale:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ffmpeg -hwaccel vaapi &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -hwaccel_device /dev/dri/renderD129 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -hwaccel_output_format vaapi &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -i gravity.mp4 &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -vf &lt;span class=&quot;token string&quot;&gt;&quot;scale_vaapi=w=1024:h=428&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -c:v h264_vaapi &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -b:v 1M &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    out.mp4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It takes about 10 seconds (speed=14.3x) and with 19 MB file size.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Put them altogether in a chart, using VAAPI can get the almost 4x speedup comparing to native and a little smaller file size as well.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1588dfe44a5d662aef1bc8ab19b63ede/0a47e/comparison.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABvklEQVQoz42SzysFURTH50+xYMNCLKTHAllIspDslERhYWMpxM6P58fWj9SLslAW6j1LC8qPxfO4L4a8Unj1vLnz676Ze+fOnXFmBj2RnM7UOXPOud/PvR2Jc26aJsZY0zRVVSHOF03LptSGjwlDt0ulkmVRSv0fJrmu6zhO+S+FeFg1VIx13eBvBR0rCsaEECh5ZRYMCyG4w/2wErgf+b9M4twFQIj2z9l4wlZMAcOuCC2SKAt/UaYswJ4/pPWT5KUIFEEzOHc94YbRb/ZxZytUXk7SpjmSNwOeqP8Lzyu/7Wf6bTiepLEZ8yl1LC5PoPqsiPVjgdKvvnwNHdALIPA6Qtc8SqP5AJuFDxZPsdi0gTo6tYEeKJ3escppf2NwhbbV2LIcIbjZTKGlvrS/G+BwHijblEGylGSNU0a2q1sf6oPSxT1rWPATw3GruYrdy3D85ql/sH32VldBdrbCk7gE6qGyWDuiLbMa6unVxvohvXygsUUvMbpK2mvZgwzcrQtsZOKk0FRt7iW8SBmGYXscxhSDZ3PF5xvE8i+QEstBOeX2CuFb5FgWCORedYQe85k0VTGkgCz9vQZ/b8w7qzuPRIOYwWQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;comparison&quot;
+        title=&quot;comparison&quot;
+        src=&quot;/static/1588dfe44a5d662aef1bc8ab19b63ede/0a47e/comparison.png&quot;
+        srcset=&quot;/static/1588dfe44a5d662aef1bc8ab19b63ede/c26ae/comparison.png 158w,
+/static/1588dfe44a5d662aef1bc8ab19b63ede/6bdcf/comparison.png 315w,
+/static/1588dfe44a5d662aef1bc8ab19b63ede/0a47e/comparison.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In fact, if you invest time and effort to survey the nVidia GPU option you can have even more speedup, but it is still great to have speedups without too much effort and cost, isn’t it? 😄&lt;/p&gt;
+&lt;p&gt;Hope you find this post useful and don’t hesitate to leave any responses or claps, thank you!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Build FFmpeg WebAssembly version (= ffmpeg.wasm): Part.4 ffmpeg.wasm v0.2 — Add Libx264]]></title><description><![CDATA[In this part you will learn: Add Libx264 to ffmpeg-core.js In browser ffmpeg.wasm demo Add Libx264 to ffmpeg-core.js For next step, we would…]]></description><link>https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-4-v0.2/</link><guid isPermaLink="false">https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-4-v0.2/</guid><pubDate>Thu, 31 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
