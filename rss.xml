@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:24:25 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:39:28 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -226,7 +226,159 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;For the source code of this experiment can be found in this repository: &lt;a href=&quot;https://github.com/jeromewu/npm-vs-yarn-in-cicd&quot;&gt;https://github.com/jeromewu/npm-vs-yarn-in-cicd&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Speedup FFmpeg without compiling from source code]]></title><description><![CDATA[FFmpeg is a great tool when it comes to multimedia manipulation, by default it uses CPU with multi-thread to do the task which causes a high…]]></description><link>https://jeromewu.github.io/speedup-ffmpeg-without-compiling-from-source-code/</link><guid isPermaLink="false">https://jeromewu.github.io/speedup-ffmpeg-without-compiling-from-source-code/</guid><pubDate>Sun, 17 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to use Gitpod in your create-react-app based project]]></title><description><![CDATA[Japanese Version (translated by Ryuichi Tanabe): https://qiita.com/baby-degu/items/bacf20f657625ae8747b Gitpod is a great online IDE and…]]></description><link>https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</guid><pubDate>Tue, 19 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/05bd532f13413b6fdf4cb6a8dc95a58a/6af66/banner.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABGElEQVQoz2P4Dwb/UBEm+Pfv/59/6FIM/0kE/zA1P/n19fqPj9d/fLr24+PL39/Biv4BAVzd5Xe/1j/4+uzbH3Sbf/37u//zy3UfntS8uLzyw6N7P78ABf/++/fnD1TppnsfKk+/TzvyPvPwq8PPvoJlkTQf/PJq0bv7Zc8uznl77wFY873796fPmAHUD1Q39+JTnfkXOGZcyz74dN7VN0DZ32DdUM2bPz3d/PHppDe3gPbf/vEZKPjp8+fr169DXD7r/FPPFeetl19uP/Ny7Z33QJE//2Ca//7/d/X7x0vfPwA9DCS//v2NFjyvvv5afOVFy4mna+58+PHnH1GhjRxgQHe++f77P9aoIhDJMPG//yiLZ6ppBgC3Q3WW0Y/yxwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;banner&quot;
+        title=&quot;banner&quot;
+        src=&quot;/static/05bd532f13413b6fdf4cb6a8dc95a58a/f058b/banner.png&quot;
+        srcset=&quot;/static/05bd532f13413b6fdf4cb6a8dc95a58a/c26ae/banner.png 158w,
+/static/05bd532f13413b6fdf4cb6a8dc95a58a/6bdcf/banner.png 315w,
+/static/05bd532f13413b6fdf4cb6a8dc95a58a/f058b/banner.png 630w,
+/static/05bd532f13413b6fdf4cb6a8dc95a58a/6af66/banner.png 640w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Japanese Version (translated by &lt;a href=&quot;https://medium.com/u/9724aaf6be6b?source=post_page-----dd4d0b33ce77--------------------------------&quot;&gt;Ryuichi Tanabe&lt;/a&gt;): &lt;a href=&quot;https://qiita.com/baby-degu/items/bacf20f657625ae8747b&quot;&gt;https://qiita.com/baby-degu/items/bacf20f657625ae8747b&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gitpod is a great online IDE and here is how you can use in your create-react-app based project.&lt;/p&gt;
+&lt;h2&gt;Why Gitpod?&lt;/h2&gt;
+&lt;p&gt;Sometimes we just don’t want to spend time to prepare the development environment and start coding as soon as possible. Gitpod is a Github-integrated and 100 hours per month free use online IDE, it provides flexibility to customize your work space with &lt;code class=&quot;language-text&quot;&gt;.gitpod.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f47d3f8c43c6cee79fd1ace7911abdde/d8104/htop.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.835443037974684%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAABkElEQVQoz2WLyW7bMABE9Q2F5YoUSVEUJVJctXCxlDhBgwC9FGhjpwn6/z9S55pg3mFmgFcIbciIOUMjIqzr254RWQ+0FrhlXDSCk75WNewpa3vRDKwZalmjvu1o2xWNokQfWV8KBnoB+VjRse7YceCQjRQsPUntMDM6EtrDRlTNUHJasg5QBgr0a26vGV0ieInwJeJLhn9+NpcTvZ742979u2ved/i+obeMXxO6RnxN6DWjvwn/DoWewunhSdqZzQnGTe9nOy9hewj3Z5UXlRax+n5yMk5jXobZyzCLMMt1HhZfOGv3u11L0VlT3kaK3pqcso8a+m9oPiBXIl1if0DL4aNMB+xLbEvsysJau+27kpKZm+xMTM6YFLONFk1HsgLiITGQTIAsFTHgo3hAHLz9Bec8pqTk2GjN11UppW9yyjZY5I7E1ZgjjMktXymMUvu2GSmp1iIEM47O6D1vU7LIHxr7nVBAACTwC3VdmG1bn5+HEJqU2fksUpI5zz+e1OMJbV191lXylZ+q6TPAuf/VJFaWVfD2FQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;htop&quot;
+        title=&quot;htop&quot;
+        src=&quot;/static/f47d3f8c43c6cee79fd1ace7911abdde/f058b/htop.png&quot;
+        srcset=&quot;/static/f47d3f8c43c6cee79fd1ace7911abdde/c26ae/htop.png 158w,
+/static/f47d3f8c43c6cee79fd1ace7911abdde/6bdcf/htop.png 315w,
+/static/f47d3f8c43c6cee79fd1ace7911abdde/f058b/htop.png 630w,
+/static/f47d3f8c43c6cee79fd1ace7911abdde/40601/htop.png 945w,
+/static/f47d3f8c43c6cee79fd1ace7911abdde/78612/htop.png 1260w,
+/static/f47d3f8c43c6cee79fd1ace7911abdde/d8104/htop.png 1365w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In this story, we will talk about how to leverage Gitpod when you have a project based on create-react-app (or any react project).&lt;/p&gt;
+&lt;h2&gt;Basic Configuration&lt;/h2&gt;
+&lt;p&gt;In the basic configuration, we want to achieve following items:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; when we create the work space&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;npm start&lt;/code&gt; every time we start the work space&lt;/li&gt;
+&lt;li&gt;See preview every time we update the code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To achieve all the features, you just need to add a &lt;code class=&quot;language-text&quot;&gt;.gitpod.yml&lt;/code&gt; with following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm install
+    &lt;span class=&quot;token key atrule&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm start
+
+&lt;span class=&quot;token key atrule&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;onOpen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; open&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;preview&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It is pretty self-explained and you can use it most of the projects easily.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;More options in &lt;a href=&quot;https://www.gitpod.io/docs/44_config_start_tasks/&quot;&gt;official docs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Advanced Configuration&lt;/h2&gt;
+&lt;p&gt;An advanced scenario is to use puppeteer for end-to-end testing in your create-react-app, by default some dependencies used by puppeteer is not installed in Gitpod default work space image (gitpod/workspace-full). So we need to extend the Docker image to make it work.&lt;/p&gt;
+&lt;p&gt;Add &lt;code class=&quot;language-text&quot;&gt;.gitpod.Dockerfile&lt;/code&gt; in your repository:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; gitpod/workspace&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;full
+&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; sudo apt&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;get update &amp;amp;&amp;amp; sudo apt&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;get install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;y libgtk&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;3&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;0 libx11&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;xcb1 libnss3 libxss1 libasound2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And update &lt;code class=&quot;language-text&quot;&gt;.gitpod.yml&lt;/code&gt; to use our &lt;code class=&quot;language-text&quot;&gt;.gitpod.Dockerfile&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; .gitpod.Dockerfile
+
+&lt;span class=&quot;token key atrule&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm install
+    &lt;span class=&quot;token key atrule&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm start
+
+&lt;span class=&quot;token key atrule&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;onOpen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; open&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;preview&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Also you need to use &lt;code class=&quot;language-text&quot;&gt;--no-sandbox&lt;/code&gt; in jest-puppeteer, the full setup can be found here:&lt;/p&gt;
+&lt;p&gt;Repository: &lt;a href=&quot;https://github.com/jeromewu/create-react-app-gitpod&quot;&gt;https://github.com/jeromewu/create-react-app-gitpod&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gitpod: &lt;a href=&quot;https://gitpod.io/#https://github.com/jeromewu/create-react-app-gitpod&quot;&gt;https://gitpod.io/#https://github.com/jeromewu/create-react-app-gitpod&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;With full configuration, now you can have a working environment like below:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70d4c80b16b17a579c031cfa78d51855/d8104/gitpod.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABpUlEQVQoz1WQyY7cIBRF/RfpLpdnzIwBA7axqSFTRUnUpUSKlFVv8/+fkFdVnUWujhCbw328LF2+HdPhdDpvKX26fPx8+bKmwxS3ed2WNU1LdN47B4ePMYYwOR8AO7rD4ZhtMXo/9T3uEKKSUqHIHUQFYZwyhjHuWkhHmOyorqhpqCl76cOSwXvzNAshEUatLTkXUqi2baqyBB6pqrKqa8wtVYFKz6Tv+TjFY3Y+Hs9pDWGGkjFYJgn1iBLSNE1R7CHFPWVRgkykJ8IBWHoxuMzacbQOCgklLo5MaaaHBuEa4a7H8MSbX1aYGuzW/evv6ucVyyBBHrTuOgR/Rgjl+/zWUdwmhVkhcCveqitMNArb05/X4tePXribrLUG8y73+/+S5/9mfthMBTuf9PbexJPxSZmQaWN6TB5gQhHGjAvKOOOcEAJLhk6gblr4Jx1m7BNxK1GTBNko2XcdANWDElYrawatBAddiQa2vnsu811V7AnTBBbONGUGlieVzUT62roPD2pzyNWaq22ntie5vpPrMyDiDbnV8/dmeQHa5QWtV56ufwFf0GUWlZrfZAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;gitpod&quot;
+        title=&quot;gitpod&quot;
+        src=&quot;/static/70d4c80b16b17a579c031cfa78d51855/f058b/gitpod.png&quot;
+        srcset=&quot;/static/70d4c80b16b17a579c031cfa78d51855/c26ae/gitpod.png 158w,
+/static/70d4c80b16b17a579c031cfa78d51855/6bdcf/gitpod.png 315w,
+/static/70d4c80b16b17a579c031cfa78d51855/f058b/gitpod.png 630w,
+/static/70d4c80b16b17a579c031cfa78d51855/40601/gitpod.png 945w,
+/static/70d4c80b16b17a579c031cfa78d51855/78612/gitpod.png 1260w,
+/static/70d4c80b16b17a579c031cfa78d51855/d8104/gitpod.png 1365w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;One more thing&lt;/h2&gt;
+&lt;p&gt;If you are a VIM user like me, here is a small trick (maybe not the best) to use your VIM configuration in Gitpod with least effort.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; .gitpod.Dockerfile
+
+&lt;span class=&quot;token key atrule&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; wget https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//github.com/jeromewu/docker&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;workspace/raw/master/vim.zip &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;O /tmp/vim.zip &lt;span class=&quot;token important&quot;&gt;&amp;amp;&gt;&lt;/span&gt; /dev/null &lt;span class=&quot;token important&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; unzip /tmp/vim.zip &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;d /home/gitpod &lt;span class=&quot;token important&quot;&gt;&amp;amp;&gt;&lt;/span&gt; /dev/null
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; yarn install
+    &lt;span class=&quot;token key atrule&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; yarn start
+
+&lt;span class=&quot;token key atrule&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;onOpen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; open&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;preview&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The concept here is to zip an existing VIM configuration, download and unzip to container, it saves lots of time to install but may not be a good option if you need to update your VIM configuration very often.&lt;/p&gt;
+&lt;p&gt;In a word, using Gitpod for your Github project offers you a powerful environment to develop your project anytime and anywhere with ease. Hope you find this story useful and happy coding. 😃&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Speedup FFmpeg without compiling from source code]]></title><description><![CDATA[FFmpeg is a great tool when it comes to multimedia manipulation, by default it uses CPU with multi-thread to do the task which causes a high…]]></description><link>https://jeromewu.github.io/speedup-ffmpeg-without-compiling-from-source-code/</link><guid isPermaLink="false">https://jeromewu.github.io/speedup-ffmpeg-without-compiling-from-source-code/</guid><pubDate>Sun, 17 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
