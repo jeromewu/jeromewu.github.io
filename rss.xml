@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:51:24 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 13:07:38 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -226,7 +226,306 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;For the source code of this experiment can be found in this repository: &lt;a href=&quot;https://github.com/jeromewu/npm-vs-yarn-in-cicd&quot;&gt;https://github.com/jeromewu/npm-vs-yarn-in-cicd&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[3 Things you should do to quickly fix your problem in a open source project]]></title><description><![CDATA[As a developer, it is common to leverage open source projects to complete your application, and it is more common to find your requirement…]]></description><link>https://jeromewu.github.io/3-things-you-should-do-to-quickly-fix-your-problem-in-an-open-source-project/</link><guid isPermaLink="false">https://jeromewu.github.io/3-things-you-should-do-to-quickly-fix-your-problem-in-an-open-source-project/</guid><pubDate>Wed, 15 Jan 2020 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[I wrote a Chrome Extension (Gitpod Window). Here is what I learned]]></title><description><![CDATA[Gitpod is an online IDE for GitHub and GitLab, it is great and makes my life easier when there is not enough resource in my laptop. But as a…]]></description><link>https://jeromewu.github.io/i-wrote-a-chrome-extension-here-is-what-i-learned/</link><guid isPermaLink="false">https://jeromewu.github.io/i-wrote-a-chrome-extension-here-is-what-i-learned/</guid><pubDate>Mon, 23 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 512px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7cf3bd708f5bff7ee16e15b8b544354e/01e7c/banner.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACAklEQVQ4y2NgGGqAkYWFhRFEk4hp7CooLQXEB4H4BBAfY2RkPAaiCeDjQHwIiNWQzWKCclTZ2dn/BwYG/ufg4PgP5JOCzaBmMMFN5efnVwJS35ubm/9GR0f/BrL/8PDw/AHRODBIzV8g/gHExhgGAoEyJyfnLz8/v/+ampr/ampq/oeFheFz1T8o/RungUD8C6YYGIaEvPmPgZHpPxDjNxBq0D+8hoEMQnYhK7sZQRfiNhDu8n+c9mH/2Q1dQOGpCTKAwzmGmQwDGf6zqZv950to+cftm/WPJ6Tkv/jE4zN1Tv2XQE+H+A2EePM/o7LRf+70/v88zjH/hGtW/RfKm/5DuHHTPN6FDw4xdB+TQTfwB9QwzGTCyAShde3/MlgG/uOoXPlXYv3HP6JrP/xnnXFtB0P/6V2Mky/oIidsFSIi4j+DlvV/BvvIPwxly/8zTLnwnyF7xn+GwOJUhjn3Chh6T5giu1AaiM8C8RUgvoSBmZguA+kLDIaudxgCCv8zeKZdZug/9YShduNdhrpNBQxTLi1jmHBGB1u+ZsKKJVWYwPIli1kZ2vflMFSvXQSkMximXSlkmHhuJhAHUFakTD6vwNBxsJNhwtlyoOv4wWJTLpFgACs7hHZLZmCo3cCMIT/pPDNpLmrdw8DQBsTt+yH8tr2MQC8zMUy6wAT0LsxQBgArU/9k8KyC1QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;banner&quot;
+        title=&quot;banner&quot;
+        src=&quot;/static/7cf3bd708f5bff7ee16e15b8b544354e/01e7c/banner.png&quot;
+        srcset=&quot;/static/7cf3bd708f5bff7ee16e15b8b544354e/c26ae/banner.png 158w,
+/static/7cf3bd708f5bff7ee16e15b8b544354e/6bdcf/banner.png 315w,
+/static/7cf3bd708f5bff7ee16e15b8b544354e/01e7c/banner.png 512w&quot;
+        sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Gitpod is an online IDE for GitHub and GitLab, it is great and makes my life easier when there is not enough resource in my laptop. But as a VIM user it is pretty annoying when I hit Ctrl+w (which is commonly used to navigate between different VIM window), the whole Gitpod tab just close and I have to reopen it again.&lt;/p&gt;
+&lt;p&gt;That’s why I start to work on a Chrome Extension (Gitpod Window) to make the overall experience of using Gitpod even better. The requirements I listed are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;When user click the extension icon on a GitHub or GitLab page, opens Gitpod workspace in a popup Chrome window&lt;/li&gt;
+&lt;li&gt;Disable Chrome shortcuts&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As I have almost no experience in building a Chrome Extension, I wrote this story to record the process and hope it can help newbies like me. 😃&lt;/p&gt;
+&lt;h2&gt;Get Started with Chrome Extension&lt;/h2&gt;
+&lt;p&gt;Google provides a good official tutorial here: &lt;a href=&quot;https://developer.chrome.com/extensions/getstarted&quot;&gt;https://developer.chrome.com/extensions/getstarted&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Quick summary for key components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;manifest.json: Provides important information&lt;/li&gt;
+&lt;li&gt;Background Script: Extensions monitor events in their background script, then react with specified instructions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here we learnt that background script is where we can monitor events and it is a good starting point to achieve our goal.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I would suggest those who want to follow the next step to complete the tutorial in the link above first.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;When user click the extension icon on a GitHub or GitLab page, opens Gitpod workspace in a popup Chrome window&lt;/h2&gt;
+&lt;p&gt;As you can imagine, click on extension icon is an event, so we can do it in background script.&lt;/p&gt;
+&lt;p&gt;To handle the event, there are two types of actions you can choose: &lt;a href=&quot;https://developer.chrome.com/extensions/pageAction&quot;&gt;pageAction&lt;/a&gt; and &lt;a href=&quot;https://developer.chrome.com/extensions/browserAction&quot;&gt;browserAction&lt;/a&gt;, as our extension only works on specific websites, we use &lt;code class=&quot;language-text&quot;&gt;pageAction&lt;/code&gt; here. A primary &lt;code class=&quot;language-text&quot;&gt;manifest.json&lt;/code&gt; below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;manifest_version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Gitpod Window&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Gitpod Window disables browser shortcuts for you to prevent unwant behavior&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Jerome Wu &amp;lt;jeromewus@gmail.com&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;permissions&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;*://github.com/*/*&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;*://gitlab.com/*/*&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;background&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;background.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;persistent&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;page_action&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;permissions&lt;/code&gt;, we add GitHub and GitLab URLs to restrict that this extension only works on the repository page. (ex. &lt;a href=&quot;https://github.com/jeromewu/gitpod-window&quot;&gt;https://github.com/jeromewu/gitpod-window&lt;/a&gt;) We also add a key page_action to identify that we are going to use &lt;code class=&quot;language-text&quot;&gt;pageAction&lt;/code&gt; APIs in this extension.&lt;/p&gt;
+&lt;p&gt;With &lt;code class=&quot;language-text&quot;&gt;manifest.json&lt;/code&gt; settled, next we need to update &lt;code class=&quot;language-text&quot;&gt;background.js&lt;/code&gt; to popup the window with &lt;a href=&quot;https://developer.chrome.com/extensions/windows&quot;&gt;windows&lt;/a&gt; API:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/*
+ * Window popup using page action
+ *
+ * @ref: https://developer.chrome.com/extensions/pageAction
+ *
+ */&lt;/span&gt;
+
+chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onClicked&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; url &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;windows&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;https://.gitpod.io/#&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;url&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;popup&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ideally, we should be able to see a new popup window created when we click on the extension icon, but if you try to code above, you will see a context menu instead.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cc3e2de3e8fe395c8958996db64b9fbf/3996e/popup.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 110.12658227848102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsSAAALEgHS3X78AAACp0lEQVQ4y61US08TURTuj9CFSlhpotGF2JYOr/IqhdAAia40RhJfxLXGhTGu1F+gYqTFUgymJujW6AJ/ATGEttBO59GBDtNpO+28p2WmnunFAoGWmHjm5Obc3Pvd8537nTsOp8vTcc09NOy/f++BPzAx1dX/0OvHuvsGBn3Pnr+4eeu209mJYT1uN9bV1evxdIN7+4cGh0Z6evsdk1PXT50+43Jhr1++6hsde3TRuey70Xa2HfDff/x8/ORpR4d7eNg/Pj4xHpj0egfazrVfvnLV5cbOX7jkcHdib96+i0QWvy5/W/ocjYQjSwufFiKL4XBkZeVXNPpldvZ9MBianw/PBUNzH4IhCD+GkTum786YVg3MNM1qtbprWUalatuuaRiVWktzTN+ZqVQAYimKwrIsl+PzhQLP53N1r8BaE4PzHb6RUUmSAAyZj55t2Qv2Un2DhcZ98OhYQFFU2KcbhiQrmgqfJkOg6xCoqu26rsuKgkZN0ywLnWLaYFW1wbANWAuCwHG5re1ssSgUCgUog6QzwD/LclBONsuyOxwwQKQQWEOT2r9YA2xnFkWRpOgMs51ld0xkdW5/Q5RtP8f/y5zn+URig6YzW1vbJEURBJlhGCJNAB2KpI5qcQhsGEapVBLLtimqCgEoDzEIWRIEEKYVGDQoFouyLMMUBaIoAR7uQtP0E2hD2kQ8TtM0qIHjaZIg8DTBZDKpFA7X2BQMSZp1WGPf8e15gLYuSTKQh/cA9QPhenvZ/XWsEIdo57jc6urvRDy2vh4jSWptbX1jczMeixMEYbWQCvU2Oh7IAyXUvTDf8+Nsr7clWQYYvGK7FAA3HAqre9MneVAqjuOhN0tCic/bL6FcFk/4GYz4x5LJJMMwUGcKxyFOp9PJVAoCHMfp5kZR1B+npWlulD0KcAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;popup&quot;
+        title=&quot;popup&quot;
+        src=&quot;/static/cc3e2de3e8fe395c8958996db64b9fbf/f058b/popup.png&quot;
+        srcset=&quot;/static/cc3e2de3e8fe395c8958996db64b9fbf/c26ae/popup.png 158w,
+/static/cc3e2de3e8fe395c8958996db64b9fbf/6bdcf/popup.png 315w,
+/static/cc3e2de3e8fe395c8958996db64b9fbf/f058b/popup.png 630w,
+/static/cc3e2de3e8fe395c8958996db64b9fbf/3996e/popup.png 648w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The behavior is not the same as we expected and if you take a close look to the chrome.pageAction.onClicked.addListener(), you will see an interesting statement:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7c4a76b05021e3d6636ea100403502ca/64a58/onclicked.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 17.088607594936708%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsSAAALEgHS3X78AAAAVElEQVQI13WMQQ7AIAgE/f8rNd6NB2DVUBHrsXVC9kJmAjPnnEXEzFT1uTDntA/BH6WUWqtXADTAQzgrG2L2ZaIxxo+cUooxEtFxXtmv96Y712AXFqdxr0wXD6pUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;onclicked&quot;
+        title=&quot;onclicked&quot;
+        src=&quot;/static/7c4a76b05021e3d6636ea100403502ca/f058b/onclicked.png&quot;
+        srcset=&quot;/static/7c4a76b05021e3d6636ea100403502ca/c26ae/onclicked.png 158w,
+/static/7c4a76b05021e3d6636ea100403502ca/6bdcf/onclicked.png 315w,
+/static/7c4a76b05021e3d6636ea100403502ca/f058b/onclicked.png 630w,
+/static/7c4a76b05021e3d6636ea100403502ca/40601/onclicked.png 945w,
+/static/7c4a76b05021e3d6636ea100403502ca/78612/onclicked.png 1260w,
+/static/7c4a76b05021e3d6636ea100403502ca/64a58/onclicked.png 1577w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This event will not fire if the page action has a popup.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As we don’t do anything about popup, it means the popup doesn’t exist, right? The answer is yes, but there is a strange behavior for onClicked, usually it should look like this:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 472px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8b033e747b945186f2d61c15ff2e43fc/3c5de/flow1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAAA9klEQVQoz5WRWauEMBSD+/9/nr4oCqK477jvvR/2UmSYgZnz1KZJSE6FZVlVVRVFkSRJHMdSyuu65D2Avu/P86xBRcvzHIlt2yJN033fu67bto2H7R4EWZbB4AA4DMOyLOu64jWOI3y8giAQ3PEwDEO5TtMEDxl40zQqFEbDPY7jeJ4HAm6apoiiSKU6z5MUOiEWxENfluUz9nEcqhRkQU8geNj3fa8eFJWrtlMImUEgI0Eo5OehpLZ7O0Lv9rlnDm3bhmHoui71WMQL4V/81lIVpt5yz3MXX4kR0JAvJDkNfxMj4G8Iz8J/FvPPKOu6Rqm/84X2B64KewstNmkxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;flow1&quot;
+        title=&quot;flow1&quot;
+        src=&quot;/static/8b033e747b945186f2d61c15ff2e43fc/3c5de/flow1.png&quot;
+        srcset=&quot;/static/8b033e747b945186f2d61c15ff2e43fc/c26ae/flow1.png 158w,
+/static/8b033e747b945186f2d61c15ff2e43fc/6bdcf/flow1.png 315w,
+/static/8b033e747b945186f2d61c15ff2e43fc/3c5de/flow1.png 472w&quot;
+        sizes=&quot;(max-width: 472px) 100vw, 472px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;But actually, the decision is made after chrome.pageAction.show()&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1f02d2f95ad2a2cdcfef1043421bea59/dba9a/flow2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAAAyElEQVQY05WQuQ6EMAxE8/9/R0WTAiHETYCAOAPZt7hBbIF2imjseMaTqDiO+74vimIYhm3b0jSFNE1jra3rep5n7z3EGHMcB5zbsizph2GomI6iqKqqruuYyLIMorVGjAUyOm3bwplZliXP8yRJ9n0PgkBR0LIX8CPCNE3Yc+IlcViFy7qubCYmJSm+m9EwwemcoyWlYBzH8zwRYCT5AWNyi4vyb2DaXJA33/EUy6o75yEShze/iH+N5KsJyfmHWMBXuwuQx9UHsZnOOoosA/QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;flow2&quot;
+        title=&quot;flow2&quot;
+        src=&quot;/static/1f02d2f95ad2a2cdcfef1043421bea59/f058b/flow2.png&quot;
+        srcset=&quot;/static/1f02d2f95ad2a2cdcfef1043421bea59/c26ae/flow2.png 158w,
+/static/1f02d2f95ad2a2cdcfef1043421bea59/6bdcf/flow2.png 315w,
+/static/1f02d2f95ad2a2cdcfef1043421bea59/f058b/flow2.png 630w,
+/static/1f02d2f95ad2a2cdcfef1043421bea59/dba9a/flow2.png 652w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So if you don’t trigger chrome.pageAction.show() first, it won’t trigger onClicked, I found this answer when checking samples from &lt;a href=&quot;https://developer.chrome.com/extensions/examples/api/pageAction/set_icon.zip&quot;&gt;HERE&lt;/a&gt; and it is really a trap when using onClicked.&lt;/p&gt;
+&lt;p&gt;To solve this issue, we need to trigger chrome.pageAction.show() on the tab we click extension icon manually. We need to use onUpdated and onActivated in &lt;a href=&quot;https://developer.chrome.com/extensions/tabs&quot;&gt;tabs&lt;/a&gt; API. Before we start using tabs, don’t forget to update &lt;code class=&quot;language-text&quot;&gt;permissions&lt;/code&gt; in the &lt;code class=&quot;language-text&quot;&gt;manifest.json&lt;/code&gt; first:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;manifest_version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Gitpod Window&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Gitpod Window disables browser shortcuts for you to prevent unwant behavior&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Jerome Wu &amp;lt;jeromewus@gmail.com&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;permissions&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;tabs&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;*://github.com/*/*&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;*://gitlab.com/*/*&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;background&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;background.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;persistent&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;page_action&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then let’s update &lt;code class=&quot;language-text&quot;&gt;background.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/*
+ * Window popup using page action
+ *
+ * @ref: https://developer.chrome.com/extensions/pageAction
+ * @ref: https://developer.chrome.com/extensions/examples/api/pageAction/set_icon.zip
+ * This is a workaround to make sure chrome.pageAction.onClicked works.
+ *
+ * The idea here to to force popup to show on GitHub and GitLab pages,
+ * but as we don&apos;t assign popup, it fails and called onClicked.
+ * If we don&apos;t do this, onClicked won&apos;t be triggered.
+ */&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;forcePopup&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; url &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token regex&quot;&gt;/https?:\/\/(github|gitlab).com\/*\/*/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tabs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onUpdated&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;tabId&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; activeInfo&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tab&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;forcePopup&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;tab&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tabs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onActivated&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; tabId &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tabs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;tabId&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; forcePopup&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onClicked&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; url &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;windows&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;https://.gitpod.io/#&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;url&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;popup&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The idea here is to call chrome.pageAction.show() on the GitHub and GitLab pages to trigger onClicked.&lt;/p&gt;
+&lt;p&gt;Now we have completed our first requirement! It is a nice-looking popup window that makes Gitpod more close to an IDE, but there is no IDE can be closed with Ctrl+W, let move on to the next part to disable shortcuts.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f238c554f4c6634501a0fda09998333/64a58/gitpod.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.9493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAACKUlEQVQoz42S627TMBTH8xyMQuNc7VwcO7e2adrcWjpR2sIkti/7wAvsiXiUCcRom4VOsImx5+G41aCMIfHXiXVi52ef83ek9xe35+vN+ar5UG8+rjf11+/Nzd2Xm7vm+kfz7ba+ul43V6u6WdWXIppm2Vx+rutPy+XFci2N3p1lWVGVxWhUHU4mZVGMy7zK0nw4KAsYBkmS9P9SnucvD6fSq5PTiNE47rggP0gGGR0fm+WxbDpIbiuPCSHEGANe6r+Y9UKvKDLOfWzZ3SSxkrE9nGKXIVlG209B+7Asy5zzqqqkQTkOfJamKRxMXRdKiriXxEEY+Nqe1D0B73leHMdSOhiKMwnBGBuGYds2sSwCjwWp7TiOJV7Jg7JhScCzxRvmeXgr9U8p/xDApmkKuNPtQvc7WPk//YaZ70O3WFSNkYLuLUG7eGDVIzCldHeyoRu6phuG7roOFVfnQs9gBEyBZ4Ddd6OCKQLmQbCDwRjedRzmEoezsBPEiR/1qMdhF8Y82IhsTbVt4R8gURRJfhzDsjiX4CgOwyhknFO4CsZg5ELgiUjA1zAMfd+HRahIwF4npJRhYhHLph6zHdc0sQk7EcskFvw2kOxyHWYtcZGGCdNO3OlKPGSUmFhTiK5atK2byDCw4CHgK13T5JbcOkDPDpTnTyGBaLeeGKocB0yik7dudULyI5wdqf25ni7I8DVKFvKv6M130e7N1f5CT+daf0ayo3B6+hOJXsXRGUMHCgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;gitpod&quot;
+        title=&quot;gitpod&quot;
+        src=&quot;/static/6f238c554f4c6634501a0fda09998333/f058b/gitpod.png&quot;
+        srcset=&quot;/static/6f238c554f4c6634501a0fda09998333/c26ae/gitpod.png 158w,
+/static/6f238c554f4c6634501a0fda09998333/6bdcf/gitpod.png 315w,
+/static/6f238c554f4c6634501a0fda09998333/f058b/gitpod.png 630w,
+/static/6f238c554f4c6634501a0fda09998333/40601/gitpod.png 945w,
+/static/6f238c554f4c6634501a0fda09998333/78612/gitpod.png 1260w,
+/static/6f238c554f4c6634501a0fda09998333/64a58/gitpod.png 1577w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Disable keyboard shortcuts&lt;/h2&gt;
+&lt;p&gt;To disable shortcuts, I planned to use &lt;a href=&quot;https://developer.chrome.com/extensions/commands&quot;&gt;commands&lt;/a&gt; API, but in the end I found that you don’t need to do anything as the shortcuts that annoying us are disabled by default. (incl. Ctrl+W, Ctrl+N, Ctrl+T) So we complete this issue by using popup window here!&lt;/p&gt;
+&lt;p&gt;Hope you enjoy this story and if you would like to know more about this Chrome Extension, you can visit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Repository: &lt;a href=&quot;https://github.com/jeromewu/gitpod-window/tree/v1.0.1&quot;&gt;https://github.com/jeromewu/gitpod-window/tree/v1.0.1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chrome Web Store: &lt;a href=&quot;https://chrome.google.com/webstore/detail/gitpod-window/jhpkbhdoenpnfnnkelgpikndadikogdl&quot;&gt;https://chrome.google.com/webstore/detail/gitpod-window/jhpkbhdoenpnfnnkelgpikndadikogdl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[3 Things you should do to quickly fix your problem in a open source project]]></title><description><![CDATA[As a developer, it is common to leverage open source projects to complete your application, and it is more common to find your requirement…]]></description><link>https://jeromewu.github.io/3-things-you-should-do-to-quickly-fix-your-problem-in-an-open-source-project/</link><guid isPermaLink="false">https://jeromewu.github.io/3-things-you-should-do-to-quickly-fix-your-problem-in-an-open-source-project/</guid><pubDate>Wed, 15 Jan 2020 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -339,7 +638,78 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
 &lt;p&gt;With enough information, the maintainers can start to find and fix the bugs without wasting time guessing your situation. Although it takes more effort from you, but it really saves lots of time comparing to leave insufficient information for the maintainers to figure out. I think it is a concept of “Help you to help me” and I recommend you to try to open a good quality issue and you will find your issue will be accepted and fix soon.&lt;/p&gt;
 &lt;h2&gt;One more thing&lt;/h2&gt;
 &lt;p&gt;If you still cannot get your problems fixed, don’t forget it is open source and you can always dive into the source code and find the solution all by yourself. It will take much more time, but you will learn a lot during the process, and don’t forget to create a PR if you have a good fix that can benefit others.&lt;/p&gt;
-&lt;p&gt;Although these 3 things looks fundamental to do, but sometimes the basic way is the best, hope you find it useful next time you have a problem with an open source project.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to use Gitpod in your create-react-app based project]]></title><description><![CDATA[Japanese Version (translated by Ryuichi Tanabe): https://qiita.com/baby-degu/items/bacf20f657625ae8747b Gitpod is a great online IDE and…]]></description><link>https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</guid><pubDate>Tue, 19 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;Although these 3 things looks fundamental to do, but sometimes the basic way is the best, hope you find it useful next time you have a problem with an open source project.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[WebAssembly & Transferable, a Perfect Match]]></title><description><![CDATA[Most of the time, we run WebAssembly code inside a Web Worker (or worker_thread in Node.js) to prevent blocking the main thread and…]]></description><link>https://jeromewu.github.io/webassembly-transferable-a-perfect-match/</link><guid isPermaLink="false">https://jeromewu.github.io/webassembly-transferable-a-perfect-match/</guid><pubDate>Wed, 15 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2db7bbefb97351eeae1f8781bbd8ae86/6af66/banner.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAABVklEQVQoz2P4TwFgGDjN6xZ+by/9vHHp92eP/k7v+NpZ/vnc8V/////9++3H/x8////79w+mFM6EMxiaiz4HW79L9H6fEfQh3uN9kMW7rat+/AfpRuj5CwZoDJDm3povce7vk3w+JHp9SPb5EOX4dveu//8vnf1b0fS/ufvf85ff//75D7bqz58/ED1ABsRyhs6KzzkRH5sKPlelf+qp+ZIT8nbbzv//N637y8DwX0j0//1HF25cP3bkyO7du0+cOLFnz56jR49u3Ljx4sWLQCMYOio+V6R+unX1z+HdP88c+bVs5tctK7+DnN05+f/GbSB7fv36/Pnz+/fvf/z48RkMPnz4ACSBljMA7UzwfL9q7vcl07/N6Pw6senLjrUofsYX2kf3/Fy76Nv6Jd83LPm+fun3lXO/3bn+GxROv34DPYdVDyK0KYpnoPOAwYmM/v2lSwoDABuCy0j56qlRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;banner&quot;
+        title=&quot;banner&quot;
+        src=&quot;/static/2db7bbefb97351eeae1f8781bbd8ae86/f058b/banner.png&quot;
+        srcset=&quot;/static/2db7bbefb97351eeae1f8781bbd8ae86/c26ae/banner.png 158w,
+/static/2db7bbefb97351eeae1f8781bbd8ae86/6bdcf/banner.png 315w,
+/static/2db7bbefb97351eeae1f8781bbd8ae86/f058b/banner.png 630w,
+/static/2db7bbefb97351eeae1f8781bbd8ae86/6af66/banner.png 640w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Most of the time, we run WebAssembly code inside a Web Worker (or worker_thread in Node.js) to prevent blocking the main thread and maintaining a responsive UI.&lt;/p&gt;
+&lt;p&gt;To communicate with Web Worker, we use &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage&quot;&gt;Window.postMessage()&lt;/a&gt; to send data from main thread to web worker thread. Sometimes you may need to send megabytes of data (especially for multimedia applications) and it will result in long data transmission time and even out of memory exception due to the nature of postMessage() is to clone the data from main thread to web worker thread.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 471px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f93256128919b517bfb99f789097d619/1f09d/basic.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.25316455696203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAAA/klEQVQoz82SS0rEQBCGc0Fv4Qk8w+ANXLgThFkNgitXs8wyEEIIIdkkIY8Ohrw6/cgk3foPYQZRRp1ZiLUoiu76qqr/aqOqqiiKHMcJgsC27TzPm6aZpuntYFpr+DAMLctyXRc5vu97nmeapsEYm+dZSgkAHqmc84/wwvd9P45SiJENQsqdUipJEoNSeiy/2FcYqejxaZaiKH4LD8OAwNzunh7Fy0b8DB8PAVO6h+9u2fVVu7rpERNyRuf92JsHsb7nz2v+HYwX1nVNCGnbFuvoug6C4UpwXb8q2qmTY4MEkGVZHMdpmmKRZVmiyuWCna22Phg+wqL2X3X+x/A7iRApmhbGKtkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;basic&quot;
+        title=&quot;basic&quot;
+        src=&quot;/static/f93256128919b517bfb99f789097d619/1f09d/basic.png&quot;
+        srcset=&quot;/static/f93256128919b517bfb99f789097d619/c26ae/basic.png 158w,
+/static/f93256128919b517bfb99f789097d619/6bdcf/basic.png 315w,
+/static/f93256128919b517bfb99f789097d619/1f09d/basic.png 471w&quot;
+        sizes=&quot;(max-width: 471px) 100vw, 471px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To solve this issue, you can use &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Transferable&quot;&gt;Transferable&lt;/a&gt; in postMessage(), simply pass second argument in postMessage() and you can get a speed up and memory saving without too much trouble.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Without Transerable, takes up to 2000 ms for worker to get data&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UInt8Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// With Transerable, takes up to 100 ms for worker to get data&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UInt8Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;buffer&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Check a demo in this repository: &lt;a href=&quot;https://github.com/jeromewu/web-worker-transferable-demo&quot;&gt;https://github.com/jeromewu/web-worker-transferable-demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As it is almost free to use Transferable and get speed up and memory saving in your application, you should start to use it in your application right now.&lt;/p&gt;
+&lt;p&gt;See you in next story. :)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to use Gitpod in your create-react-app based project]]></title><description><![CDATA[Japanese Version (translated by Ryuichi Tanabe): https://qiita.com/baby-degu/items/bacf20f657625ae8747b Gitpod is a great online IDE and…]]></description><link>https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</guid><pubDate>Tue, 19 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
