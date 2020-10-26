@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:39:28 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 26 Oct 2020 12:51:24 GMT</lastBuildDate><item><title><![CDATA[How to fix (80%) HiDPI issues in Gulliam OS 3.1]]></title><description><![CDATA[In 2019, I bought a Chromebook (HP Chromebook 13 G1, release on 2016) to be a lightweight laptop when I am out. I really enjoyed using…]]></description><link>https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/</guid><pubDate>Sun, 12 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -226,7 +226,120 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;For the source code of this experiment can be found in this repository: &lt;a href=&quot;https://github.com/jeromewu/npm-vs-yarn-in-cicd&quot;&gt;https://github.com/jeromewu/npm-vs-yarn-in-cicd&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to use Gitpod in your create-react-app based project]]></title><description><![CDATA[Japanese Version (translated by Ryuichi Tanabe): https://qiita.com/baby-degu/items/bacf20f657625ae8747b Gitpod is a great online IDE and…]]></description><link>https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</guid><pubDate>Tue, 19 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;Hope you find it helpful and if you have any ideas to experiment to speed up even further, please feel free to leave a response or create an issue inside the repository. 😄&lt;/p&gt;</content:encoded></item><item><title><![CDATA[3 Things you should do to quickly fix your problem in a open source project]]></title><description><![CDATA[As a developer, it is common to leverage open source projects to complete your application, and it is more common to find your requirement…]]></description><link>https://jeromewu.github.io/3-things-you-should-do-to-quickly-fix-your-problem-in-an-open-source-project/</link><guid isPermaLink="false">https://jeromewu.github.io/3-things-you-should-do-to-quickly-fix-your-problem-in-an-open-source-project/</guid><pubDate>Wed, 15 Jan 2020 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/caf3d38ad9999fc0cf767a457c2d2db7/6af66/banner.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAAB6UlEQVQoz2P4DwP/YIh4wADShqrjH4YBf//+/ffv318wQNEMVvnv579/9z7+v/72/7sf/9Gs//cPJxdo879r7/93nvzadPzXxAv/+8/8OPLsD9gAqLJfv37NmzcvLjY2IT5+1cqVIGGYfoYnn/+VbbnaMHfa5ANXJ1762bftUOvixTfefAO5FqyosKBAX1dXUV5eSVFRT1e3sb4ebj/Dmasnlx5etajWZ3Zp+I6Hxxa3RMypjzz2+NS/PyD7D+zfLysl9fTJk9+/fwM9fOnSJRkpqUsXL0ICguHI2aVb91c9PuJ991TIq8fJj86H3z4e+uRG4c8fb4EqOtrb7G1tkb0KtHzunDlAxp8/fxgKLn2JPbDz/x2dx5v0D9aoPdlk8P+m1p8brn9+fQGqWLFsmYqS0sWLFyHhfPToUTERkd27d0M1Z17/b7r7xv9zcjdnKlybonxrtvy/C0L/X3RBLHr37l10VFRIcPDHjx8vX7rEysLi6e4OcQWQZPj49//rNzf+Xwj+f8vg/33t//ds/j3v+f8XHGP/QLbdvn27rrb2E1Dz5cvJiYlPnz5FBBjUK39//fty9++XK/9+vgXH5l/kWAW6EJ48/iFH1T9QlPxFSRj//iBzIckLwkY2BZo8oUkbaASqNoIAALeCnbhEu9avAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;banner&quot;
+        title=&quot;banner&quot;
+        src=&quot;/static/caf3d38ad9999fc0cf767a457c2d2db7/f058b/banner.png&quot;
+        srcset=&quot;/static/caf3d38ad9999fc0cf767a457c2d2db7/c26ae/banner.png 158w,
+/static/caf3d38ad9999fc0cf767a457c2d2db7/6bdcf/banner.png 315w,
+/static/caf3d38ad9999fc0cf767a457c2d2db7/f058b/banner.png 630w,
+/static/caf3d38ad9999fc0cf767a457c2d2db7/6af66/banner.png 640w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;As a developer, it is common to leverage open source projects to complete your application, and it is more common to find your requirement unsatisfied or a bug stopping from fulfilling your goal.&lt;/p&gt;
+&lt;p&gt;Here are 3 tips for you to quickly fix problems in open source, it might be intuitive, but useful if you haven’t tried before.&lt;/p&gt;
+&lt;h2&gt;Check Documents&lt;/h2&gt;
+&lt;p&gt;Many open source projects comes with Wiki, an official website or a &lt;code class=&quot;language-text&quot;&gt;doc/&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;docs/&lt;/code&gt; folder inside the repository. These locations are the first place you should look for clues to fix the problem you faced, most open source maintainers tried to keep these documents update-to-date to make sure newcomers can find what they need without too much trouble.&lt;/p&gt;
+&lt;h2&gt;Search Issues&lt;/h2&gt;
+&lt;p&gt;Most of the time, you may not be the first one to face the issue if the use case you have is common, so don’t forget to search the issues inside Github or similar platform. And not just search open issues (default option in Github), but remember to check closed issues. It is a quick way to find some hotfix or even work around when your issues is not fixed by the maintainer so far.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/13efa231224e0b8cd736e0055c7a88a6/64a58/issues.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAp0lEQVQI1z2NawoCMQyE9/530GOI9xD8IwgiCOput23e3ZcjgjD5CEkm0wlrfT1keJpZrkwsovZjLmQelVjNWQwTZgWneVmWddu2rmIcDaXuOIU8mseX6KNNYJsmeMwdKETbvJ7ptr8fu/eQK8mYK2JxBXn8CHOzwNNwb8hHLIumXFzilK67y6Hrh/E9wMspV+T/VVlTIRAraCxUWPtURKMfi0qstn4AOW3kW4Jn7TMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;issues&quot;
+        title=&quot;issues&quot;
+        src=&quot;/static/13efa231224e0b8cd736e0055c7a88a6/f058b/issues.png&quot;
+        srcset=&quot;/static/13efa231224e0b8cd736e0055c7a88a6/c26ae/issues.png 158w,
+/static/13efa231224e0b8cd736e0055c7a88a6/6bdcf/issues.png 315w,
+/static/13efa231224e0b8cd736e0055c7a88a6/f058b/issues.png 630w,
+/static/13efa231224e0b8cd736e0055c7a88a6/40601/issues.png 945w,
+/static/13efa231224e0b8cd736e0055c7a88a6/78612/issues.png 1260w,
+/static/13efa231224e0b8cd736e0055c7a88a6/64a58/issues.png 1577w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Open New Issues&lt;/h2&gt;
+&lt;p&gt;Open new issues is the last thing you can do, but most of us may have experience that there is no response for days and feel like our issues are ignored by maintainers. It is kind of normal, but a little change can make the story different.&lt;/p&gt;
+&lt;p&gt;You have to know that maintainers are human like you and me, so they are unable to fix your issues if the information is not sufficient. I have been maintainers for open source projects for few years and there are more than 50% of the issues are poorly described and thus I was unable to fix without asking few more questions and it really takes lots of time for both sides to wait for replies from each other.&lt;/p&gt;
+&lt;p&gt;To quickly fix the problem, you have to open a good quality issue to enable the maintainers to understand your situation without too much effort. A good issues should include information like:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The scenario you want to achieve&lt;/li&gt;
+&lt;li&gt;The problem you faced (incl. error messages)&lt;/li&gt;
+&lt;li&gt;The code to reproduce the issue (IMPORTANT!)&lt;/li&gt;
+&lt;li&gt;Environment (incl. OS, the version you used)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f0ce5ce692c347fc95e74675e39ae90/60b6a/template.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 87.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAAsSAAALEgHS3X78AAABTElEQVQ4y5WT6ZKDIBCE8/4vuTFCPFDAqHjrfuhWuT+iJs2hpdVMT89wW5ZlGscgCH7A/Z6q7OVR2qKw1vZ9vxxgnuebJ09TqpSUT2Ns13W1c+zDMMDk1zVZKZWkaZ7rsiyNtW3XLVf4I4O2baEt8/I5djJZBo9HluWonVd8QSZsnCQccZLkYc5SSiFlGAqlsrquKyarrjnUP507NSzL4jiBsLndtG3TMJvGMfzrGTmKolAIrfWrLIuiIKCl0EVBwdnfWvC/VD5yCpRfKlVYwIzimEMuDEOqWkGGFJk5juPEYD+wcCc75ygV4ukTDCLNL9zewqKYtOFTcLQnSbqlQwudRa6qilS1NhyBQ6gdxhHn+xVvle9kdK5eqTzP2/VWgE87DHIoJAq3u+F7o6o/zVkIOuwphKCyfMXiy+A7OfNAsuZK0x4sYwzRz8m/IGcbTaZJdcMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;template&quot;
+        title=&quot;template&quot;
+        src=&quot;/static/3f0ce5ce692c347fc95e74675e39ae90/f058b/template.png&quot;
+        srcset=&quot;/static/3f0ce5ce692c347fc95e74675e39ae90/c26ae/template.png 158w,
+/static/3f0ce5ce692c347fc95e74675e39ae90/6bdcf/template.png 315w,
+/static/3f0ce5ce692c347fc95e74675e39ae90/f058b/template.png 630w,
+/static/3f0ce5ce692c347fc95e74675e39ae90/40601/template.png 945w,
+/static/3f0ce5ce692c347fc95e74675e39ae90/78612/template.png 1260w,
+/static/3f0ce5ce692c347fc95e74675e39ae90/60b6a/template.png 1559w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;With enough information, the maintainers can start to find and fix the bugs without wasting time guessing your situation. Although it takes more effort from you, but it really saves lots of time comparing to leave insufficient information for the maintainers to figure out. I think it is a concept of “Help you to help me” and I recommend you to try to open a good quality issue and you will find your issue will be accepted and fix soon.&lt;/p&gt;
+&lt;h2&gt;One more thing&lt;/h2&gt;
+&lt;p&gt;If you still cannot get your problems fixed, don’t forget it is open source and you can always dive into the source code and find the solution all by yourself. It will take much more time, but you will learn a lot during the process, and don’t forget to create a PR if you have a good fix that can benefit others.&lt;/p&gt;
+&lt;p&gt;Although these 3 things looks fundamental to do, but sometimes the basic way is the best, hope you find it useful next time you have a problem with an open source project.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to use Gitpod in your create-react-app based project]]></title><description><![CDATA[Japanese Version (translated by Ryuichi Tanabe): https://qiita.com/baby-degu/items/bacf20f657625ae8747b Gitpod is a great online IDE and…]]></description><link>https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</link><guid isPermaLink="false">https://jeromewu.github.io/how-to-use-gitpod-in-your-create-react-app-based-project/</guid><pubDate>Tue, 19 Nov 2019 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
