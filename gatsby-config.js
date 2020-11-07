@@ -3,9 +3,9 @@ module.exports = {
     title: `TechBlog`,
     author: {
       name: `Jerome Wu / Wen-Chieh Wu / 吳文傑`,
-      summary: `Personal writtings about software technologies`,
+      summary: `Mantainer of tesseract.js and ffmpeg.wasm. Here is my personal writtings about software technologies`,
     },
-    description: `Personal writings about software technologies`,
+    description: `Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies`,
     siteUrl: `https://jeromewu.github.io`,
     social: {},
   },
