@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 31 Mar 2021 03:39:14 GMT</lastBuildDate><item><title><![CDATA[FFmpeg.wasm, a pure WebAssembly / JavaScript port of FFmpeg]]></title><description><![CDATA[Official Website: https://ffmpegwasm.github.io/ FFmpeg is a famous framework/tool when it comes to video/audio processing, now with ffmpeg…]]></description><link>https://jeromewu.github.io/ffmpeg-wasm-a-pure-webassembly-javascript-port-of-ffmpeg/</link><guid isPermaLink="false">https://jeromewu.github.io/ffmpeg-wasm-a-pure-webassembly-javascript-port-of-ffmpeg/</guid><pubDate>Wed, 04 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 08 Jun 2021 06:21:55 GMT</lastBuildDate><item><title><![CDATA[Generics in Golang 1.18, no need to write max / min anymore (maybe)]]></title><description><![CDATA[One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two…]]></description><link>https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</link><guid isPermaLink="false">https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</guid><pubDate>Tue, 08 Jun 2021 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a00fb1c04f9a6674b58e9fc9569a7065/29114/golang.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAC4jAAAuIwF4pT92AAAB6ElEQVQoz22Sz08aQRTH+XN682h67NmTNw9N6gGDQsW6ak2JiTY16qlpbXpq0jY0mjYtta2iYKJBUBG2ruwPltmBxS7srPzYhh8hK7Dr4sIm+PPle3jz5vuZeXkzltad0HX9vqIp/fqupXVf6GpTUZRsvsCLSJJl5fxc17S7titYv9DqzWajXvfHwUIo6gjiTgI6mX/WfWJq9/B95ASKiMvlS9Vq29yFzWyLhcO/fNj6tjvBH2alVZpzUOlxig+LOSTLHhpYt/b6P32bC+FGUyZlMUlVVYc83p7JmdkD4sO75XKp1NK1tyfsq+29RdeLuqq2Go3XdLLP/eOJP4SKsjmaq5v/EOTj3chChJy0jyBJMirLJIf99r9ZWjTyWqX88i9jpdLfj/CbbXcGmC8URnHWTp96AE9n0c9E8pFt5MHD3q8U40sJS1HKEc/YYqkQ5A3zRQexdDNWyDwleSeUbCQ/RJ66AoHgynzg48znzS8DUWAHIgalwWPoiUPDrN2CE0LGQaZGgTiWyI4lz+zHwHcUDgZ2nocJ40Qnm3kGxMEYv0KDDnKzbUE6w2KpCShNANHQOIem8bjrgMA4ZFamODTMCKsM137WW+9cUxSvWPDKVW+xYmrjf81Qd7lZrKzly7FcsfPf2nEJjM0xfOb3Zt0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;golang banner&quot;
+        title=&quot;golang banner&quot;
+        src=&quot;/static/a00fb1c04f9a6674b58e9fc9569a7065/f058b/golang.png&quot;
+        srcset=&quot;/static/a00fb1c04f9a6674b58e9fc9569a7065/c26ae/golang.png 158w,
+/static/a00fb1c04f9a6674b58e9fc9569a7065/6bdcf/golang.png 315w,
+/static/a00fb1c04f9a6674b58e9fc9569a7065/f058b/golang.png 630w,
+/static/a00fb1c04f9a6674b58e9fc9569a7065/40601/golang.png 945w,
+/static/a00fb1c04f9a6674b58e9fc9569a7065/78612/golang.png 1260w,
+/static/a00fb1c04f9a6674b58e9fc9569a7065/29114/golang.png 1920w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two integers.&lt;/p&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;The root cause of the tediousness of this task is the lack of generics in golang which means you can not implement a max/min function which accepts both integer and float numbers. As the built-in max function is math package accepts float64, the common fixes that peope use are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write a wrapper function for math.Max or math.Min to do type conversion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;go&quot;&gt;&lt;pre class=&quot;language-go&quot;&gt;&lt;code class=&quot;language-go&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Write your own max function&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;go&quot;&gt;&lt;pre class=&quot;language-go&quot;&gt;&lt;code class=&quot;language-go&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; y &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; y
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; x
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You might think it is not too hard to implement any of the solutions above, but it is just a totally waste of time, especially when you are joining online contests or just practicing algorithms and data structure.&lt;/p&gt;
+&lt;h2&gt;Generics to the Rescue&lt;/h2&gt;
+&lt;p&gt;So with the &lt;a href=&quot;https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md&quot;&gt;new accepted proposal&lt;/a&gt; in golang 1.18, finally we can fix this issue once and for all (if the built-in math.Max &amp;#x26; math.Min is updated). A quick and dirty way can be done like below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;go&quot;&gt;&lt;pre class=&quot;language-go&quot;&gt;&lt;code class=&quot;language-go&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; comparable &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int16&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int32&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int64&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token builtin&quot;&gt;uint&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;uint8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;uint16&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;uint32&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;uint64&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;uintptr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token builtin&quot;&gt;float32&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;float64&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;func&lt;/span&gt; Max&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;T comparable&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y T&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; T &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;float64&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A working version &lt;a href=&quot;https://go2goplay.golang.org/p/_vWgGPiuyr_s&quot;&gt;HERE&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If similar code like above can be added to the built-in math library, we don’t need to do it ourselves anymore. I believe there are a lot more applications like this can make golang a more elegant and less-tedious language in the future. Looking forward to the release of this version next year. 😃&lt;/p&gt;</content:encoded></item><item><title><![CDATA[FFmpeg.wasm, a pure WebAssembly / JavaScript port of FFmpeg]]></title><description><![CDATA[Official Website: https://ffmpegwasm.github.io/ FFmpeg is a famous framework/tool when it comes to video/audio processing, now with ffmpeg…]]></description><link>https://jeromewu.github.io/ffmpeg-wasm-a-pure-webassembly-javascript-port-of-ffmpeg/</link><guid isPermaLink="false">https://jeromewu.github.io/ffmpeg-wasm-a-pure-webassembly-javascript-port-of-ffmpeg/</guid><pubDate>Wed, 04 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 256px; &quot;
     &gt;
