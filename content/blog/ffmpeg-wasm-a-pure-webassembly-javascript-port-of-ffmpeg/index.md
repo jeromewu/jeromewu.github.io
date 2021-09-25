@@ -17,14 +17,14 @@ In this post, I would like to share how to install and use ffmpeg.wasm and also 
 To install and use ffmpeg.wasm, you only need to use npm/yarn:
 
 ```bash
-$ npm install @ffmepg/ffmpeg
+$ npm install @ffmpeg/ffmpeg
 # or
 $ yarn add @ffmpeg/ffmpeg
 ```
 
 To use ffmpeg.wasm in node environment, you also need to install `@ffmpeg/core` .
 ```bash
-$ npm install @ffmepg/core
+$ npm install @ffmpeg/core
 # or
 $ yarn add @ffmpeg/core
 ```
