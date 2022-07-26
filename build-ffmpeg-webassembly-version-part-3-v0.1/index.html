@@ -51,8 +51,8 @@
 <li><code class="language-text">-s PROXY_TO_PTHREAD=1</code> : to make our program for responsive when using pthread (More details <a href="https://emscripten.org/docs/porting/pthreads.html#additional-flags">HERE</a>)</li>
 <li><code class="language-text">-o wasm/dist/ffmpeg-core.js</code> : rename ffmpeg.js to ffmpeg-core.js
 (From here we call it ffmpeg-core.js as we will create a ffmpeg.js library to wrap the ffmpeg-core.js and provide user friendly APIs.)</li>
-<li><code class="language-text">-s EXPORTED_FUNCTIONS=&quot;[_main, _proxy_main]&quot;</code> : export main() and proxy<em>main() (added by PROXY</em>TO_PTHREAD) C function to JavaScript world</li>
-<li><code class="language-text">-s EXTRA_EXPORTED_RUNTIME_METHODS=&quot;[FS, cwrap, setValue, writeAsciiToMemory]&quot;</code> : extra functions for manipulating functions, file system and pointers, check Interacting with code and preamble.js for more details.</li>
+<li><code class="language-text">-s EXPORTED_FUNCTIONS="[_main, _proxy_main]"</code> : export main() and proxy<em>main() (added by PROXY</em>TO_PTHREAD) C function to JavaScript world</li>
+<li><code class="language-text">-s EXTRA_EXPORTED_RUNTIME_METHODS="[FS, cwrap, setValue, writeAsciiToMemory]"</code> : extra functions for manipulating functions, file system and pointers, check Interacting with code and preamble.js for more details.</li>
 </ol>
 <blockquote>
 <p>For more details about these arguments, you can check src/settings.js in emscripten github repository.</p>
@@ -117,7 +117,7 @@ emcc <span class="token string">"<span class="token variable">${ARGS<span class=
 <p>With <code class="language-text">-hide_banner</code> argument, ffmpeg hides details about its version and build arguments, a typical output looks like this:</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Hyper fast Audio and Video encoder
 usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
-Use -h to get full help or, even better, run &#39;man ffmpeg&#39;</code></pre></div>
+Use -h to get full help or, even better, run 'man ffmpeg'</code></pre></div>
 <p>To begin with, let’s create a file called <code class="language-text">ffmpeg.js</code> with following code:</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> Module <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./dist/ffmpeg-core.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -125,13 +125,13 @@ Module<span class="token punctuation">.</span><span class="token function-variab
   <span class="token keyword">const</span> ffmpeg <span class="token operator">=</span> Module<span class="token punctuation">.</span><span class="token function">cwrap</span><span class="token punctuation">(</span><span class="token string">'proxy_main'</span><span class="token punctuation">,</span> <span class="token string">'number'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'number'</span><span class="token punctuation">,</span> <span class="token string">'number'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
 <p>The execution of the code above requires extra parameters in Node.JS:</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">$ node --experimental-wasm-threads --experimental-wasm-bulk-memory ffmpeg.js</code></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">$ <span class="token function">node</span> --experimental-wasm-threads --experimental-wasm-bulk-memory ffmpeg.js</code></pre></div>
 <p>Explanation for the functions:</p>
 <ul>
 <li><code class="language-text">onRuntimeInitialized</code> : as WebAssembly requires some time to boot up, you need to wait for this function to be called before using the library.</li>
 <li><code class="language-text">cwrap</code> : a wrapper function for the C function in JavaScript world. Here we wrap proxy_main() / main() function in <code class="language-text">fftools/ffmpeg.c</code>. The function signature is <code class="language-text">int main(int argc, char **argv)</code>, it is straightforward that <code class="language-text">int</code> is mapping to <code class="language-text">number</code> and as <code class="language-text">char **argv</code> is a pointer in C, we can also mapping it to <code class="language-text">number</code>.</li>
 </ul>
-<p>Then we need to pass the arguments to it. The equivalent argument for <code class="language-text">$ ffmpeg -hide_banner</code> is <code class="language-text">main(2, [&quot;./ffmpeg&quot;, &quot;-hide_banner&quot;])</code>. The first argument is easy, but how can we pass a string array? Let’s decompose the issue to two parts:</p>
+<p>Then we need to pass the arguments to it. The equivalent argument for <code class="language-text">$ ffmpeg -hide_banner</code> is <code class="language-text">main(2, ["./ffmpeg", "-hide_banner"])</code>. The first argument is easy, but how can we pass a string array? Let’s decompose the issue to two parts:</p>
 <ul>
 <li>We need to convert string in JavaScript to char array in C</li>
 <li>We need ot convert a number array in JavaScript to a pointer array in C</li>

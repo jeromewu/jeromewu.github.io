@@ -95,7 +95,7 @@ $ <span class="token function">yarn</span> <span class="token function">add</spa
 <blockquote>
 <p><code class="language-text">yarn install --frozen-lockfile</code> is similar to <code class="language-text">npm ci</code></p>
 </blockquote>
-<p>For all of them, I add <code class="language-text">&amp;&gt; /dev/null</code> to remove stdout output and the execution time is averaged from 3 times of execution. (As the execution time is pretty stable, I believe 3 times is good enough)</p>
+<p>For all of them, I add <code class="language-text">&amp;> /dev/null</code> to remove stdout output and the execution time is averaged from 3 times of execution. (As the execution time is pretty stable, I believe 3 times is good enough)</p>
 <p>Let’s start the experiment and see where we will achieve. 😃</p>
 <h2>Parameters</h2>
 <p>There are 4 parameters we are going to tune:</p>
@@ -147,7 +147,7 @@ $ <span class="token function">yarn</span> <span class="token function">add</spa
 </blockquote>
 <h2>Observations</h2>
 <ul>
-<li>Always remember to disable the output of installation with <code class="language-text">&amp;&gt; /dev/null</code> as stdout is pretty time-consuming</li>
+<li>Always remember to disable the output of installation with <code class="language-text">&amp;> /dev/null</code> as stdout is pretty time-consuming</li>
 <li>Although local registry can guarantee the stability of downloading modules, it is not recommended to modify lock file to gain this benefit as the side effect is huge.</li>
 <li>The speed of <code class="language-text">npm ci</code> is stable across different configurations, but <code class="language-text">npm install</code> can be faster with <code class="language-text">--prefer-offline</code>.</li>
 <li>The speed of <code class="language-text">yarn install</code> and <code class="language-text">yarn install --frozen-lockfile</code> are NOT different at all.
