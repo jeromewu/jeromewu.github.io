@@ -4,7 +4,7 @@ date: "2020-11-04"
 description: "Introduction to ffmpeg.wasm and technical details behind"
 ---
 
-![](../../assets/ffmpeg-wasm-logo.png)
+![](./ffmpeg-wasm-logo.png)
 
 Official Website: https://ffmpegwasm.github.io/
 
@@ -55,7 +55,7 @@ const ffmpeg = createFFmpeg({ log: true });
 
 Also you can try the live demo session in the official website: https://ffmpegwasm.github.io/#demo
 
-![](../../assets/transcode.gif)
+![](./transcode.gif)
 
 # Behind the scene
 

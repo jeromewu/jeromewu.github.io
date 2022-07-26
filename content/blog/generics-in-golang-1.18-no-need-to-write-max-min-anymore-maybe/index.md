@@ -4,7 +4,7 @@ date: "2021-06-08T12:00:00.000Z"
 description: "What can we do with generics?"
 ---
 
-![golang banner](../../assets/golang.png)
+![golang banner](./golang.png)
 
 One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two integers.
 

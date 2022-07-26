@@ -4,7 +4,7 @@ date: "2019-10-13T00:00:01"
 description: "A series of tutorials of using Emscripten to build ffmpeg"
 ---
 
-![](../../assets/ffmpeg-wasm-cover.png)
+![](./ffmpeg-wasm-cover.png)
 
 > From here, things are going to be more complicated and hard to understand, you may need to google background knowledge if you don’t know what happened (or you can leave responses to ask me).
 Also, to make this tutorial more usable, I try to write down the details of how I solved each issue, hope it will help you in building the library of your choice.

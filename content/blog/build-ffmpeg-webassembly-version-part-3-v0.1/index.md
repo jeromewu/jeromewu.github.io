@@ -4,7 +4,7 @@ date: "2019-10-21"
 description: "A series of tutorials of using Emscripten to build ffmpeg"
 ---
 
-![](../../assets/ffmpeg-wasm-cover.png)
+![](./ffmpeg-wasm-cover.png)
 
 In this part you will learn:
 1. Build a library version of FFmpeg with optimized arguments.
