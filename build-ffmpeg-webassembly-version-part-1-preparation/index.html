@@ -92,8 +92,8 @@ NOTICE
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">$ <span class="token function">bash</span> build.sh</code></pre></div>
 <p>To build with Docker, create a file called <code class="language-text">build-with-docker.sh</code> with following content:</p>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash -x</span>
-docker pull gcc:8
-docker run <span class="token punctuation">\</span>
+<span class="token function">docker</span> pull gcc:8
+<span class="token function">docker</span> run <span class="token punctuation">\</span>
   -v <span class="token environment constant">$PWD</span>:/usr/src <span class="token punctuation">\</span>
   gcc:8 <span class="token punctuation">\</span>
   <span class="token function">sh</span> -c <span class="token string">'cd /usr/src &amp;&amp; bash build.sh'</span></code></pre></div>

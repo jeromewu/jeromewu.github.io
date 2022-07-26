@@ -95,8 +95,8 @@
 <h2>Advanced Configuration</h2>
 <p>An advanced scenario is to use puppeteer for end-to-end testing in your create-react-app, by default some dependencies used by puppeteer is not installed in Gitpod default work space image (gitpod/workspace-full). So we need to extend the Docker image to make it work.</p>
 <p>Add <code class="language-text">.gitpod.Dockerfile</code> in your repository:</p>
-<div class="gatsby-highlight" data-language="dockerfile"><pre class="language-dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> gitpod/workspace<span class="token punctuation">-</span>full
-<span class="token keyword">RUN</span> sudo apt<span class="token punctuation">-</span>get update &amp;&amp; sudo apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y libgtk<span class="token punctuation">-</span>3<span class="token punctuation">-</span>0 libx11<span class="token punctuation">-</span>xcb1 libnss3 libxss1 libasound2</code></pre></div>
+<div class="gatsby-highlight" data-language="dockerfile"><pre class="language-dockerfile"><code class="language-dockerfile"><span class="token instruction"><span class="token keyword">FROM</span> gitpod/workspace-full</span>
+<span class="token instruction"><span class="token keyword">RUN</span> sudo apt-get update &amp;&amp; sudo apt-get install -y libgtk-3-0 libx11-xcb1 libnss3 libxss1 libasound2</span></code></pre></div>
 <p>And update <code class="language-text">.gitpod.yml</code> to use our <code class="language-text">.gitpod.Dockerfile</code></p>
 <div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">image</span><span class="token punctuation">:</span>
   <span class="token key atrule">file</span><span class="token punctuation">:</span> .gitpod.Dockerfile
