@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TechBlog]]></title><description><![CDATA[Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 26 Jul 2022 05:01:25 GMT</lastBuildDate><item><title><![CDATA[Generics in Golang 1.18, no need to write max / min anymore (maybe)]]></title><description><![CDATA[One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two…]]></description><link>https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</link><guid isPermaLink="false">https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</guid><pubDate>Tue, 08 Jun 2021 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 26 Jul 2022 06:28:52 GMT</lastBuildDate><item><title><![CDATA[Generics in Golang 1.18, no need to write max / min anymore (maybe)]]></title><description><![CDATA[One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two…]]></description><link>https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</link><guid isPermaLink="false">https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</guid><pubDate>Tue, 08 Jun 2021 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
@@ -11,7 +11,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAC4jAAAuIwF4pT92AAAB6ElEQVQoz22Sz08aQRTH+XN682h67NmTNw9N6gGDQsW6ak2JiTY16qlpbXpq0jY0mjYtta2iYKJBUBG2ruwPltmBxS7srPzYhh8hK7Dr4sIm+PPle3jz5vuZeXkzltad0HX9vqIp/fqupXVf6GpTUZRsvsCLSJJl5fxc17S7titYv9DqzWajXvfHwUIo6gjiTgI6mX/WfWJq9/B95ASKiMvlS9Vq29yFzWyLhcO/fNj6tjvBH2alVZpzUOlxig+LOSTLHhpYt/b6P32bC+FGUyZlMUlVVYc83p7JmdkD4sO75XKp1NK1tyfsq+29RdeLuqq2Go3XdLLP/eOJP4SKsjmaq5v/EOTj3chChJy0jyBJMirLJIf99r9ZWjTyWqX88i9jpdLfj/CbbXcGmC8URnHWTp96AE9n0c9E8pFt5MHD3q8U40sJS1HKEc/YYqkQ5A3zRQexdDNWyDwleSeUbCQ/RJ66AoHgynzg48znzS8DUWAHIgalwWPoiUPDrN2CE0LGQaZGgTiWyI4lz+zHwHcUDgZ2nocJ40Qnm3kGxMEYv0KDDnKzbUE6w2KpCShNANHQOIem8bjrgMA4ZFamODTMCKsM137WW+9cUxSvWPDKVW+xYmrjf81Qd7lZrKzly7FcsfPf2nEJjM0xfOb3Zt0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAC4jAAAuIwF4pT92AAAB5UlEQVQoz22RXWvTUBjH93W88FPo9RD0RhniBg7XpXWLV5vMixaUMXReOFCQsWJZ643I2EUJUlPXNtqXvJmXnjQJWZI2XZVkUtPZ5m20hWytey4O5znn/P7/53nOTPBf+L7v+b4XpkHg+YHnX0T4cmaauXQ3sG371HLPeqFKuE7DYcjtkzTJbpapBMHHaXH9B/2ihGf5hm3b3b+2M+hPwGMxptnaLpOvvxa2vhO7BBsvUw+Z4yX2OCkoqCi/wmpwFoUOkPc12nOcCWfXdaIHyPUn6ys5LIei3mDg9uznlZ/xXPEws+/5vnPWSxD1Gzu7c0hR6/wat3lR9k6+dPtTdrtC3b01C2Q5CIKkqMZzhdjCg77jBv1/L3F2vlp/g5Y8171U9mhIxkkHqnAxQkBI+tSyqrpx82ni2uwdBEiKaaUIZpmSHlEi1pCC4fz9CRioWpQSIdCCCAHGwQaa39uKvV279+4wNVeklxhltWHM18BnrjFsM4THMpyiQqS4ApqrdT0mdeAyhVfzPPZl8+jbY8GAgQYDfYEUMwy4wlnS9AghROr6MqtCnLrIamsF/BlytMhqEU6LcGqU1+7TcpLmh/DUV/3pdveVVrptpQ0zbZgZw0wZ5ofRZnzysW3uNX9jujG0G8Hnavoy0nFD7PIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -27,6 +27,7 @@
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -76,7 +77,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAJ17AACdewE8n3fEAAACtUlEQVQ4y4VVTUwTQRTetjc1ROPfRU6N8ejdiwc9lh3aUkRjAgndwrZrW8FqQUQl1L/Ei8bEm3ej4ejNhJvRKHjybLSJgYRZ4j8Uhu/Nvt1sl5Ju8uXNzrz59pv33rw18qY06CELJCzhJsI2up43XazJqE/M9zHaBns8tAGbY1182gewhwAHG6dgb0DFDGwB2B/alIPCm3khaxjX4TsNOwEc8z+sj8Ev5euXlXJyShWzLWVn/qvqBaUwP8Trd2m+OqRUedDzGU//VZOXtM8s+VjEFTp/ErgHLGKhZWc2yPFdPrUWz0NJKbutxtJ/MOe+wPxrYNN7l1+Bk4FCHvgqTwBfruT0Vz/orwr3GpEVs1vKMt0S+711BsjHbQJJnosbYVbYU8BKxTvmez0n3JpPho3OiFiJY22JQ9EkAX58C2LdiKqbYrKPAdmA8smKw+YqkS1XBrXPN+AwkOIjnw9UUi3x0WoUcGx+jLHtMJmllWmyJSYjZUeQ6VSh/5efuEfMkQgrrJd0XOQPS6wrGlPMRtqVfdfKhDTH0/8U+dmZTVi30UlhnTKL+tsuZZWnzNyljMhSRMYZXtXJEbLRSeEs1Rd/scTHjCrrIyLyw3gO4bk9eVGR/51AoZ9u2LN0XKDYURkSMNb/W3FJPfX2uG+u6rjLB4FCeuz0z+BOjppr+0iZl6CAzIySYfNC2fvgBnAmWoueSiEPAp8dvdFdHu2TPfqYPpmQT7ikFugdN6qJWJ8Ol1+4sI8CnyjgsC0QvtRXUcgWK3vGfq/oHiN5W/BZxDs1imSn5lCli06ZpttB9TWBgDPZc/Y5R3OUOKpRWpse3rs5HAdmEJv7sA0szuE41CzsUPs6AFTg8xB2HnYe9hbQG20ORrcncO62HmqwMQSb2nqc2rzf4q1dvwE3/JuI8+8g+AXsAHjhl9WKZGm7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAJ17AACdewE8n3fEAAACnklEQVQ4y3VVv2sUURDeu03hz1IsUqmFhaUWSVqRoMjMBbTTBMNMLlxU7CKCGNNYCFFzGgP5A6JC8C+IYmFjbRNFOyshMxcRISaezHuzm3eXu+Lxdt/M+/abb35sRqgZgdiqEGrOIDmB5IwadreFZWeMkjNoX5+MoATMDJz9A8VOGGzVBHS/TyegVPzlNIEsMGqTQBcZ5SWBzBLIEbcbk3sM2mSUZwTSZNQXBPKIQI4XUWYJ5ccE0ibUtu3sO4EMu32NUPxsn89k8dGU4QkCuU0gHxnknwMvc01Nijf+sd8EepdA3hLIrgO+S6LIoiZRZDs4TyCb7rjiOq0yGpsAMEwog4TyzX3eT17WgTKprmEh+MUkjJUouL7iGOYOgY4QyClC2SqYjY9uVgg2B+qo2eyVP1mjtpV5KYRsLbnjasy8vuYQZgAbCmBQgq1P17bszgMC+UUgI06qamWRW2kw6hMX/D6jLrnYOyHMyKxVMJseM13lYRLRHTZ5QC0poVjNoenZEw/TnIe6wlx3sHm37/reCA2CATCWDaMuRmMJ1o/ZXCwf3SaQHxxJNLwB8lTDZb+404tZvWBmGY/aXiXQ5wbIqHXvoDzN8iiBfPZCtgSUzOpjLbPPmSQctR0nkEMEuuFaN8rCNuSpWivt0TMdmsVszlNkYmcTDHKQUb/4+3cCGSxbj+NwqPogOBc0i7qs1RPNwmXUcUY9QKhfg84gnxj0aNLrmV2ouKBnky7ZJtC1on89TIphyob7/CXQDwTylEBO9hkO2vY2a4dM7jX/Lfe50TEU9uwT6XAo1jECmWLUmwQyw6B1B7pgNTZ56af5HCaQ64xqQ6TBqDMEcs2Zl/Mw65rKcU+fUSs9ffoM2CyZFulYL56rXZdKn16/gP/hzih9BLDCJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -88,6 +89,7 @@
         sizes=&quot;(max-width: 256px) 100vw, 256px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -121,7 +123,7 @@ $ &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=
 &lt;p&gt;Don’t forget to add &lt;code class=&quot;language-text&quot;&gt;--experimental-wasm-threads&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;--experimental-wasm-bulk-memory&lt;/code&gt; when executing the script in node.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Also you can try the live demo session in the official website: &lt;a href=&quot;https://ffmpegwasm.github.io/#demo&quot;&gt;https://ffmpegwasm.github.io/#demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/815f07c1293ede899b156c597e324ed6/transcode.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/815f07c1293ede899b156c597e324ed6/transcode.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1&gt;Behind the scene&lt;/h1&gt;
 &lt;p&gt;To fully utilize/understand the power of ffmpeg.wasm (also for most WebAssembly libraries), few technical details you might want to know:&lt;/p&gt;
 &lt;h2&gt;Inside ffmpeg.load()&lt;/h2&gt;
@@ -129,9 +131,9 @@ $ &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=
 &lt;ul&gt;
 &lt;li&gt;Download ffmpeg-core.js from remote server (which is around 25MB)&lt;/li&gt;
 &lt;li&gt;Instantiate ffmpeg.wasm wasm code&lt;/li&gt;
-&lt;li&gt;-
-Depending on your network speed and host machine hardware, this operation can take up to minutes to complete.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Depending on your network speed and host machine hardware, this operation can take up to minutes to complete.&lt;/p&gt;
 &lt;h2&gt;File System (FS)&lt;/h2&gt;
 &lt;p&gt;When you check the API of ffmpeg.wasm, you may find an API called ffmpeg.FS() to handle File System operations. (In ffmpeg.wasm we use MEMFS / Memory File System) You can imagine this FS just like a hard disk where you can put the input file and pull the output file from ffmpeg.wasm command. It is essential as we want to keep minimal changes to FFmpeg source code and reserve its maxium similarity to original command line interface. Some command operations you might use:&lt;/p&gt;
 &lt;ol&gt;
@@ -167,7 +169,7 @@ Depending on your network speed and host machine hardware, this operation can ta
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAACqklEQVQozwGfAmD9ADNIVSs5QiczPDA7RDNASWKJo36uz3upyXyry32rzH2szH6szHyry4ayz4m00Hqqy6jF3Oft9Nvl79/o8AAqPko7U2M9UV5EWGdJVmBZanN9qsd7qch+q8p+rMt/rMx/rcyArMyArcyCrs2UudPw9fj3+/7h6fLg6fEAERcbHSkyL0BLLzxDKjtHXWx2gJ+yfK7OearKeanJeqnKe6vMfKvMiLLPxdfl4+zz////9/r84Ojw1uHrAB4qMhoiJxQaHRojKBkhJhkhJjpESlNreoWqxIqyzomxzo610YOuzMPW5v////L3++3z+evx99zl7c/a5QApO0owQ1AsO0UuPUgxRVIsPEUdKzSSmqTp7fPs7O7r7O/u7/Db4enw9Pj4/P3v9Prl7fTb5O3T3ebI098AHyw2LUJRNEpaOUpWLkFOOVJiMkhXr7a7////8fL09PX29fb29/j49vr97PL49fn83+fvxdLew8/bv83ZAAwPEBQbICMyPC89RiApLRgjKyAyPa+ztv////j5+/n5+vj4+fL09ujv9+Dp8dni68rV4LzK17nH1LzK1gAbJCsWGh4PFBYQFxohLzgaIycOFBdNVlx8ho1tdHqBiZCUm6Hg4uX3+v3U3ujI1OC9y9e6x9XE0NvBztkAIDA8KDdCKjhAIiwyJjZAL0FPLz9LJTM9JztKLUBNO09dTF5rtrzA/f//3ObvxdHduMbUxM/aztfiw8/aAB4uOik5RjFEUjFCTDVFTy0+TDNJWDZIUzJCTDZMWkFTYDNDTlhkbIiOlbjAyc/a5sfS3svU38jS3b/L1wAaJiwkMjstQE0vQU0tO0EcJCggLTcwQEwpNDoSGR0lMDclLzYYICY4Q0lWYWnFz9nT3ObL1N7Q2eLAzNfzDW3MOD6ttAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9ADNIVik3Pyk2PzE8RDZETmSMp32szXupyXyry32ry32rzH6szHyry4izz4q00XyrzLbP4efu9Nvk7t/p8AArP0s7VGQ+Ul9FWmhIVl9gc35/rMt8q8p+rMp+rMt/rMx/rcyArcx+rcuCrcyev9f4+/z2+fzg6fHh6vIAERcaHSoyMEBKLDhALD1JYXF6gaO3eq3OeKjJeKjJeKnKe6vLeqrLjrXRzNzo5+/1////9fn83ubv1uHrAB8rMxohJhQbHhskKRkhJhoiJzpFS1lxgoqvyY2zz42zz5G30oevzdDf7P////D2+uzy+Onv9drk7M7Z5AApO0oxRVMtPEYwQE0xRVItPEYhLzmnr7jv8fXw7/Dw7/Hy8fHf5Ov1+Pv2+/3w9Prj6/Pa4+zR2+XH094AHyw2L0RTNktaOUpVLkFOOFFhNUpZw8jM////9fb3+Pj5+Pj4+fr69vr97fP49fn82+Ptw9Ddws7avszYAAwPEBQbISQyPS49RR0lKRgkKyQ0P8PFyP////n6/Pr5+vj4+vH09+fu997o8Nbg6cjT37zJ1rnH1L3K1wAbJCsXHCAPExUSGRwhMDkaIygQFhpQWWBxe4NkbHJ6hIuRmJ7l5+r0+PzS3OfH09+7yda7yNXH0d3BzdkAITE9KTlEKjhAIi0zKDhDL0NRMD9LJTM+JztLLkFPPFFeTmFtwcfK+v//2uTuxNDcuMbTxtHcztfiws7ZAB8vOyo7RzFEUTBBTDRFTiw9TDRJWDZGUTJBTDdLWkBSXjJCTVxnb4eOlLrDzM7Z5cjT3svU38jS3b7L1gAZJSslND4tQE0vQUwsOD4aISYgLjcwQUwnMDYRGBwlMDgjLTMcJCg6Rk1daHDK1N7R2+TM1d/P2OK/y9d2Pm/oVuWc5wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -181,6 +183,7 @@ Depending on your network speed and host machine hardware, this operation can ta
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -226,8 +229,12 @@ xfconf-query -c xsettings -p /Gtk/IconSizes -s gtk-menu&lt;span class=&quot;toke
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Work in Progress&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Lightdm&lt;/li&gt;
-&lt;li&gt;Xscreensaver&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lightdm&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Xscreensaver&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Extended Monitor (hard one)&lt;/p&gt;
 &lt;p&gt;Hope it helps someone to save some time.(like 2 days. Lol)&lt;/p&gt;
@@ -245,7 +252,7 @@ xfconf-query -c xsettings -p /Gtk/IconSizes -s gtk-menu&lt;span class=&quot;toke
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAABnElEQVQoz42Rz0sCQRTH/Zs6SMcID0JBlw568piR527dO8gu+CN1g9aD4BJBBz1Um1IgghB1CPshNWtprpGzpqvuursz2+jaD/BHPobhMbzP933fG5tpBcbk0gShQdMSw0jhMAyFSAKDQRiJDJJAoHd9PahEyPwO24g1DHI34/Gaz9c6PCw7HFIsVt/efl1f/0wkmixb29z82N39qZwEs2zr6Eja2xO9XvXuruH3S9GonE43KErc2iJys+D28XHF5XpdXQV2eyebfdvYKK+sVN3uF6fzeWFhKjyS0DS1WNQqFUjTVY8HUhQWRfXhoQ+ABgCS5Z/tTIB/VUxTx7ij621FMafHGIyJL4QQ5jiO8vv3GQaTVuSQJf/pORkmpWj4GTzPp1KpZJJTVBUP3//pbBUAKJ88inJft/zPZRsN0fv31jJzuRjKeLgC7CrNnkq0BNjp62gWbKABzBSAPZhZi+eWohfxK3BQeIrkHyP5UrHeNMfMj3dur7E5e+B85/T2pirxJVEzULevK7ox18yC1Dkr1aUecYott9Mm/wJQaby0ZjuHvAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVQoz4WRzUsCQRjG/ZsMhOjQVQQj6NAlxIPgpYtHr36AhVArCltYLUZ4kMSDR/ugUgsiksiwSPKjdXXV3VU3XXdm3tANobJ8GGbgnef3fszoQBPGADDI53mXqxUI8B5P0+9vbm833O7m1tYo4vXKFxcTpyaddhCEAEBgGM7p7CSTZaNRjEQ4p7NqtXYSCTEa5RyOps83cU6D9/elWKxFUazdrhQKLYpqBYNSIsFvbLA2W5um/4O7yWRlZaVsNr/q9VI8XrVY3kymyupqyWQqGgxCODwd/kqBsVqtIlEUGYZbX5cYBmR5yLJqo4F4nigKfJcOpokAfKgq3+mwPA9/6xdMCEIICDmKHPo3N2maJhgDIV9rZmU8/oxMOp1KnRzH4/2BQkY5yYzKmuGhJkbvyw1ZmURmt43Hxrt3YT50agiklpmritDjJDnHtnOs0FNU7S2mwwiPrnZvinNUaungapE+37t5pTOFnezzbvblsSbAr+Z/Vi4J8lr0eiF04jt7ytfFy2IdABSEh3jmzOO93u3fVtqyomJC1DFD/hj9E7qqvOd3JV86AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -259,6 +266,7 @@ xfconf-query -c xsettings -p /Gtk/IconSizes -s gtk-menu&lt;span class=&quot;toke
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -351,7 +359,7 @@ $ &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 143.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAIAAAAl5NuSAAAACXBIWXMAAAsSAAALEgHS3X78AAAD20lEQVQ4y4VVS28bVRTOj2CDECx4bBCCFV0UEN2wqpAQvwDURVf8gQoVIlpUUrpgAX2AWqpGVqHNy484mCYNaV5+Tsb2+O14bGc8Hsfztj3ve7jxOI4TnHA0ujr3zv3ufOd859yZAADLsmzbtvpm9s31HceBviGETjiuTeC5JEmqquKx0+mIgqDIA9N0DY4ZOj6Fif55B56gOqKsGEK7125b+n5X4uSO2lL2FUmWFVmSFVNqqhKvKOox8NAwS+fw9AFDZCHbtE3DsUxkG7ZljsYyAGuaJoh8KV8Jetb+frIZ+mN9OcysZrvPcg7THeE9EvMRuMk2YolUdG02cOPVwNSbgR9eX5r+ODR/kSUeITqGKmGoRoAOo057GPwRGCdMECWRb0mNtMrlVS4nVeJyMWyUtqGyhXY38Qi7G0hpjQHjSDA2nyn4Hv4V9CwvTodCkXqo0FtnHH0ky6PpPgI3GnuRGBlff7py86WVW6+s/Pjy6u/vrj/90CDuQG4JUQGggpDyovrOGLCu671eF8sgCJIiq7KsCiwnVmsKnZd3qS5NQTMLbNoR906CMWdcIbwgFKjM/M/3/Pfu+365G5gPhDL0P7T1vApkG5xDLU+CDcMoFHLReDIZXojcfi1y963InTciD99JLFwwqQdQ9qHMPOYMxAzi8mNoD9TWbYazWwJwPLCs3qypTLnOlCs9lgahBnwFdYWTYNwVqqI0mk0qEZu58fXcrcm5qave2ekgEd2omJE9EE0Ep9HG2SqXSwSZzSSCxPR7hOcc4XmfeHI+6fvEIn+DzByQM7AzA+Qsij+GdmWAdZyJUQG7GioxUGtBlQOaBZoBVZCdDo8f6An4Oagw2zgZs6HrxfJufOO59/vLvqmv/NcvBx9de0YsCp3eAdujfh5XJKLAU5liIb1KBT7NLH6WWrmUKN8n638apuRqeVZjuFNJNnNlKNDQ4hBODvpPM40BY515vl0sV8itZe/kxYVrn5emf7UyqQM4cnvg9C/j66rV4oqlKl3czq9+WVy9ZHAbeBdyrGEDnUXbXVQVmyScdApkxgITjdA+/TLAOjPMHpnOxtb83m/OLUx+tHnzA8r/RY78trOfAE1xcGFpEmgi0jvjG6NeZ5lashC9Uk5MZiLXyReT5MoVOfIAkl5EzuMR1wmqxk6lLfJaYsPY2TbFkgQMh+TuYNcZMePbj2uyZCobf+Hzf/d2aOrC/pJH31o3itlBrs/W2TB0rtVuMoVC9Kda4rbNJkYT9T/ZHpJ3FcUvTE1zwXbfDr9huHjMBQs8MXoSXsL/LDxgdwhw+ub6w0W8Gfv/Akz7O2dJU/F3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 143.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAIAAAAl5NuSAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAElEQVQ4y32VS28bVRTH8zFgwQZVQixQNghFSCxQFwhUAeITwAIkFixYsigpIqICBGpBggZoKGqbNE1q5x1EnJBAW4d4/Mj4ETtO/B6/Zjxvj+fO3HMP8iOOCW6uRqN7Z87v/P9z77l3RhhjhBDXdQkhjuPYtk06PUIIpRTPbSMAoGmaaZqK2rnLsqHruq5qmtqybTYYywDZfx6M9HuyQTVdJ7JoyTK1RVMVNdOo65KuarquqZrmqlVdlQ3DHAIjImXtq62BCKwtA5QBdRl1ESgCBYBTH4z14KbZrNXriUhs+ee59d8W1m55/3h84IuWN1O01jrNDgO2T+FSsbDHRbntOxvfPOW7fsF37dmtu2N/eS7q4ZuY2mIHG5j0YXKDGSL2nJ3AjDHLskzT1FRVFRumohmyqpUELV8wcwko8UzgsRzFMg+WNkTZdd1qrbYf4DzfTy5NTi3euLn2iFuP5fYEcLpCXduDc9+Hi4V8IBTbfzTj/+EZ/0/P+yef251+MeR9FSKTGPMiP48RD4ZmoRgeqkxdh+iGXZNAVrGhoFh1RKFZzZUq2ZxSyqFcwEYezMZZ2HXder1ertb4wO79L8c917548NUV7+yt1Uj47yzdyeJBo+d8iG3bttPpVJhPJgKe0O0XwjNj4emXQrNjseXXIf4rHs4jfx/D8xiYgXp6iO1u4qbFchUUJCyJWKxgsczSWTWdkZqKjJaCTRmc1lnYcRxJErP5Yuihb+6zd71XP/RMvL84/+3vgbVgzo4KaDpPLhJCSDabiR8cp/n12MLF+Mqb8eVLsaU3UqvvQPgX5O9hcBq5GeTusb07qBR7KMCJ7U5GRaPxDKaLeJjHVAHTAhoGAWKBY6HbQrcFpNneW31l1uFM04glUv9sehc+fW1x4u2lK5fWbn+8FbqrW2Y37rzabjSkZCqbSW6nd9472vkgxV2OVleS1Q2XNpENwEN3VXcoSiQSRf4AqwWKBNhJ0Hlwq9WqVMrRxCH35/zi5dHlz18pzE46RylA6KHnwK7rSpJYKFZLOe5o75NccNzREoAI1Gad04AB7ZxBAECHFUkndUOyucdOJED1rIk27dfP6a5i/ytPy7LyuWwwEt/bnFkZv7A6Mfrw69Gg5619/0dG2Y9ajakCahVUy9BUzsKMMdM0RFGpVZKZ+I+F1NRxfCoVunHov94Mz2JslcWWMbaK/AII/JNsQ6Wo7K5XAr6aEhXwMIOy2pvt820LQikYjnPb06tXn97+7mV1Z87e55zicTsGgLUnuf3tw9fZdRxZ0aXqcY6frsUfUDHZ9zO4VGxohfXNd98yANJqdQeu6/b/O4SQ3glPqeM4I4OZoN0odFa17xAA+oL9LN3gfwHeejrG8SvrSQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -365,6 +373,7 @@ $ &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -395,7 +404,7 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACAklEQVQ4y2NgGGqAkYWFhRFEk4hp7CooLQXEB4H4BBAfY2RkPAaiCeDjQHwIiNWQzWKCclTZ2dn/BwYG/ufg4PgP5JOCzaBmMMFN5efnVwJS35ubm/9GR0f/BrL/8PDw/AHRODBIzV8g/gHExhgGAoEyJyfnLz8/v/+ampr/ampq/oeFheFz1T8o/RungUD8C6YYGIaEvPmPgZHpPxDjNxBq0D+8hoEMQnYhK7sZQRfiNhDu8n+c9mH/2Q1dQOGpCTKAwzmGmQwDGf6zqZv950to+cftm/WPJ6Tkv/jE4zN1Tv2XQE+H+A2EePM/o7LRf+70/v88zjH/hGtW/RfKm/5DuHHTPN6FDw4xdB+TQTfwB9QwzGTCyAShde3/MlgG/uOoXPlXYv3HP6JrP/xnnXFtB0P/6V2Mky/oIidsFSIi4j+DlvV/BvvIPwxly/8zTLnwnyF7xn+GwOJUhjn3Chh6T5giu1AaiM8C8RUgvoSBmZguA+kLDIaudxgCCv8zeKZdZug/9YShduNdhrpNBQxTLi1jmHBGB1u+ZsKKJVWYwPIli1kZ2vflMFSvXQSkMximXSlkmHhuJhAHUFakTD6vwNBxsJNhwtlyoOv4wWJTLpFgACs7hHZLZmCo3cCMIT/pPDNpLmrdw8DQBsTt+yH8tr2MQC8zMUy6wAT0LsxQBgArU/9k8KyC1QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSklEQVQ4y9WUQUhTcRzHP///m0PGzLaWJAo1idnRQqFR2qmBiRYhRShJQYek6OChoBVlqFuZur0IDDqEF+vQrRC05oykUreFl6KColOHEi8d2tv+MTdksrlmnfrDh+978Huf9/2/Pzz4L1Z1dTW1tbWr95qm/ZvQ5/NhGEbq0tTQ0FDidDpLgBIhxEr+gZy3y0zWSSm/AB9TSCk/AYVIzX0GFoDKjENkC/eVlZWpjo4OZTabFVAsPwFnjtBkMrlTA7qux1taWgy73Z5wOBwJYD3iGeF3YHu+hm6bzaaampoSLpcr6fV6lcfjKdQskcmlHKEQAiGEO2swWcRWEwipEHIJREYo1jZMDQohVoRCiPVlUstu+AOT2Zl3yxtpKDdtSVjbzqlSd9ty6pTtnVextnbLvxAKZWlsV+Wn+pOWg13K2t7zq3J0UXdNJnfUzCmKF0qZblbfrCwne5W1+UyyYmhGOS6OLW++FX5guf9hlv5QeT5hPIOxBinTWX/IYO+RZKk/ZFQ8/GbYxr4qqcfGGZ5/LPRYVbZwf8HvJtIN2eNRNB5LcOmRYui1omtAcfzKUUbfX+b2q52rJwPsAkLAVF6k9gyY4MCJCK3nFYcvvGD4zTuuPZnGN91DMDbOyPzWjf1FrLZ0Ds6e5vrTe/jCZ7mz6CUQCRKI7CYYzXlEFKSmTqAUDL6EmzNV+Gd6CUQ6GZ5jRRaMiuLb2bals/su3JjQGAiBPwzBGOhvIRCV+Rquv/qmoG8SBp6ns29S4A9rBKOSkYWUEAIRfgNUvxjeWt6o+gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -408,6 +417,7 @@ Global cache is more useful for &lt;code class=&quot;language-text&quot;&gt;yarn
         sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -477,7 +487,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 110.12658227848102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsSAAALEgHS3X78AAACp0lEQVQ4y61US08TURTuj9CFSlhpotGF2JYOr/IqhdAAia40RhJfxLXGhTGu1F+gYqTFUgymJujW6AJ/ATGEttBO59GBDtNpO+28p2WmnunFAoGWmHjm5Obc3Pvd8537nTsOp8vTcc09NOy/f++BPzAx1dX/0OvHuvsGBn3Pnr+4eeu209mJYT1uN9bV1evxdIN7+4cGh0Z6evsdk1PXT50+43Jhr1++6hsde3TRuey70Xa2HfDff/x8/ORpR4d7eNg/Pj4xHpj0egfazrVfvnLV5cbOX7jkcHdib96+i0QWvy5/W/ocjYQjSwufFiKL4XBkZeVXNPpldvZ9MBianw/PBUNzH4IhCD+GkTum786YVg3MNM1qtbprWUalatuuaRiVWktzTN+ZqVQAYimKwrIsl+PzhQLP53N1r8BaE4PzHb6RUUmSAAyZj55t2Qv2Un2DhcZ98OhYQFFU2KcbhiQrmgqfJkOg6xCoqu26rsuKgkZN0ywLnWLaYFW1wbANWAuCwHG5re1ssSgUCgUog6QzwD/LclBONsuyOxwwQKQQWEOT2r9YA2xnFkWRpOgMs51ld0xkdW5/Q5RtP8f/y5zn+URig6YzW1vbJEURBJlhGCJNAB2KpI5qcQhsGEapVBLLtimqCgEoDzEIWRIEEKYVGDQoFouyLMMUBaIoAR7uQtP0E2hD2kQ8TtM0qIHjaZIg8DTBZDKpFA7X2BQMSZp1WGPf8e15gLYuSTKQh/cA9QPhenvZ/XWsEIdo57jc6urvRDy2vh4jSWptbX1jczMeixMEYbWQCvU2Oh7IAyXUvTDf8+Nsr7clWQYYvGK7FAA3HAqre9MneVAqjuOhN0tCic/bL6FcFk/4GYz4x5LJJMMwUGcKxyFOp9PJVAoCHMfp5kZR1B+npWlulD0KcAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 110.12658227848102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsUlEQVQ4y42UXWvTYBTH+zFEEWHgjYI37sXWtrOs6+beN8cUi7tRdqlMQRC8EC/Ue9ELP8Xs6prWueEHmBfDNoHEvndJk7ZPkid58jSvktburWvnj/BweDj/nJPD/8QzPOK7OTgyM7uwvv48Mj27Foy8CM8M+wJz80sfP32ORle9Xn8wGAoERkOhsN8/6vMFxsIT45G7gWDIMzE5deHi5fD45Id374cDo2+GQl/GFi5dGZiantve2X38ZM3r9U9OTC0tLs/NLwaDdwYGrg4OeUdu3b52/YZnLBxJJAiCSO3u/tz+sbOVTH0jkqnv20Qytbf3iyCIjY2vsVg8Ho/HYrHNzc1Egkgkklut0/Pq9VvHcWzbNgxT03BTNzXcxLiJdQPjptMXz7OnLx3HMU1TURRBEOp1AESx0QB14Aa6bpzC7KDrumdl5YHjOIZh2LZ9xstbd7ZL+3Rpiw3D8ESjq+00hDRRlFRVlSEUJVlVEYSKDBVZhqqqSpKEEHITkNrOtyzL8/BIjHihBiEUhBpX5SVJAgDwvFAsVxqtAACR46q1euMMsWVZpmlalnV2/12cEAMACoViqVzhqrztHH3hEZ3L0+L/rNazcqVSSacz2VyuUCwyzJ9sNpfN5RmaoRkmXyjY/cWGYSCkIYQ0TdObOsa4qetY0zDGCCHLsvqJZUliWVZ0kTiOqzcatXpdBEAQalBRzh8YQ9Msy1V53p1cqVQslg4ODnK5PFfle4kf9XOY889hZheuww4rQwgBABC6flJUVRRFGcqS5Hru/GmzLLu//5siyQxF5fP5dIakaYYiqXK50q7es22zY6zjNjhcDcu2ux/TNDvi1orpxzZQP7mA3bgredg2xpgXajwvyBDW6o1qVUAInfMzuLd8n6ZpkiQpisq0IEky7eLGVG9IkvwLlMR1TEOoSf4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -491,6 +501,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -508,7 +519,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 17.088607594936708%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsSAAALEgHS3X78AAAAVElEQVQI13WMQQ7AIAgE/f8rNd6NB2DVUBHrsXVC9kJmAjPnnEXEzFT1uTDntA/BH6WUWqtXADTAQzgrG2L2ZaIxxo+cUooxEtFxXtmv96Y712AXFqdxr0wXD6pUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 17.088607594936708%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAW0lEQVQI13XMQQrAIAxE0d7/lhXEhVAXqcloDCktiBTat/qbmQ1AjJGIzEbvXVX7slpVzczfNncv5cg5E50QASDTXUCtFQAzt9Y+ximlsAciEpE6MQMynhP2Hxd5C68HEV+0gQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -524,6 +535,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -542,7 +554,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAAA9klEQVQoz5WRWauEMBSD+/9/nr4oCqK477jvvR/2UmSYgZnz1KZJSE6FZVlVVRVFkSRJHMdSyuu65D2Avu/P86xBRcvzHIlt2yJN033fu67bto2H7R4EWZbB4AA4DMOyLOu64jWOI3y8giAQ3PEwDEO5TtMEDxl40zQqFEbDPY7jeJ4HAm6apoiiSKU6z5MUOiEWxENfluUz9nEcqhRkQU8geNj3fa8eFJWrtlMImUEgI0Eo5OehpLZ7O0Lv9rlnDm3bhmHoui71WMQL4V/81lIVpt5yz3MXX4kR0JAvJDkNfxMj4G8Iz8J/FvPPKOu6Rqm/84X2B64KewstNmkxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVQoz5WQ4Y7CIBCE+/7PZ2LU1qgRWcpCYVtYSmy5XJs0XqKXu+/fDjO7E6rz+dz3vfceEQGglDLPcyllmiattZQyhLCJWuuu65xzwzDUdV0ppUIIWuuU0uPxyAtEJIQwxvR9DwDe+xgjMzdN45yLMaaUjsdjdbvdTqfTfr+31gLAOI45Z+fc/X7vFpRSxhheaJpGCGGtJaLdbldJKddWOWel1NZwHMe2bRHRe/9ae1oopQghvmu3C0opZi4Lq5WItNbruCrMDABrBACq8hlmJqJfDNX8wqY+n09EvF6vdV23bTsMw/b06n9/OYSAiG//4sflT4WllM45Y4y1dlv0p3CMERFTSiEEIvpfmJkPh4NYuFwuQoi34S+aFHr2DXFVzwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -555,6 +567,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 472px) 100vw, 472px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -572,7 +585,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAAAyElEQVQY05WQuQ6EMAxE8/9/R0WTAiHETYCAOAPZt7hBbIF2imjseMaTqDiO+74vimIYhm3b0jSFNE1jra3rep5n7z3EGHMcB5zbsizph2GomI6iqKqqruuYyLIMorVGjAUyOm3bwplZliXP8yRJ9n0PgkBR0LIX8CPCNE3Yc+IlcViFy7qubCYmJSm+m9EwwemcoyWlYBzH8zwRYCT5AWNyi4vyb2DaXJA33/EUy6o75yEShze/iH+N5KsJyfmHWMBXuwuQx9UHsZnOOoosA/QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4UlEQVQY05WOSW6EMBBFuf/Z2PQBWCCEwUO5qjyAwWC3gqUsEimtvFWpvv7QTdNERMuyxBhTSvM8M7MxhoiUUimlUopSChFLKbVW55yUMsb4er06IcQ4jsYYZgYAKSUiDsMQQoCHdV2JyDyklJZlEUJc19X3fdfimdl7H2NUSm3b5r3ftg0AQgj7vkspAeA4jlKKtVZrfd/3VzMROeeY+bqu+75bive+HW1qCCGlVB9yzs457z0idvUTrY2Zf0vd37Zaq5SyTQOA7+dnc0NrjYhEZK39R3PDWptzPs8TEX+Y3yPuzdFHUBuXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -586,6 +599,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -656,7 +670,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75.9493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAACKUlEQVQoz42S627TMBTH8xyMQuNc7VwcO7e2adrcWjpR2sIkti/7wAvsiXiUCcRom4VOsImx5+G41aCMIfHXiXVi52ef83ek9xe35+vN+ar5UG8+rjf11+/Nzd2Xm7vm+kfz7ba+ul43V6u6WdWXIppm2Vx+rutPy+XFci2N3p1lWVGVxWhUHU4mZVGMy7zK0nw4KAsYBkmS9P9SnucvD6fSq5PTiNE47rggP0gGGR0fm+WxbDpIbiuPCSHEGANe6r+Y9UKvKDLOfWzZ3SSxkrE9nGKXIVlG209B+7Asy5zzqqqkQTkOfJamKRxMXRdKiriXxEEY+Nqe1D0B73leHMdSOhiKMwnBGBuGYds2sSwCjwWp7TiOJV7Jg7JhScCzxRvmeXgr9U8p/xDApmkKuNPtQvc7WPk//YaZ70O3WFSNkYLuLUG7eGDVIzCldHeyoRu6phuG7roOFVfnQs9gBEyBZ4Ddd6OCKQLmQbCDwRjedRzmEoezsBPEiR/1qMdhF8Y82IhsTbVt4R8gURRJfhzDsjiX4CgOwyhknFO4CsZg5ELgiUjA1zAMfd+HRahIwF4npJRhYhHLph6zHdc0sQk7EcskFvw2kOxyHWYtcZGGCdNO3OlKPGSUmFhTiK5atK2byDCw4CHgK13T5JbcOkDPDpTnTyGBaLeeGKocB0yik7dudULyI5wdqf25ni7I8DVKFvKv6M130e7N1f5CT+daf0ayo3B6+hOJXsXRGUMHCgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75.9493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACK0lEQVQoz22Rf0/UMBzG9z5O7kd3a/tt19/txgYXGVNCDg0J/mM04RASTXwpvhRjMMfdBCJG//CFmW2IBPnkyZJ2ffo8baNPF78/r66+LNfn68vz9eX6+uby5tfVj043P5vr76tvV6umuVh3appV0yzX66/Li+Wqiaq3763z3lrvXVkU3rvMW6eVSLmSQqScAWUAjHWCW2ltZluz6OD1cRlsWRTGGKbMbKfS+2/o/BSJgMajeNoST6fxPRBCSqu6rqPt+VERTLXzNIQAjJXllsxneqsWxsUIxY8xmUy01lVVRdvVM+9dURRaa855WZbemjw47x3pwBgTQqb3aJOVyvM82ql2fQiUUgDAGLenY6z/cs7TNO2G8KA2ALTml4dH3jtKKWPsQT30l//nMcZZlkUuBGstdFn3V/QNHz0zQogQ0pqN91qpO3OfgxCadDwa/i9ZW6e17s0UKKWUEKK1sdZZa/tfAPDgzjjnrdn6oPVtsi2FdIpJr2xmQ6HdplRGSmmMUVKmQnDOhRBpmkopO/Nm3tcGgOBDlmXtUqWMMVor22GM6VuEEJxzxmgh0tascq+1ge5lhBSMc0woJpRQ6IUJSXDLNEnaFyc0SRIAyLI8splVHGgSA54yOSKACGFAASh0GyQYDdFwEI+exKMnaDiYbAzGG4NkMs6didIXC334IT044wdnyfMF2VuI+Qmqj4e7x+N6Ma5P7jSqF/HeCey/o/snfH7qX338Aw6GvyUaXbENAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -672,6 +686,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -694,7 +709,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAAB6UlEQVQoz2P4DwP/YIh4wADShqrjH4YBf//+/ffv318wQNEMVvnv579/9z7+v/72/7sf/9Gs//cPJxdo879r7/93nvzadPzXxAv/+8/8OPLsD9gAqLJfv37NmzcvLjY2IT5+1cqVIGGYfoYnn/+VbbnaMHfa5ANXJ1762bftUOvixTfefAO5FqyosKBAX1dXUV5eSVFRT1e3sb4ebj/Dmasnlx5etajWZ3Zp+I6Hxxa3RMypjzz2+NS/PyD7D+zfLysl9fTJk9+/fwM9fOnSJRkpqUsXL0ICguHI2aVb91c9PuJ991TIq8fJj86H3z4e+uRG4c8fb4EqOtrb7G1tkb0KtHzunDlAxp8/fxgKLn2JPbDz/x2dx5v0D9aoPdlk8P+m1p8brn9+fQGqWLFsmYqS0sWLFyHhfPToUTERkd27d0M1Z17/b7r7xv9zcjdnKlybonxrtvy/C0L/X3RBLHr37l10VFRIcPDHjx8vX7rEysLi6e4OcQWQZPj49//rNzf+Xwj+f8vg/33t//ds/j3v+f8XHGP/QLbdvn27rrb2E1Dz5cvJiYlPnz5FBBjUK39//fty9++XK/9+vgXH5l/kWAW6EJ48/iFH1T9QlPxFSRj//iBzIckLwkY2BZo8oUkbaASqNoIAALeCnbhEu9avAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8klEQVQoz41Sz0sbQRSeP0G8BW0RD/bQYqSoJUVFUHsIxMMi3jxISi8epOCPnipUsY1aqKIHQamtl2pJQRBcbXERDFEMJqQp3ZbGZS24datx28Yk7s68V9wxiRVL+3iHeT++9818bwjaxgCp7QzwUgPbLiQJRyKC7Ze0McYsy+JZfsiD7QCOLYgdQFgH7fgM/zfC8xmCCKF97Av86tswn26jb+tk+asFmB+RSqUeDw42NTTcaWwcGx01TTPPrP6gPYvR/smRcXFzIpZ+trA8MD0Z1ZMcjYje9va6mprqyspbVVW3Xa77nZ05fhJ6v/Z6ffbVI/fzbs+qujL3RJjtb91QJWqdMohLS1eLi3Vd51TxeLzI4QgGg1wLsrrt90sPv226d8Mt+k7bXqxVDQma3HGSOUTEkeGhutpa3sovUuF0Tk9NISKllHREM4K0hp+uK/M33nZdU+bK8WMZlZuodSrdG7+/tKQkEAhQSgFRFMXCggJJks7A3Z+x/t0H2HLszFxRXpYqL4pYuBD2J7igyWTyrtfb7PEYhhGJRAghLYKQk52YiOmfCsbu4RcXqjdx1w3fZxBoTjBN04Z8PsMwZFl+0Nt7lEjkSiS7PoRMgqX3gGbskP3XnoGPyXbbdZr9bXheKv5Oxtgf3zNLzS7A/mm/Ab+VnX2UHLVZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -708,6 +723,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -730,7 +746,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAp0lEQVQI1z2NawoCMQyE9/530GOI9xD8IwgiCOput23e3ZcjgjD5CEkm0wlrfT1keJpZrkwsovZjLmQelVjNWQwTZgWneVmWddu2rmIcDaXuOIU8mseX6KNNYJsmeMwdKETbvJ7ptr8fu/eQK8mYK2JxBXn8CHOzwNNwb8hHLIumXFzilK67y6Hrh/E9wMspV+T/VVlTIRAraCxUWPtURKMfi0qstn4AOW3kW4Jn7TMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAArUlEQVQI1z3MTWrDYAyEYd//CoWeoosepJvSRReBUhL/yPpGGkmfY4cmoTA8zOodYK7nHxt/g1wVDWbOh7I2RirMGDCaE+Zw9u26bdfjOAZtxixjegQjGRlZkZlVjKfVuzsZ4eTa9Oj7Zzu9nt6HyyTabBEVRVbP6pEPi1HM8r9c1wbAYZxlJeJj+n75ehvGWc7jImqzqDH/p/B5bQoXhagt93+ZBB7Too7Yud8AOePkWRu07PEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -746,6 +762,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -772,7 +789,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 87.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAAsSAAALEgHS3X78AAABTElEQVQ4y5WT6ZKDIBCE8/4vuTFCPFDAqHjrfuhWuT+iJs2hpdVMT89wW5ZlGscgCH7A/Z6q7OVR2qKw1vZ9vxxgnuebJ09TqpSUT2Ns13W1c+zDMMDk1zVZKZWkaZ7rsiyNtW3XLVf4I4O2baEt8/I5djJZBo9HluWonVd8QSZsnCQccZLkYc5SSiFlGAqlsrquKyarrjnUP507NSzL4jiBsLndtG3TMJvGMfzrGTmKolAIrfWrLIuiIKCl0EVBwdnfWvC/VD5yCpRfKlVYwIzimEMuDEOqWkGGFJk5juPEYD+wcCc75ygV4ukTDCLNL9zewqKYtOFTcLQnSbqlQwudRa6qilS1NhyBQ6gdxhHn+xVvle9kdK5eqTzP2/VWgE87DHIoJAq3u+F7o6o/zVkIOuwphKCyfMXiy+A7OfNAsuZK0x4sYwzRz8m/IGcbTaZJdcMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 87.9746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVQ4y5WTUW/DIAyE9/9/46a1SZuAScAQwEAIbESbKk1L1t2D3z75uDMvtVYien17u1wu75erVMosTbrJbNtWD1RKeam1xpQ45+M4WutCCN77GGNKKcZYSvkLjpFzDgBtrTFK4brm+pe+4Fqrc855X/+jL7iUMkvZdT2izjmfWP0V3hAVB3DOPUk+4BBC1/fDMHR9rxQ67217RJu2qaV4CKeUAAQIQUQUgvOeQiAiT+R3xRjP0u5vt/swtGZNa7j1jNosizHGWntmO6XEOLSyhGiNtSkYY4zzkbGjFh5pG7OAmKZ53o2HGFP+1lGEj5416uu1Y4wrROfcr488tN0sTxMAKIVTczDvCTaBEDnnM9taayGElBIAFrusOaeUdvuHF/6wba0VYhJiQtRpXXPOJ//pJ2yM6fobB5ilXPaGiOgpOMbYLmwc7/fBE23blvO27vufCgxAzLOcpURErbVCjYjnyz/hDz/uG3EfEh6wAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -788,6 +805,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -807,7 +825,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAABVklEQVQoz2P4TwFgGDjN6xZ+by/9vHHp92eP/k7v+NpZ/vnc8V/////9++3H/x8////79w+mFM6EMxiaiz4HW79L9H6fEfQh3uN9kMW7rat+/AfpRuj5CwZoDJDm3povce7vk3w+JHp9SPb5EOX4dveu//8vnf1b0fS/ufvf85ff//75D7bqz58/ED1ABsRyhs6KzzkRH5sKPlelf+qp+ZIT8nbbzv//N637y8DwX0j0//1HF25cP3bkyO7du0+cOLFnz56jR49u3Ljx4sWLQCMYOio+V6R+unX1z+HdP88c+bVs5tctK7+DnN05+f/GbSB7fv36/Pnz+/fvf/z48RkMPnz4ACSBljMA7UzwfL9q7vcl07/N6Pw6senLjrUofsYX2kf3/Fy76Nv6Jd83LPm+fun3lXO/3bn+GxROv34DPYdVDyK0KYpnoPOAwYmM/v2lSwoDABuCy0j56qlRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVQoz72STUsCURSG769o2R8JgjYFhm2CIKNIKowWhYFQVlAUgRlRtCmMNiFRuEmzQCcTTC1mERhEEgV9QKucaWacmTt37j0xDva1yRB6eeGc1eE87zmIMbAN8NnUKGQXxoBS+KsQ1CEU3lT9w1J4Q727MYNTyvSIlE8bAIxiAwgBZqm63U8ktOiTu5pLbocw4BT7HUJnUym+rwPURIFWZpS+NmHQKbrbxaEOsaflNZEAOM9Qlwc84/ThScbYjhFjbJomAGiaRiuz0dKkMtr9FvTLc2PS+kLZ6xIO4wCnSYoQNDTC88tVsZjPZjmO43k+lUrlcrlYLFYoFAghKDAh+9zS7TU5O8F8xtjbUqO7mrV2aAeSaQvVNDHGqqqalQZjrGmaruuMMTTvlXtbhe01NbRcXp1VAhPycaTK/Nvd0eUF4aI4eaBbjupHEf3x3gJjBoEK4VfZgX/EXt+dKQVqfjOj//Jh78VLy8XODn+bAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -821,6 +839,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -839,7 +858,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 70.25316455696203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAAA/klEQVQoz82SS0rEQBCGc0Fv4Qk8w+ANXLgThFkNgitXs8wyEEIIIdkkIY8Ohrw6/cgk3foPYQZRRp1ZiLUoiu76qqr/aqOqqiiKHMcJgsC27TzPm6aZpuntYFpr+DAMLctyXRc5vu97nmeapsEYm+dZSgkAHqmc84/wwvd9P45SiJENQsqdUipJEoNSeiy/2FcYqejxaZaiKH4LD8OAwNzunh7Fy0b8DB8PAVO6h+9u2fVVu7rpERNyRuf92JsHsb7nz2v+HYwX1nVNCGnbFuvoug6C4UpwXb8q2qmTY4MEkGVZHMdpmmKRZVmiyuWCna22Phg+wqL2X3X+x/A7iRApmhbGKtkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 70.25316455696203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9ElEQVQoz92RQUrEMBSGe0RP4SXEE4gncA4wghs3blz1AG0hUJpFKbQlpTSk0TTJZNLXPpGi1FEcZnDlv3y8j+/xv6Dv+zzPCSGU0jiO27aVUgIAfk2WZVEUEUKSJKGUpmkahmFgrQUA7z0AOOcQcZmsyWmalFLee+e8tfu9HxGxKIrAGHMgMcYcwACwXpvnGRHLsjwNfn502zv79LA7Di+GNXxzNVxevNxeD+eYtxt7v9kdMWutOedN0wghOOdSymF4tzk3v8rZmukHeLlTay2EYIzVdc0Yq6qq6zql1OfCb4V9f9XJbc8fQcRxHP/gVf8DfgN17yjwbg4GxQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -852,6 +871,7 @@ chrome&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageAction&l
         sizes=&quot;(max-width: 471px) 100vw, 471px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -878,7 +898,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABGElEQVQoz2P4Dwb/UBEm+Pfv/59/6FIM/0kE/zA1P/n19fqPj9d/fLr24+PL39/Biv4BAVzd5Xe/1j/4+uzbH3Sbf/37u//zy3UfntS8uLzyw6N7P78ABf/++/fnD1TppnsfKk+/TzvyPvPwq8PPvoJlkTQf/PJq0bv7Zc8uznl77wFY873796fPmAHUD1Q39+JTnfkXOGZcyz74dN7VN0DZ32DdUM2bPz3d/PHppDe3gPbf/vEZKPjp8+fr169DXD7r/FPPFeetl19uP/Ny7Z33QJE//2Ca//7/d/X7x0vfPwA9DCS//v2NFjyvvv5afOVFy4mna+58+PHnH1GhjRxgQHe++f77P9aoIhDJMPG//yiLZ6ppBgC3Q3WW0Y/yxwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLElEQVQoz52SzUrDQBDH+xyefQhPvofPoVfPIkX0WlCKCB68WAW1emnpxYJIUwWJSpVKTLKJDflY0jSbmZFs+mHTFsU/y+5h5r/zY2YKJIXTZ1aIlGA+VKA/CHDyBeCM2QNhir6TDEzR90HIPAQAGoGwMGlaUZhgvnKC2OD2pW/sWOq599kZ8LEnu5tmWHwMNu+9LcV9ceMMYWgeINS5VXbe1nWl1Ot0pVk3jErlDDFN22/rqyfq0tH72rVWfuoRkZD0qTlGuAmMC18v2uqpp71GPhGZjF1Vqxl5qaWtHN4tH7R2Ffv42clgR9iUYtcCq85ZjbMvEU2w5dNmwfZtd6PxsafYOo/H0YXdzjXMjcSDFQqcNyokAlkGhsWmR/UDZM6oflW2JPSPJVmkb24adZzgzNAwAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -892,6 +912,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -912,7 +933,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46.835443037974684%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAABkElEQVQoz2WLyW7bMABE9Q2F5YoUSVEUJVJctXCxlDhBgwC9FGhjpwn6/z9S55pg3mFmgFcIbciIOUMjIqzr254RWQ+0FrhlXDSCk75WNewpa3vRDKwZalmjvu1o2xWNokQfWV8KBnoB+VjRse7YceCQjRQsPUntMDM6EtrDRlTNUHJasg5QBgr0a26vGV0ieInwJeJLhn9+NpcTvZ742979u2ved/i+obeMXxO6RnxN6DWjvwn/DoWewunhSdqZzQnGTe9nOy9hewj3Z5UXlRax+n5yMk5jXobZyzCLMMt1HhZfOGv3u11L0VlT3kaK3pqcso8a+m9oPiBXIl1if0DL4aNMB+xLbEvsysJau+27kpKZm+xMTM6YFLONFk1HsgLiITGQTIAsFTHgo3hAHLz9Bec8pqTk2GjN11UppW9yyjZY5I7E1ZgjjMktXymMUvu2GSmp1iIEM47O6D1vU7LIHxr7nVBAACTwC3VdmG1bn5+HEJqU2fksUpI5zz+e1OMJbV191lXylZ+q6TPAuf/VJFaWVfD2FQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 46.835443037974684%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhUlEQVQoz23L2Y6bMBiGYe5hOizG/g0YE7yz2TDAZJmj9ihVJlXv/06qRK1UVZWeg1ef9EX1QVJB6jJXCFjFK14Vh6wBJHHJWEvbFlqsMT5AXbED5RXluUxxQ1lZsAgGCmNWdAmziPWo6jPoGTVZZVE5QLbV5MzKIycTgM1Il5IuLnRMbQomi8i3md8vcN3QdUu/7/R2Itev7Hbmn+f2x0f784PdT3B7Lz6P5f1En1Hcn65bZKTd1qNsZK0ccoPxi1M6jIsPoXG8cZxrVgvWmLpxvBZ1Y2quOVePPdLWrPsupaisfXFWL7OzNoTZBou6FzzFuE+wTfHwmvtXbBM8xniIcRfjPo6klG/rKoWotE6dU8NotPY+WG+xS6DPwCAQOSj0DPSIP6KKsSkEJUShFJ8mKYTSKvj5cbYxWEQYIRh+I38HiYwx+75rIUqtufdaKWPM+rb2S4f7L9ClhCGSY4L/I2pC0JcL8x7mme47m2c2z/J44scVLwK9d8nqk8kn/l/pOP4CljtXFNJ0riEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -928,6 +949,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -984,7 +1006,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 49.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABpUlEQVQoz1WQyY7cIBRF/RfpLpdnzIwBA7axqSFTRUnUpUSKlFVv8/+fkFdVnUWujhCbw328LF2+HdPhdDpvKX26fPx8+bKmwxS3ed2WNU1LdN47B4ePMYYwOR8AO7rD4ZhtMXo/9T3uEKKSUqHIHUQFYZwyhjHuWkhHmOyorqhpqCl76cOSwXvzNAshEUatLTkXUqi2baqyBB6pqrKqa8wtVYFKz6Tv+TjFY3Y+Hs9pDWGGkjFYJgn1iBLSNE1R7CHFPWVRgkykJ8IBWHoxuMzacbQOCgklLo5MaaaHBuEa4a7H8MSbX1aYGuzW/evv6ucVyyBBHrTuOgR/Rgjl+/zWUdwmhVkhcCveqitMNArb05/X4tePXribrLUG8y73+/+S5/9mfthMBTuf9PbexJPxSZmQaWN6TB5gQhHGjAvKOOOcEAJLhk6gblr4Jx1m7BNxK1GTBNko2XcdANWDElYrawatBAddiQa2vnsu811V7AnTBBbONGUGlieVzUT62roPD2pzyNWaq22ntie5vpPrMyDiDbnV8/dmeQHa5QWtV56ufwFf0GUWlZrfZAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 49.36708860759494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwElEQVQoz02QyW7bMBRF9ReNI5GiOM+UJYqUaMWyHSBpBnRRoJuu+gH9/3WhZJEeXOCtDu7Fq9an18u23W6P5217fnl6/v6yns/LaS3rQ1kf5qWklFNKOefT6ZTznHJOKcdpul5vVVmWcZwY5ZRR5ZW0QRgnjGfKCm2kUpxzjDEmRGqHZUCyR7KH1OS8VPM855S0MlRSckRGG6tt13UthO1/oA5zM0g3SRuVT0yPZb1W53Xd1jKMUWoVoleWy4EKxhFCoNkBYL8AttwMwkahR2Eit9H6sRqGIcaotVFGT2XSPqjeYSYQYYQxhNCHDmCLhDqy6QR+/+peX7iJLsTKOU8IZYwTQhpYA4gAbGHbQoRahCCEuwqaXRY9Ludvf/+Anz+YGlwYK+893V1BCG3qpv7ivq7rz9mf1Sbk47z582MolzCuro+V94FSzpj4CKeUSqmkkFJKxliHMYAQQIg6LG3UYZZpVWNRLrt+qoI1jBBGCKc0OHvs/dD74Kwx2ji7P/3+HtYHBIFQQeheqD1c9c71lS5P3XEj4wUPG+pPjVsaV2q73Jn5ziwHMx90PuhU24LzK85vOL+R+Y0t72Z9/we5RWWB+4hIngAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1000,6 +1022,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1030,7 +1053,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAehrUCFcX//EABoQAQABBQAAAAAAAAAAAAAAAAECAAMEEyD/2gAIAQEAAQUChdmu5KckOP/EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAACAAEDIiAhcf/aAAgBAQAGPwJ68ZWjJbAsP//EABsQAAICAwEAAAAAAAAAAAAAAAERACEgQVFh/9oACAEBAAE/IfHwoW5SsngcLoE8WH//2gAMAwEAAgADAAAAED/P/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAEDAQE/EAhs/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EAyf/8QAGxABAQEBAAMBAAAAAAAAAAAAAREhABAxYXH/2gAIAQEAAT8Q1wxEftCr8OhIpGQssN7IGCo0/d48/wD/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAehpWCFcX//EABsQAAIBBQAAAAAAAAAAAAAAAAECAwAEERMg/9oACAEBAAEFAhLIX2sKNzjj/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BJ//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAEDBQAAAAAAAAAAAAAAAAIAASEDICJxgf/aAAgBAQAGPwJ40sqZcUgVn//EABkQAQEAAwEAAAAAAAAAAAAAAAERACAhUf/aAAgBAQABPyEjuTiS9yQ6nBOCfE0//9oADAMBAAIAAwAAABB/z//EABYRAQEBAAAAAAAAAAAAAAAAAAEQMf/aAAgBAwEBPxAJs//EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxAMn//EABsQAQEAAgMBAAAAAAAAAAAAAAERADEQQXGB/9oACAEBAAE/EATI6ugDfivzI2gCildGDFYuwZ3w5//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1046,6 +1069,7 @@ worker&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1138,7 +1162,7 @@ vainfo: Supported profile and entrypoints
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABvklEQVQoz42SzysFURTH50+xYMNCLKTHAllIspDslERhYWMpxM6P58fWj9SLslAW6j1LC8qPxfO4L4a8Unj1vLnz676Ze+fOnXFmBj2RnM7UOXPOud/PvR2Jc26aJsZY0zRVVSHOF03LptSGjwlDt0ulkmVRSv0fJrmu6zhO+S+FeFg1VIx13eBvBR0rCsaEECh5ZRYMCyG4w/2wErgf+b9M4twFQIj2z9l4wlZMAcOuCC2SKAt/UaYswJ4/pPWT5KUIFEEzOHc94YbRb/ZxZytUXk7SpjmSNwOeqP8Lzyu/7Wf6bTiepLEZ8yl1LC5PoPqsiPVjgdKvvnwNHdALIPA6Qtc8SqP5AJuFDxZPsdi0gTo6tYEeKJ3escppf2NwhbbV2LIcIbjZTKGlvrS/G+BwHijblEGylGSNU0a2q1sf6oPSxT1rWPATw3GruYrdy3D85ql/sH32VldBdrbCk7gE6qGyWDuiLbMa6unVxvohvXygsUUvMbpK2mvZgwzcrQtsZOKk0FRt7iW8SBmGYXscxhSDZ3PF5xvE8i+QEstBOeX2CuFb5FgWCORedYQe85k0VTGkgCz9vQZ/b8w7qzuPRIOYwWQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABzklEQVQoz4VSTWsTURTNLym4caEg1JUGsi6u1IWgKKgL60rQpS4kiEIXhq4FtYt2pYIQJfUTXERTUESkVhNtXZhEOzOZyYzpvHfnfsmbKTZFxcNbvK9z3jn33RIARFHkeV4QBL7vR1HkhzERFxAAQqQc+gdKzFwcsCix2/o+ZD+IAt+LomHW74We5/l+HMeqKmNwZEQEgFxI3JB8/A2yHY5MRMY6crONN55DkrKqsPwfm7YtZKo6UzeTl5JegKouLLMgCVM++xcZEdPUqupsw1aujPoumhb3NQ8g44adJBZyKrJlu9aw5erP7sdv6vdVJU75zRqvB0bThIlEnBFiKYrzO/Om7doilC8nK0eOJudOqUqrDbuqOnfhNpyYMmtfi5rxamcwfdw8W3QKRMXLjjz7CCrV5MPBw/HZY6ry+jOUa7owXUsrO237E6u+7elyY2l9z8Ro/qYjI5ZEJEP3zzMPYe/FZHnqwPDkIVVttWH3VZ07fd3s35F12qC67xqdOd8cTE6M5m85G5STU2MwsytduP/SW63XN5aaGdgfobnXGrx68GJQv2vD0AA+eTd8/PR9987CxpeOJSbE0vY+INSxDnGVJdxas6vaWHv+ArCXj0iugpKsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1151,6 +1175,7 @@ vainfo: Supported profile and entrypoints
         sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1168,7 +1193,7 @@ vainfo: Supported profile and entrypoints
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz4WQUUvCUBiG+zPddRN0223/IxSDhr/AiDJkYxcGIQoiSYK7i8zE8q4N3AJRGzKtG3WDhZZkbrLtbG7rbBOtkflwLs75zvt+7znfhm3blu0AZuD4Ft083Y5UTko3d6GDUDabpWm6Xq9zHFer1ViWFUXR0Vuew95wzc5BBvLuxd4WvrN/fVgu3cfP44VCIRqNIggSDoeDwWAgEEin01BpGMbS7KHNQFNkq32m2C4DHRgusM7zvCAIcAPDW62WP/lPoMI0TQCAvZqfZtOyZqazTK/3dDolCEJV1fm1aS4y1yR74bIsr0+GTXuD4qt4OfxqwKOqKpqmwShd1xVF4QUedplMJpqL36wb+nMfe+oivY9i5YGMxc4wDEumkslUKk/kM5lM5CiC43gikUBRVJIk711zs2HowxH/9t4djQcc1yYpqgqhHTovnUeSvMrlGs0mRVEMw8C3/Ep2vyd9jkeqpqya/P/TXkp9+OoL5TdLEVHIfhB1uAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVQoz52RsUrDUBSG+zCugg8guPoKQl9BAtVC0UWq7eTUJUhpohVzSzIkNIPQpTZDRUpxspChg0OTqEmT3phAenPvFZuaBlsc/MYD3zk//8nRH6I4uuryO9Xdk/uzvtYvn5fb7bZlWY7jQAh933ddNwgCmiFHKSWUUEqDebBX29+62D5Uj0VBLBwV+Gu+VCoxDFMsFvP5PMMwAABKaRzHG+TbocA+1i97NWc6tW3b8zzTNHsLDMMAAHQ6HUopxngl/5uVTChGcYQwwgQnu4MgkGU5DEOcYbO82kK+bUJIFEW6riOEkqhkQdbPpYI9G1nTJxhOljky+J9+HMeJvOEyQmgwPtX0g/GbNByMGo06z/OKokiSpKoqAIBl2QbHSZLEc1zyMJLKczQ3nJeJ/fzhvXYftJtm804QQKslSmJP02RZrlQrsqIIiyH0/STsUsYEO65tvZvQn623EIYhhPCvttcLS0v6NUzlL8i3UGQPK6VDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1182,6 +1207,7 @@ vainfo: Supported profile and entrypoints
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1264,7 +1290,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
 &lt;p&gt;With all script in place, now you can build a ffmpeg.wasm with x264 (and potentially all other libraries.)&lt;/p&gt;
 &lt;h2&gt;In browser ffmpeg.wasm demo&lt;/h2&gt;
 &lt;p&gt;The final part of this story is a demo for ffmpeg.wasm v0.2, the scenario is to create a web page that enables user to upload a video file (ex. avi) and play inside the web browser. As it is not possible to play avi file directly, we will use ffmpeg.wasm to transcode the video first:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/3f49f83bb3354af398ab27f13db821ab/demo.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/3f49f83bb3354af398ab27f13db821ab/demo.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Below is the full HTML code (download sample video &lt;a href=&quot;https://github.com/ffmpegwasm/ffmpeg.wasm/raw/master/tests/assets/flame.avi&quot;&gt;HERE&lt;/a&gt;):&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;                                                                                                                                            
   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;                                                                                                                                          
@@ -1358,7 +1384,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz4WQUUvCUBiG+zPddRN0223/IxSDhr/AiDJkYxcGIQoiSYK7i8zE8q4N3AJRGzKtG3WDhZZkbrLtbG7rbBOtkflwLs75zvt+7znfhm3blu0AZuD4Ft083Y5UTko3d6GDUDabpWm6Xq9zHFer1ViWFUXR0Vuew95wzc5BBvLuxd4WvrN/fVgu3cfP44VCIRqNIggSDoeDwWAgEEin01BpGMbS7KHNQFNkq32m2C4DHRgusM7zvCAIcAPDW62WP/lPoMI0TQCAvZqfZtOyZqazTK/3dDolCEJV1fm1aS4y1yR74bIsr0+GTXuD4qt4OfxqwKOqKpqmwShd1xVF4QUedplMJpqL36wb+nMfe+oivY9i5YGMxc4wDEumkslUKk/kM5lM5CiC43gikUBRVJIk711zs2HowxH/9t4djQcc1yYpqgqhHTovnUeSvMrlGs0mRVEMw8C3/Ep2vyd9jkeqpqya/P/TXkp9+OoL5TdLEVHIfhB1uAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVQoz52RsUrDUBSG+zCugg8guPoKQl9BAtVC0UWq7eTUJUhpohVzSzIkNIPQpTZDRUpxspChg0OTqEmT3phAenPvFZuaBlsc/MYD3zk//8nRH6I4uuryO9Xdk/uzvtYvn5fb7bZlWY7jQAh933ddNwgCmiFHKSWUUEqDebBX29+62D5Uj0VBLBwV+Gu+VCoxDFMsFvP5PMMwAABKaRzHG+TbocA+1i97NWc6tW3b8zzTNHsLDMMAAHQ6HUopxngl/5uVTChGcYQwwgQnu4MgkGU5DEOcYbO82kK+bUJIFEW6riOEkqhkQdbPpYI9G1nTJxhOljky+J9+HMeJvOEyQmgwPtX0g/GbNByMGo06z/OKokiSpKoqAIBl2QbHSZLEc1zyMJLKczQ3nJeJ/fzhvXYftJtm804QQKslSmJP02RZrlQrsqIIiyH0/STsUsYEO65tvZvQn623EIYhhPCvttcLS0v6NUzlL8i3UGQPK6VDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1372,6 +1398,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1388,9 +1415,11 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
 &lt;ol&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-O3&lt;/code&gt; : optimize code and reduce code size (from 30 MB to 15 MB) (More details &lt;a href=&quot;https://emscripten.org/docs/optimizing/Optimizing-Code.html&quot;&gt;HERE&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-s PROXY_TO_PTHREAD=1&lt;/code&gt; : to make our program for responsive when using pthread (More details &lt;a href=&quot;https://emscripten.org/docs/porting/pthreads.html#additional-flags&quot;&gt;HERE&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-o wasm/dist/ffmpeg-core.js&lt;/code&gt; : rename ffmpeg.js to ffmpeg-core.js
-(From here we call it ffmpeg-core.js as we will create a ffmpeg.js library to wrap the ffmpeg-core.js and provide user friendly APIs.)&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-s EXPORTED_FUNCTIONS=&quot;[_main, _proxy_main]&quot;&lt;/code&gt; : export main() and proxy&lt;em&gt;main() (added by PROXY&lt;/em&gt;TO_PTHREAD) C function to JavaScript world&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-o wasm/dist/ffmpeg-core.js&lt;/code&gt; : rename ffmpeg.js to ffmpeg-core.js&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(From here we call it ffmpeg-core.js as we will create a ffmpeg.js library to wrap the ffmpeg-core.js and provide user friendly APIs.)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-s EXPORTED_FUNCTIONS=&quot;[_main, _proxy_main]&quot;&lt;/code&gt; : export main() and proxy_main() (added by PROXY_TO_PTHREAD) C function to JavaScript world&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-s EXTRA_EXPORTED_RUNTIME_METHODS=&quot;[FS, cwrap, setValue, writeAsciiToMemory]&quot;&lt;/code&gt; : extra functions for manipulating functions, file system and pointers, check Interacting with code and preamble.js for more details.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
@@ -1580,7 +1609,7 @@ Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz4WQUUvCUBiG+zPddRN0223/IxSDhr/AiDJkYxcGIQoiSYK7i8zE8q4N3AJRGzKtG3WDhZZkbrLtbG7rbBOtkflwLs75zvt+7znfhm3blu0AZuD4Ft083Y5UTko3d6GDUDabpWm6Xq9zHFer1ViWFUXR0Vuew95wzc5BBvLuxd4WvrN/fVgu3cfP44VCIRqNIggSDoeDwWAgEEin01BpGMbS7KHNQFNkq32m2C4DHRgusM7zvCAIcAPDW62WP/lPoMI0TQCAvZqfZtOyZqazTK/3dDolCEJV1fm1aS4y1yR74bIsr0+GTXuD4qt4OfxqwKOqKpqmwShd1xVF4QUedplMJpqL36wb+nMfe+oivY9i5YGMxc4wDEumkslUKk/kM5lM5CiC43gikUBRVJIk711zs2HowxH/9t4djQcc1yYpqgqhHTovnUeSvMrlGs0mRVEMw8C3/Ep2vyd9jkeqpqya/P/TXkp9+OoL5TdLEVHIfhB1uAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVQoz52RsUrDUBSG+zCugg8guPoKQl9BAtVC0UWq7eTUJUhpohVzSzIkNIPQpTZDRUpxspChg0OTqEmT3phAenPvFZuaBlsc/MYD3zk//8nRH6I4uuryO9Xdk/uzvtYvn5fb7bZlWY7jQAh933ddNwgCmiFHKSWUUEqDebBX29+62D5Uj0VBLBwV+Gu+VCoxDFMsFvP5PMMwAABKaRzHG+TbocA+1i97NWc6tW3b8zzTNHsLDMMAAHQ6HUopxngl/5uVTChGcYQwwgQnu4MgkGU5DEOcYbO82kK+bUJIFEW6riOEkqhkQdbPpYI9G1nTJxhOljky+J9+HMeJvOEyQmgwPtX0g/GbNByMGo06z/OKokiSpKoqAIBl2QbHSZLEc1zyMJLKczQ3nJeJ/fzhvXYftJtm804QQKslSmJP02RZrlQrsqIIiyH0/STsUsYEO65tvZvQn623EIYhhPCvttcLS0v6NUzlL8i3UGQPK6VDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1594,13 +1623,14 @@ Module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;From here, things are going to be more complicated and hard to understand, you may need to google background knowledge if you don’t know what happened (or you can leave responses to ask me).
-Also, to make this tutorial more usable, I try to write down the details of how I solved each issue, hope it will help you in building the library of your choice.&lt;/p&gt;
+&lt;p&gt;From here, things are going to be more complicated and hard to understand, you may need to google background knowledge if you don’t know what happened (or you can leave responses to ask me).&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Also, to make this tutorial more usable, I try to write down the details of how I solved each issue, hope it will help you in building the library of your choice.&lt;/p&gt;
 &lt;p&gt;In this part you will learn:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;How to setup environment of Emscripten using Docker&lt;/li&gt;
@@ -2023,7 +2053,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 36.708860759493675%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsSAAALEgHS3X78AAABDUlEQVQY03WQ2W6DMBRE+f8f60NZAmnIBhSKETRgY8BmMVuH0Ep9aKWj0Ui+y1xrkposM6vHocwMluos06G7z+MX/rDq3BbsbRB3oKQHeuFnxKrZRRMUbWZDj1tPamBKV1+V9IfmDtM3N8ldqGoDJYMR2vqD8GjmyOqmdfxQ5XbfXKv8gCV4W5d0ncg6JeucfOtuNgi86kISGjx3tY5Z/NPqqguWt/w8Sn+rGON/mcjYhWlsVhSxi1eWGjgSINU2fisiP/zR3IsgiQxenHGzXudOU9i4FsegYVHxPERzH0Lhn0Ge7GZKVPtOIqMsXK0tLVGeGuogM35V8pOgx0F6GAT2Eb9Z1McggzS2EPsLZaSDkN2YsKcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 36.708860759493675%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHElEQVQY03WQ6W6DMBCEef8nqxoMhCRNQw6ThmIuH7GNDwylNakqVWql78doNavZnUB2AJcha2KCQoJWuHwmaMXqiCDQ3p5YHbMq4l2qeWZEZuXRikyLY1XEnByCHie0jiXZUgRoHUmyc+oymtxp6NTFKWjlyU80HHXuMbntzy1aS5YFmsasSazIeLvmXTqoyzyV81jM4/tvim+mclB5kYesewkUjWgV92wv8Ebzw6ihd7jbv4zFoCC6RXf8Goh2RRCgFSBV6DT0sW5JcA/+WNbivCTvg54AgbeSbHiXGpHNw9tkr/5DA0cNP7z75+ZFTO9WweIK/Nk9iTne3JukpzuOU9Gl9yax8uSLlUfne1ow+UNMJjfyXBXJV9ufpkCDhRzQGX4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2038,6 +2068,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2058,7 +2089,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz4WQUUvCUBiG+zPddRN0223/IxSDhr/AiDJkYxcGIQoiSYK7i8zE8q4N3AJRGzKtG3WDhZZkbrLtbG7rbBOtkflwLs75zvt+7znfhm3blu0AZuD4Ft083Y5UTko3d6GDUDabpWm6Xq9zHFer1ViWFUXR0Vuew95wzc5BBvLuxd4WvrN/fVgu3cfP44VCIRqNIggSDoeDwWAgEEin01BpGMbS7KHNQFNkq32m2C4DHRgusM7zvCAIcAPDW62WP/lPoMI0TQCAvZqfZtOyZqazTK/3dDolCEJV1fm1aS4y1yR74bIsr0+GTXuD4qt4OfxqwKOqKpqmwShd1xVF4QUedplMJpqL36wb+nMfe+oivY9i5YGMxc4wDEumkslUKk/kM5lM5CiC43gikUBRVJIk711zs2HowxH/9t4djQcc1yYpqgqhHTovnUeSvMrlGs0mRVEMw8C3/Ep2vyd9jkeqpqya/P/TXkp9+OoL5TdLEVHIfhB1uAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVQoz52RsUrDUBSG+zCugg8guPoKQl9BAtVC0UWq7eTUJUhpohVzSzIkNIPQpTZDRUpxspChg0OTqEmT3phAenPvFZuaBlsc/MYD3zk//8nRH6I4uuryO9Xdk/uzvtYvn5fb7bZlWY7jQAh933ddNwgCmiFHKSWUUEqDebBX29+62D5Uj0VBLBwV+Gu+VCoxDFMsFvP5PMMwAABKaRzHG+TbocA+1i97NWc6tW3b8zzTNHsLDMMAAHQ6HUopxngl/5uVTChGcYQwwgQnu4MgkGU5DEOcYbO82kK+bUJIFEW6riOEkqhkQdbPpYI9G1nTJxhOljky+J9+HMeJvOEyQmgwPtX0g/GbNByMGo06z/OKokiSpKoqAIBl2QbHSZLEc1zyMJLKczQ3nJeJ/fzhvXYftJtm804QQKslSmJP02RZrlQrsqIIiyH0/STsUsYEO65tvZvQn623EIYhhPCvttcLS0v6NUzlL8i3UGQPK6VDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2072,6 +2103,7 @@ emcc &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token
         sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2139,10 +2171,10 @@ NOTICE
 &lt;p&gt;And run command:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; build-with-docker.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--disable-x86asm&lt;/code&gt; is required to disable x86 assemble features as we are not going to use it.
-Depend on the speed of you Internet and the hardware specification of your computer, it may take 10~30 minutes to complete the compilation.
-And it is normal that you see tons of warnings during compilation as gcc 9 introduces more constrains.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--disable-x86asm&lt;/code&gt; is required to disable x86 assemble features as we are not going to use it.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;Depend on the speed of you Internet and the hardware specification of your computer, it may take 10~30 minutes to complete the compilation.
+And it is normal that you see tons of warnings during compilation as gcc 9 introduces more constrains.&lt;/p&gt;
 &lt;p&gt;It should take some time to compile the native FFmpeg. If everything is OK, you should be able to run &lt;code class=&quot;language-text&quot;&gt;ffmpeg&lt;/code&gt; with following command:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ./ffmpeg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You should see something like:&lt;/p&gt;
@@ -2254,7 +2286,7 @@ And below is how it looks right now:&lt;/li&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABmUlEQVQoz41SSU/CUBDm93gwXhRcEvXkD3KJHmwFUQhuMSb+Aj0YNSxuGA968+JZ4447YC2l89q3dMF50IMYUSdf25m8+eb7pm3IdV1N00qlEgBUq1Vd1/HeyIFYJlgfuvGufRiGwRirNUcIL9/3hRC1f4T/JQKy53lCOJhsnPKRdTq8RtNnctbxubN6xBEnF06D+IMyOqdUWlI2accEtI+byZws1S3aNmq2jZnRbYpk1/O/KxNC0LNwpPJMhvVFSY8KSwccy9QOloCY35WzvO/CtVC5XLZtu2E7nqY9UySiwMK+7E5kWbdKEDgFlT3JDhAo48KuG+wczzAkhxVY3JfKaD6iQrcKdXKNcp8w32I+d5p29iiT3dNpGlGtzkkyvye7Z7OsS7HCipWov4LlPBtKEsTKIW8YCT6V47j4TOXswVilP6qv5O16CQOxCmIuB1gms9CnVnrVSioLTWTOuRDcMOnl7fPV3UsVqCPEw3Px+v7tplDEBE8LT2+3D8Xrwuv94yv2o9/Q738FAdMiZqvTP8hePVqdfgI3voRnaYyiLAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxElEQVQoz21STVMTQRDNv+Hm6kmC8U+hB9dDNoEURsqvX2B54CRoILFIeaRKKBKvUKUIVilEdmKShZ2dnZ7dnmlrdheIxq4+zJv+eK9nupQkCWPM9/0gCMbjybk/HP4eB8HlZDK5uAyDi5ANR+c+G41GcRzT31YiojRNpZQZNNcBY8w0zG+mrSg2xmhtwaev+GYneb2jesdIRCdM7x2le0f4nWn6p9M0sxBWUnU9vu3yW4/CZtsKWXovHTd03LDRkkQG9QyzUgpRI9reK1twfym6V+OvuoqIVjtQqfNKnT/7AESkZ6hLjDEhhASb3WjJhVo0X+XPt232ky0oe1HZi1Y7QGSSVKdoHXWuoWBGzNo2NmGhFt2t8hfbtlezDfMeL3s8K/4fMxEhYhzbIVc2ZS77ZddmP21DpR5V6jkzvd2HxTWxuCbWe1aINqZ47ZzZ24A7jyPHjZpZ9nILHJc7Ll9uWVjdgLmHfO4Br70rhBTFUsokUV9ORWf3R2f357czoVH1D391e9Z7BwNM4fPh4GN/0N0/7R+cJQoQsTTzeZh5bhpEoERApLMtyUM6O1zNfG3a3Hi+FaBSCYm52j40hPpmW/4ATjeDnC13YA8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2267,6 +2299,7 @@ And below is how it looks right now:&lt;/li&gt;
         sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
