@@ -18,6 +18,7 @@
     "gatsby-plugin-sharp": "^4.19.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^5.19.0",
+    "gatsby-remark-graphviz": "^4.21.0",
     "gatsby-remark-images": "^6.19.0",
     "gatsby-remark-prismjs": "^6.19.0",
     "gatsby-remark-responsive-iframe": "^5.19.0",
