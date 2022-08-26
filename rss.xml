@@ -1,4 +1,261 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 25 Aug 2022 13:25:10 GMT</lastBuildDate><item><title><![CDATA[Generics in Golang 1.18, no need to write max / min anymore (maybe)]]></title><description><![CDATA[One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two…]]></description><link>https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</link><guid isPermaLink="false">https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</guid><pubDate>Tue, 08 Jun 2021 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Maintainer of tesseract.js and ffmpeg.wasm. Here is my Personal writings about software technologies]]></description><link>https://jeromewu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 26 Aug 2022 07:47:31 GMT</lastBuildDate><item><title><![CDATA[Improving performance using WebAssembly SIMD Intrinsics]]></title><description><![CDATA[WebAssembly is a technology famous of boosting performance of web applications,
+but what might be the best practice to do achieve maximum…]]></description><link>https://jeromewu.github.io/improving-performance-using-webassembly-simd-intrinsics/</link><guid isPermaLink="false">https://jeromewu.github.io/improving-performance-using-webassembly-simd-intrinsics/</guid><pubDate>Fri, 26 Aug 2022 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9356b5cd4ee6e8beba075ef0abd5af2f/1307b/wa-logo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.45569620253164%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB6UlEQVQ4y42TQWtTQRDHNzZfpuBREEFti9pKNLuv0ZrYZ9Wku7UpesgTDw8VtGhBL0VUPFr15qWnHhTxULx4UERF/BJ5MyStSbrhjey8p7xLkww8Znbff37M7uwIkTEtQWgFOa1QaInCsAf22dj9Y43TShD7mpZwgKESjmoJ61rBmpZwLwO8n+6tpxrOGQDEfCoKtUIyCklL98GGlvDKxZm9MNFifn+gwrxWDGykyR2tsG8UMMgo6BvJe8Qap1VDgXy8QEuGWONhvOQ5KPbT2CZVQpDc+QhAJ3ZJtbNgrxYgvnIaqFoAcvHCNNikWgz4XkcBXith4CCPw7Z98Wgn3ni6S88e7tDLJ7vxx60uAxeLEFTPcNdHAM4mwAc32/bzdi/+9c3S1tsObb7pxD++7Nnbyy2qTEZBZTJypxneFONhY7EIdL2M3d/frf30oWe33/fsu82u/fl1r/v6+R+Sh5qNmYPNIRWmz8YoDLkpHtLarTbdqbdctXR3pUU3KkirjRZdnoHw0ikQS7ODgbn02YwbhTUtYf7C8cj3T4Bfnoh8/yT41QLMX5yKasslHK+f4wbmBk3K/3HiDhZBeIebYu5YJEpHIlGeiMTCNPC6fh7FyhwOGT1+qFyhq3TMKBj757Ox86mG9Vn7C1aJgk5gelXsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;WebAssembly Logo&quot;
+        title=&quot;WebAssembly Logo&quot;
+        src=&quot;/static/9356b5cd4ee6e8beba075ef0abd5af2f/f058b/wa-logo.png&quot;
+        srcset=&quot;/static/9356b5cd4ee6e8beba075ef0abd5af2f/c26ae/wa-logo.png 158w,
+/static/9356b5cd4ee6e8beba075ef0abd5af2f/6bdcf/wa-logo.png 315w,
+/static/9356b5cd4ee6e8beba075ef0abd5af2f/f058b/wa-logo.png 630w,
+/static/9356b5cd4ee6e8beba075ef0abd5af2f/40601/wa-logo.png 945w,
+/static/9356b5cd4ee6e8beba075ef0abd5af2f/78612/wa-logo.png 1260w,
+/static/9356b5cd4ee6e8beba075ef0abd5af2f/1307b/wa-logo.png 3000w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;WebAssembly is a technology famous of boosting performance of web applications,
+but what might be the best practice to do achieve maximum performance and what
+is the cost is what we are going to discuss in this post.&lt;/p&gt;
+&lt;p&gt;To begin with, let’s talk about how developers develop WebAssembly applications based
+on the result of &lt;a href=&quot;https://blog.scottlogic.com/2022/06/20/state-of-wasm-2022.html&quot;&gt;The State of WebAssembly
+2022&lt;/a&gt;. The top 3
+languages used to develop WebAssembly are Rust, JavaScript and C/C++.
+(JavaScript come in second place due to QuickJS, a tiny JS VM, is ported to
+WebAssembly and boosts JavaScript runtime performance) As Rust and C/C++ are
+top languages, it is common that developers develop Rust or C/C++
+programs and compile to WebAssembly.&lt;/p&gt;
+&lt;p&gt;Take C/C++ as an example, usually you might use GCC to compile like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;gcc -o main main.c&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you want to compile to WebAssembly, you might use &lt;a href=&quot;https://emscripten.org/&quot;&gt;Emscripten&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;emcc -o main.js main.c
+&lt;span class=&quot;token comment&quot;&gt;# or&lt;/span&gt;
+emcc -o main.wasm main.c&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then you can use NodeJS or runtime like wasmtime or wasmer to run the program.&lt;/p&gt;
+&lt;p&gt;But is that the end of the story? Maybe not. Let’s use a &lt;a href=&quot;https://en.wikipedia.org/wiki/Matrix_multiplication&quot;&gt;matrix
+multiplication&lt;/a&gt;
+as example to benchmark:&lt;/p&gt;
+&lt;p&gt;JavaScript Version (&lt;a href=&quot;https://github.com/jeromewu/wasm-perf/blob/main/mul_mats.js&quot;&gt;Source Code&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// in_b is transposed to speed up multiplication.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;mulMats&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;out&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; in_a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; in_b&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; n&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; k &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; k &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; k&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        out&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; in_a&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; in_b&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;C Version (&lt;a href=&quot;https://github.com/jeromewu/wasm-perf/blob/main/mul_mats.c&quot;&gt;Source Code&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// in_b is transposed to speed up multiplication.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;multiply_mats&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; out&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; in_a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; in_b&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      out&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; k &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; k &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; k&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        out&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; in_a&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; in_b&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The performance of JavaScript version, C version and WebAssembly version:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Time to Complete&lt;/th&gt;
+&lt;th&gt;Remark&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;5.768s&lt;/td&gt;
+&lt;td&gt;NodeJS v16.16.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;7.697s&lt;/td&gt;
+&lt;td&gt;GCC 12.2.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly&lt;/td&gt;
+&lt;td&gt;6.865s&lt;/td&gt;
+&lt;td&gt;Emscripten 3.1.18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;It might be unexpected to see that JavaScript version is the fastest one, it is
+simply because this is NOT a fair comparison as we didn’t use flags to optimize
+performance.&lt;/p&gt;
+&lt;p&gt;One of the most significant flag we can use here is &lt;code class=&quot;language-text&quot;&gt;-O3&lt;/code&gt;, let’s add this flag
+and below is the result:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Time to Complete&lt;/th&gt;
+&lt;th&gt;Remark&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;5.768s&lt;/td&gt;
+&lt;td&gt;NodeJS v16.16.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;0.401s&lt;/td&gt;
+&lt;td&gt;GCC 12.2.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly&lt;/td&gt;
+&lt;td&gt;2.012s&lt;/td&gt;
+&lt;td&gt;Emscripten 3.1.18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;With a simple flag, now WebAssembly version is around 65% faster!&lt;/p&gt;
+&lt;p&gt;But how might we improve the performance even more? Let’s discuss what options
+we have.&lt;/p&gt;
+&lt;h2&gt;Methods to Improve Performance&lt;/h2&gt;
+&lt;p&gt;There are mainly three approaches to improve performance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;More optimization flags&lt;/li&gt;
+&lt;li&gt;Use multi-thread&lt;/li&gt;
+&lt;li&gt;Use SIMD intrinsics&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;More optimization flags&lt;/h3&gt;
+&lt;p&gt;More optimization flags like &lt;code class=&quot;language-text&quot;&gt;-flto&lt;/code&gt; might improve performance, but sometimes it
+might introduce side effects, so it is essential to do more tests when using
+more flags.&lt;/p&gt;
+&lt;h3&gt;Use multi-thread&lt;/h3&gt;
+&lt;p&gt;WebAssembly supports multi-thread, so you can use libraries like pthread to
+achieve multi-threading. It works but with a major drawback: SharedArrayBuffer.&lt;/p&gt;
+&lt;p&gt;SharedArrayBuffer is an essential technology behind multi-threading in
+WebAssembly. It enables threads (which is web worker in browser) to communicate
+with each other. But it also consumes more memory and suffers from browser
+compatibility issue. (Mainly mobile browsers)&lt;/p&gt;
+&lt;p&gt;SharedArrayBuffer compatibility: &lt;a href=&quot;https://caniuse.com/sharedarraybuffer&quot;&gt;https://caniuse.com/sharedarraybuffer&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Use SIMD intrinsics&lt;/h3&gt;
+&lt;p&gt;SIMD (Single Instruction, Multiple Data) is a type of parallel processing
+supported by WebAssembly. In Emscripten, you can add flag &lt;code class=&quot;language-text&quot;&gt;-msimd128&lt;/code&gt; to
+enable SIMD and improve performance for free:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Time to Complete&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;5.768s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;0.401s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly&lt;/td&gt;
+&lt;td&gt;2.012s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly (w/ -msimd128)&lt;/td&gt;
+&lt;td&gt;0.278s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;-O3&lt;/code&gt; flag comes with auto-vectorization, so it is better to use &lt;code class=&quot;language-text&quot;&gt;-msimd128&lt;/code&gt;
+with &lt;code class=&quot;language-text&quot;&gt;-O3&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Wow, now our performance is so good that it is even faster than C version! But
+it is not the end of the story as we haven’t used our secret weapon: &lt;strong&gt;SIMD
+intrinsics&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;SIMD intrinsics are low-level functions to enable developers to write assembly
+code in a more user-friendly way. It is supported not only in Emscripten, but
+also other major languages like Rust and AssemblyScript. With SIMD intrinsics,
+we can rewrite our code to improve performance further more:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// in_b is transposed to speed up multiplication.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;multiply_mats&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; out&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; in_a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; in_b&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      out&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; k &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; k &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; k&lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;v128_t&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wasm_v128_load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;in_a&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;v128_t&lt;/span&gt; b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wasm_v128_load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;in_b&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;v128_t&lt;/span&gt; prod &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wasm_i32x4_mul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        out&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; 
+          &lt;span class=&quot;token function&quot;&gt;wasm_i32x4_extract_lane&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;prod&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;wasm_i32x4_extract_lane&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;prod&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;wasm_i32x4_extract_lane&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;prod&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;wasm_i32x4_extract_lane&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;prod&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Time to Complete&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;5.768s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;0.401s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly&lt;/td&gt;
+&lt;td&gt;2.012s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly (w/ -msimd128)&lt;/td&gt;
+&lt;td&gt;0.278s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebAssembly w/ SIMD intrinsics (w/ -msimd128)&lt;/td&gt;
+&lt;td&gt;0.062s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;As the result, we are &lt;strong&gt;99%&lt;/strong&gt; faster than the original JavaScript version!&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In this post, we visited a few methods to improve WebAssembly performance, and
+finally we achieve a much better performance by using SIMD intrinsics. Although
+it looks perfect, but there is actually a pretty steep learning curve to learn
+SIMD intrinsics and master it. So the best bet is to use &lt;code class=&quot;language-text&quot;&gt;-O3 -msimd128&lt;/code&gt; flags
+first and rewrite the most computing intensive parts in your code using SIMD
+intrinsics to improve the performance little by little.&lt;/p&gt;
+&lt;p&gt;Hope you enjoy this post. :) Feel free to leave comments and try to run the code
+using the source code in this repository: &lt;a href=&quot;https://github.com/jeromewu/wasm-perf&quot;&gt;https://github.com/jeromewu/wasm-perf&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Generics in Golang 1.18, no need to write max / min anymore (maybe)]]></title><description><![CDATA[One thing I do dislike in golang is that sometimes a simple task can be very tedious. One of them is getting maximum / minimum value of two…]]></description><link>https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</link><guid isPermaLink="false">https://jeromewu.github.io/generics-in-golang-1.18-no-need-to-write-max-min-anymore-maybe/</guid><pubDate>Tue, 08 Jun 2021 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
