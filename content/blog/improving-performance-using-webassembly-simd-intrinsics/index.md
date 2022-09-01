@@ -154,16 +154,17 @@ void multiply_mats(int* out, int* in_a, int* in_b, int n) {
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
       out[i*n+j] = 0;
+      int sum_arr[] = {0, 0, 0, 0};
+      v128_t sum = wasm_v128_load(sum_arr);
       for (int k = 0; k < n; k+=4) {
-        v128_t a = wasm_v128_load(&in_a[i]);
-        v128_t b = wasm_v128_load(&in_b[j]);
+        v128_t a = wasm_v128_load(&in_a[i*n+k]);
+        v128_t b = wasm_v128_load(&in_b[j*n+k]);
         v128_t prod = wasm_i32x4_mul(a, b);
-        out[i*n+j] += 
-          wasm_i32x4_extract_lane(prod, 0) +
-          wasm_i32x4_extract_lane(prod, 1) +
-          wasm_i32x4_extract_lane(prod, 2) +
-          wasm_i32x4_extract_lane(prod, 3);
+        sum = wasm_i32x4_add(sum, prod);
       }
+      v128_t sum_duo = wasm_i32x4_add(sum, wasm_i32x4_shuffle(sum, sum, 2, 3, 0, 0));
+      v128_t sum_one = wasm_i32x4_add(sum_duo, wasm_i32x4_shuffle(sum_duo, sum_duo, 1, 0, 0, 0));
+      out[i*n+j] += wasm_i32x4_extract_lane(sum_one, 0);
     }
   }
 }
@@ -175,18 +176,20 @@ void multiply_mats(int* out, int* in_a, int* in_b, int n) {
 | C | 0.401s |
 | WebAssembly | 2.012s |
 | WebAssembly (w/ -msimd128) | 0.278s |
-| WebAssembly w/ SIMD intrinsics (w/ -msimd128) | 0.062s |
+| WebAssembly w/ SIMD intrinsics (w/ -msimd128) | 0.245s |
 
-As the result, we are **99%** faster than the original JavaScript version!
+As the result, we are **95.8%** faster than the original JavaScript version!
 
 ## Conclusion
 
 In this post, we visited a few methods to improve WebAssembly performance, and
 finally we achieve a much better performance by using SIMD intrinsics. Although
 it looks perfect, but there is actually a pretty steep learning curve to learn
-SIMD intrinsics and master it. So the best bet is to use `-O3 -msimd128` flags
-first and rewrite the most computing intensive parts in your code using SIMD
-intrinsics to improve the performance little by little.
+SIMD intrinsics and master it. And you might only get less than 1% performance
+improvement if your program is already auto-vectorized by the compiler. So the
+best bet is to use `-O3 -msimd128` flags first and rewrite the most computing
+intensive parts in your code using SIMD intrinsics to improve the performance
+little by little.
 
 Hope you enjoy this post. :) Feel free to leave comments and try to run the code
 using the source code in this repository: [https://github.com/jeromewu/wasm-perf](https://github.com/jeromewu/wasm-perf)
